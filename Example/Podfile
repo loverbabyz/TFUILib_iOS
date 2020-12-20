@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'TFUILib_iOS_Example' do
+  pod 'TFUILib_iOS', :path => '../'
+  #pod 'ReactiveCocoa', :git => 'https://github.com/zhao0/ReactiveCocoa.git', :tag => '2.5.2'
+  
+  target 'TFUILib_iOS_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
