@@ -63,7 +63,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// é€‰é
 
 - (instancetype)initWithTitle:(NSString *)title
             cancelButtonTitle:(NSString *)cancelButtonTitle
-                      content:(TFView *)content
+                      content:(UIView *)content
                         block:(void(^)(void))block {
     if (!(self = [super init])) return nil;
     
@@ -136,7 +136,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// é€‰é
 
 + (void)showWithTitle:(NSString *)title
     cancelButtonTitle:(NSString *)cancelButtonTitle
-              contentView:(TFView *)contentView
+              contentView:(UIView *)contentView
                 block:(void (^)(void))block {
     TFPopupView *popupView = [[TFPopupView alloc] initWithTitle:title cancelButtonTitle:cancelButtonTitle content:contentView block:block];
     [popupView show];
@@ -182,6 +182,8 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// é€‰é
         make.width.equalTo(@(selfW));
         make.height.equalTo(@(selfH));
     }];
+    
+    [self.contentView setHeight:contentHeight];
     
     //self.backgroundColor = UIColor.whiteColor;
     

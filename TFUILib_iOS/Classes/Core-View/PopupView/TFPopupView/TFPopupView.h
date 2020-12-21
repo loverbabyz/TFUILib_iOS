@@ -75,7 +75,7 @@ typedef enum : NSUInteger
  */
 - (instancetype)initWithTitle:(NSString *)title
             cancelButtonTitle:(NSString *)cancelButtonTitle
-                      content:(TFView *)content
+                      content:(UIView *)content
                         block:(void(^)(void))block;
 
 /// 显示
@@ -94,7 +94,7 @@ typedef enum : NSUInteger
  */
 + (void)showWithTitle:(NSString *)title
     cancelButtonTitle:(NSString *)cancelButtonTitle
-              contentView:(TFView *)content
+              contentView:(UIView *)content
                 block:(void(^)(void))block;
 
 
