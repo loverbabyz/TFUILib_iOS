@@ -63,7 +63,6 @@ UI lib for Treasure framework.
   ss.platform = :ios
   ss.source_files = 'TFUILib_iOS/Classes/Core-Category/**/*.{h,m}'
   ss.public_header_files = 'TFUILib_iOS/Classes/Core-Category/**/*.h'
-  ss.dependency 'BlocksKit', '~> 2.2.5'
   end
   
   s.subspec 'Core-CustomControl' do |ss|

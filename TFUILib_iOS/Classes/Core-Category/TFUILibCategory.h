@@ -27,5 +27,8 @@
 #import <TFUILib_iOS/UIView+Category.h>
 #import <TFUILib_iOS/UIViewController+Category.h>
 #import <TFUILib_iOS/NSBundle+TFUILib_iOS.h>
+#import <TFUILib_iOS/BlocksKit.h>
+#import <TFUILib_iOS/BlocksKit+MessageUI.h>
+#import <TFUILib_iOS/BlocksKit+UIKit.h>
 
 #endif
