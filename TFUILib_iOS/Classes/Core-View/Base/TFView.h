@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TFUILib_iOS/TFUILibCategory.h>
-#import <TFUILib_iOS/TFUILibMacro.h>
+#import "TFUILibCategory.h"
+#import "TFUILibMacro.h"
 
 @interface TFView : UIView
 

@@ -17,14 +17,14 @@ FOUNDATION_EXPORT const unsigned char TFUILibVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <TFUILib_iOS/PublicHeader.h>
 
-#import <TFUILib_iOS/TFUILibCategory.h>
-#import <TFUILib_iOS/TFUILibMacro.h>
-#import <TFUILib_iOS/TFUILibManager.h>
-#import <TFUILib_iOS/TFUIUtil.h>
+#import "TFUILibCategory.h"
+#import "TFUILibMacro.h"
+#import "TFUILibManager.h"
+#import "TFUIUtil.h"
 
-#import <TFUILib_iOS/TFUILibView.h>
-#import <TFUILib_iOS/TFUILibCustomControl.h>
-#import <TFUILib_iOS/TFUILibViewController.h>
+#import "TFUILibView.h"
+#import "TFUILibCustomControl.h"
+#import "TFUILibViewController.h"
 
-#import <TFUILib_iOS/TFUILibModel.h>
-#import <TFUILib_iOS/TFUILibViewModel.h>
+#import "TFUILibModel.h"
+#import "TFUILibViewModel.h"

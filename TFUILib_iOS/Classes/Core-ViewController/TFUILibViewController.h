@@ -9,14 +9,14 @@
 #ifndef TFUILibViewController_h
 #define TFUILibViewController_h
 
-#import <TFUILib_iOS/TFViewController.h>
-#import <TFUILib_iOS/TFTableViewController.h>
-#import <TFUILib_iOS/TFCollectionViewController.h>
-#import <TFUILib_iOS/TFScrollViewController.h>
-#import <TFUILib_iOS/TFWebViewController.h>
-#import <TFUILib_iOS/TFNavigationController.h>
-#import <TFUILib_iOS/TFTabBarController.h>
-#import <TFUILib_iOS/TFDrawerController.h>
-#import <TFUILib_iOS/TFQRCodeViewController.h>
+#import "TFViewController.h"
+#import "TFTableViewController.h"
+#import "TFCollectionViewController.h"
+#import "TFScrollViewController.h"
+#import "TFWebViewController.h"
+#import "TFNavigationController.h"
+#import "TFTabBarController.h"
+#import "TFDrawerController.h"
+#import "TFQRCodeViewController.h"
 
 #endif

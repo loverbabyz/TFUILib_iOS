@@ -9,7 +9,7 @@
 #ifndef TFUILibManager_h
 #define TFUILibManager_h
 
-#import <TFUILib_iOS/TFMapNavigationManager.h>
-#import <TFUILib_iOS/TFTimeoutPoolManager.h>
+#import "TFMapNavigationManager.h"
+#import "TFTimeoutPoolManager.h"
 
 #endif

@@ -9,10 +9,10 @@
 #ifndef TFUILibMacro_h
 #define TFUILibMacro_h
 
-#import <TFUILib_iOS/TFUILibMacro+Color.h>
-#import <TFUILib_iOS/TFUILibMacro+View.h>
-#import <TFUILib_iOS/TFUILibMacro+Font.h>
-#import <TFUILib_iOS/TFUILibMacro+Other.h>
-#import <TFUILib_iOS/TFUILibMacro+GCD.h>
+#import "TFUILibMacro+Color.h"
+#import "TFUILibMacro+View.h"
+#import "TFUILibMacro+Font.h"
+#import "TFUILibMacro+Other.h"
+#import "TFUILibMacro+GCD.h"
 
 #endif  

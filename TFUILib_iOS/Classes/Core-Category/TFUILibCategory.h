@@ -9,26 +9,26 @@
 #ifndef TFUILibCategory_h
 #define TFUILibCategory_h
 
-#import <TFUILib_iOS/NSString+Category.h>
-#import <TFUILib_iOS/UIActionSheet+Category.h>
-#import <TFUILib_iOS/UIAlertController+Category.h>
-#import <TFUILib_iOS/UIAlertView+Category.h>
-#import <TFUILib_iOS/UIButton+Category.h>
-#import <TFUILib_iOS/UIColor+Category.h>
-#import <TFUILib_iOS/UIImage+Category.h>
-#import <TFUILib_iOS/UIImageView+Category.h>
-#import <TFUILib_iOS/UILabel+Category.h>
-#import <TFUILib_iOS/UINavigationBar+Category.h>
-#import <TFUILib_iOS/UIScrollView+Category.h>
-#import <TFUILib_iOS/UITableView+Category.h>
-#import <TFUILib_iOS/UITableViewCell+Category.h>
-#import <TFUILib_iOS/UITextField+Category.h>
-#import <TFUILib_iOS/UITextView+Category.h>
-#import <TFUILib_iOS/UIView+Category.h>
-#import <TFUILib_iOS/UIViewController+Category.h>
-#import <TFUILib_iOS/NSBundle+TFUILib_iOS.h>
-#import <TFUILib_iOS/BlocksKit.h>
-#import <TFUILib_iOS/BlocksKit+MessageUI.h>
-#import <TFUILib_iOS/BlocksKit+UIKit.h>
+#import "NSString+Category.h"
+#import "UIActionSheet+Category.h"
+#import "UIAlertController+Category.h"
+#import "UIAlertView+Category.h"
+#import "UIButton+Category.h"
+#import "UIColor+Category.h"
+#import "UIImage+Category.h"
+#import "UIImageView+Category.h"
+#import "UILabel+Category.h"
+#import "UINavigationBar+Category.h"
+#import "UIScrollView+Category.h"
+#import "UITableView+Category.h"
+#import "UITableViewCell+Category.h"
+#import "UITextField+Category.h"
+#import "UITextView+Category.h"
+#import "UIView+Category.h"
+#import "UIViewController+Category.h"
+#import "NSBundle+TFUILib_iOS.h"
+#import "BlocksKit.h"
+#import "BlocksKit+MessageUI.h"
+#import "BlocksKit+UIKit.h"
 
 #endif

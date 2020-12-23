@@ -9,6 +9,6 @@
 #ifndef TFUILibViewModel_h
 #define TFUILibViewModel_h
 
-#import <TFUILib_iOS/TFViewModel.h>
+#import "TFViewModel.h"
 
 #endif

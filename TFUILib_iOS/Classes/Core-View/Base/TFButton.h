@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TFUILib_iOS/TFUILibCategory.h>
+#import "TFUILibCategory.h"
 
 typedef NS_ENUM(NSUInteger, TFAlignmentStatus)
 {
