@@ -29,7 +29,7 @@
      config.userContentController = userContentController;
      config.preferences.javaScriptEnabled = YES;
      config.preferences.javaScriptCanOpenWindowsAutomatically = YES;
-     config.suppressesIncrementalRendering = YES; // 是否支持记忆读取
+     config.suppressesIncrementalRendering = YES; // 指示网络视图是否在【内容渲染完全加载到内存之前】禁止内容呈现，默认是NO。
     [config.preferences setValue:@YES forKey:@"allowFileAccessFromFileURLs"];
      if (@available(iOS 10.0, *)) {
           [config setValue:@YES forKey:@"_allowUniversalAccessFromFileURLs"];
@@ -122,7 +122,7 @@
 + (WKUserScript *)vConsoleScript{
     NSMutableString*javascript = [NSMutableString string];
     [javascript appendString:@"var scriptFile= document.createElement('script');"];
-    [javascript appendFormat:@"scriptFile.src = '%@';", @"https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"];
+    [javascript appendFormat:@"scriptFile.src = '%@';", @"https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"];
     [javascript appendString:@"\
      scriptFile.addEventListener('load', function() { \
         console.log('Script is ready to execute'); \

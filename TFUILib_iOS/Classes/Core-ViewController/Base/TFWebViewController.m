@@ -61,8 +61,8 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
         }
     }];
     
-    [[[RACObserve(self.webView, title) distinctUntilChanged] filter:^BOOL(id  _Nullable value) {
-        return [value isKindOfClass:[NSString class]];
+    [[[RACObserve(self.webView, title) distinctUntilChanged] filter:^BOOL(NSString *value) {
+        return ![value isEmpty];
     }] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         
@@ -130,7 +130,7 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
 
 - (void)loadURL:(NSURL *)url {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
+    [self loadRequest:request];
 }
 
 - (void)loadHTMLString:(NSString *)htmlString baseURL:(nullable NSURL *)baseURL {
@@ -171,9 +171,9 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation  API_AVAILABLE(ios(8.0)){
     NSLog(@"加载完成");
     //加载完成后隐藏progressView
-    [((TFWebView *)webView).jsBridge callHandler:@"refreshData" data:nil responseCallback:^(id responseData) {
-        NSLog(@"Refresh Data Done");
-    }];
+//    [((TFWebView *)webView).jsBridge callHandler:@"refreshData" data:nil responseCallback:^(id responseData) {
+//        NSLog(@"Refresh Data Done");
+//    }];
     
     if (self.didFinishNavigationBlock) {
         self.didFinishNavigationBlock();
