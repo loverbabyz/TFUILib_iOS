@@ -21,6 +21,9 @@
     // 允许跨域访问
     WKUserContentController *userContentController = [[WKUserContentController alloc] init];
     [userContentController addUserScript:[TFWebView noneSelectScript]];
+#ifdef DEBUG
+    [userContentController addUserScript:[TFWebView vConsoleScript]];
+#endif
     
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
      config.userContentController = userContentController;
@@ -113,6 +116,26 @@
     WKUserScript *noneSelectScript = [[WKUserScript alloc] initWithSource:javascript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
 
     return noneSelectScript;
+}
+
+/// 添加调试插件vConsole
++ (WKUserScript *)vConsoleScript{
+    NSMutableString*javascript = [NSMutableString string];
+    [javascript appendString:@"var scriptFile= document.createElement('script');"];
+    [javascript appendFormat:@"scriptFile.src = '%@';", @"https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"];
+    [javascript appendString:@"\
+     scriptFile.addEventListener('load', function() { \
+        console.log('Script is ready to execute'); \
+        new VConsole(); \
+     }); \
+     "];
+    
+    [javascript appendString:@"document.body.appendChild(scriptFile);"];
+
+    //javascript 注入
+    WKUserScript *vConsoleScript = [[WKUserScript alloc] initWithSource:javascript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+
+    return vConsoleScript;
 }
 
 @end

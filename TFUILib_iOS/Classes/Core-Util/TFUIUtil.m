@@ -9,7 +9,6 @@
 #define MODLUE_VIEW_CONTROLLER_TAG  888
 
 #import "TFUIUtil.h"
-#import "TFNavigationController.h"
 #import "TFViewController.h"
 
 @interface TFUIUtil()
