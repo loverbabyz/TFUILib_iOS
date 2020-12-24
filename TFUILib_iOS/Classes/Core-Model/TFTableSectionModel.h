@@ -14,11 +14,18 @@
 /// detail文字
 @property (nonatomic, copy) NSString *detail;
 
+
+/**
+ *  sectionClass，用于注册section
+ */
+@property (nonatomic, copy) NSString *sectionClass;
+
 /**
  * 列表的数据源
  */
 @property (nonatomic, strong) NSArray<__kindof TFTableRowModel *> *dataArray;
 
 - (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFTableRowModel *> *)dataArray;
+- (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFTableRowModel *> *)dataArray sectionClass:(NSString *)sectionClass;
 
 @end

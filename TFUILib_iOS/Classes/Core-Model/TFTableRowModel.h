@@ -36,6 +36,11 @@
 @property (nonatomic, copy) NSString *method;
 
 /**
+ *  cellClass，用于注册tableCell
+ */
+@property (nonatomic, copy) NSString *cellClass;
+
+/**
  *  url
  */
 @property (nonatomic, copy) NSString *url;

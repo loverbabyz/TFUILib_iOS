@@ -23,14 +23,14 @@
 /**
  *  
  */
-@property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) NSArray<__kindof TFTableSectionModel *> *dataArray;
 
 /**
  用dataArray初始化模型
 
  @param dataArray 数据源
  */
-- (instancetype)initWithDataArray:(NSArray *)dataArray;
+- (instancetype)initWithDataArray:(NSArray<__kindof TFTableSectionModel *> *)dataArray;
 
 /**
  *  获取indexPath所在行数据

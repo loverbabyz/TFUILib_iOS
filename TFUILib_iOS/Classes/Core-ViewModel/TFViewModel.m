@@ -21,7 +21,7 @@
     return self;
 }
 
-- (instancetype)initWithDataArray:(NSArray *)dataArray {
+- (instancetype)initWithDataArray:(NSArray<__kindof TFTableSectionModel *> *)dataArray {
     if (self = [self init]) {
         _dataArray = dataArray;
     }
@@ -29,7 +29,7 @@
     return self;
 }
 
--(NSArray *)dataArray
+-(NSArray<__kindof TFTableSectionModel *> *)dataArray
 {
     if(_dataArray==nil)
     {

@@ -20,6 +20,14 @@
     return self;
 }
 
+- (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFTableRowModel *> *)dataArray sectionClass:(NSString *)sectionClass {
+    if (self = [self initWithTitle:title dataArray:dataArray]) {
+        _sectionClass = sectionClass;
+    }
+    
+    return self;
+}
+
 + (NSDictionary *)mj_objectClassInArray
 {
     return @{@"dataArray" : [TFTableRowModel class]};
