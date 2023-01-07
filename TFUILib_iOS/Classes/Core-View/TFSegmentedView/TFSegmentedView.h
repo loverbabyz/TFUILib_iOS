@@ -2,7 +2,7 @@
 //  TFSegmentedView.h
 //  Treasure
 //
-//  Created by xiayiyong on 15/12/11.
+//  Created by Daniel on 15/12/11.
 //  Copyright © daniel.xiaofei@gmail All rights reserved.
 //
 

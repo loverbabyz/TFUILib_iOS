@@ -2,7 +2,7 @@
 //  TFWebViewController.m
 //  Treasure
 //
-//  Created by xiayiyong on 15/9/9.
+//  Created by Daniel on 15/9/9.
 //  Copyright (c) daniel.xiaofei@gmail.com All rights reserved.
 //
 
@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "MJExtension.h"
 #import "ReactiveObjC.h"
+#import "TFBaseLib_iOS.h"
 
 #define kScreen_Height SCREEN_HEIGHT
 #define kScreen_Width  SCREEN_WIDTH

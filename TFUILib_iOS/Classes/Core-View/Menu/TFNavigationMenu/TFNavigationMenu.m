@@ -2,7 +2,7 @@
 //  TFNavigationMenu.m
 //  TFNavigationMenu
 //
-//  Created by xiayiyong on 02/08/2015.
+//  Created by Daniel on 02/08/2015.
 //  Copyright (c) 2015 xiayiyong. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  UIImageView+Placeholder.h
 //  Treasure
 //
-//  Created by xiayiyong on 15/11/24.
+//  Created by Daniel on 15/11/24.
 //  Copyright (c) daniel.xiaofei@gmail.com All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  UIViewController+TFPopupViewController.h
 //  TFPopupViewController
 //
-//  Created by xiayiyong on 15/3/4.
+//  Created by Daniel on 15/3/4.
 //  Copyright (c) 2015年 xiayiyong. All rights reserved.
 //  from https://github.com/pljhonglu/LewPopupViewController
 //

@@ -2,7 +2,7 @@
 //  TFProvincePicker.m
 //  Treasure
 //
-//  Created by xiayiyong on 16/1/25.
+//  Created by Daniel on 16/1/25.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  TFHud.h
 //  TFHud
 //
-//  Created by xiayiyong on 15-5-27.
+//  Created by Daniel on 15-5-27.
 //  Copyright (c) 2015年 liu. All rights reserved.
 //
 

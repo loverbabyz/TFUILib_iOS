@@ -2,7 +2,7 @@
 //  TFPushNotificationView.h
 //  TFNotifier
 //
-//  Created by xiayiyong on 15/5/21.
+//  Created by Daniel on 15/5/21.
 //  Copyright (c) 2015年 xiayiyong. All rights reserved.
 //  from https://github.com/shaojiankui/JKNotifier
 //

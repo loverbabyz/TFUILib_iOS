@@ -1,5 +1,5 @@
 //
-//  Created by xiayiyong on 16/3/29.
+//  Created by Daniel on 16/3/29.
 //  含label textview 的cell
 //
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.

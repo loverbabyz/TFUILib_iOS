@@ -2,7 +2,7 @@
 //  TFAlertView.h
 //  TFUILib
 //
-//  Created by xiayiyong on 16/2/3.
+//  Created by Daniel on 16/2/3.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 

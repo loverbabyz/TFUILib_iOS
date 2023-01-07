@@ -2,7 +2,7 @@
 //  TFPopoverView.h
 //  TFUILib
 //
-//  Created by xiayiyong on 16/4/7.
+//  Created by Daniel on 16/4/7.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 //  https://github.com/xiekw2010/DXPopover

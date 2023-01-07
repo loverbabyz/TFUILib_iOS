@@ -2,7 +2,7 @@
 //  TFScrollActionSheet.m
 //  TFScrollActionSheet
 //
-//  Created by xiayiyong on 12/27/14.
+//  Created by Daniel on 12/27/14.
 //  Copyright (c) 2014 xiayiyong. All rights reserved.
 //
 

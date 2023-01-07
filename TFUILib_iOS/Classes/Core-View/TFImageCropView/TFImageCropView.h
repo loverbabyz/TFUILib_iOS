@@ -2,7 +2,7 @@
 //  TFImageCropView.h
 //  TFUILib
 //
-//  Created by xiayiyong on 16/4/21.
+//  Created by Daniel on 16/4/21.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 

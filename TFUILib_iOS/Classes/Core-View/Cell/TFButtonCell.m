@@ -2,7 +2,7 @@
 //  TFButtonCell.m
 //  TFUILib
 //
-//  Created by xiayiyong on 16/3/7.
+//  Created by Daniel on 16/3/7.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  TFPopupViewAnimationSpring.m
 //  TFPopupViewController
 //
-//  Created by xiayiyong on 15/3/5.
+//  Created by Daniel on 15/3/5.
 //  Copyright (c) 2015年 xiayiyong. All rights reserved.
 //
 

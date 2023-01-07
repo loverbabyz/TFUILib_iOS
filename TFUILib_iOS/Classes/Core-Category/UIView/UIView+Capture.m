@@ -2,7 +2,7 @@
 //  UIView+Capture.m
 //  TFUILib
 //
-//  Created by xiayiyong on 15/10/29.
+//  Created by Daniel on 15/10/29.
 //  Copyright (c) daniel.xiaofei@gmail.com All rights reserved.
 //
 

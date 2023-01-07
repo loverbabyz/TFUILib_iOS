@@ -2,7 +2,7 @@
 //  TFToast.h
 //  TFUILib
 //
-//  Created by xiayiyong on 16/4/15.
+//  Created by Daniel on 16/4/15.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 

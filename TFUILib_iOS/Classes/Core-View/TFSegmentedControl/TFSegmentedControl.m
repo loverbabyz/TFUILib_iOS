@@ -2,7 +2,7 @@
 //  TFSegmentedControl.m
 //  Treasure
 //
-//  Created by xiayiyong on 16/1/15.
+//  Created by Daniel on 16/1/15.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 
