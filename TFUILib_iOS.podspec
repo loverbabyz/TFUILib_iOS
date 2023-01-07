@@ -31,6 +31,10 @@ UI lib for Treasure framework.
   s.ios.deployment_target = '10.0'
   s.requires_arc = true
   
+  s.source_files = 'TFUILib_iOS/Classes/**/*'
+  # s.public_header_files = 'TFUILib_iOS/Classes/TFUILib_iOS.h'
+  # s.source_files = 'TFUILib_iOS/Classes/TFUILib_iOS.h'
+  
   # s.resource_bundles = {
   #   'TFUILib_iOS' => ['TFUILib_iOS/Assets/*.png']
   # }
@@ -46,10 +50,6 @@ UI lib for Treasure framework.
   s.xcconfig = {
       'OTHER_LDFLAGS' => '-ObjC -all_load -force_load'
   }
-  
-  s.source_files = 'TFUILib_iOS/Classes/**/*'
-  # s.public_header_files = 'TFUILib_iOS/Classes/TFUILib_iOS.h'
-  # s.source_files = 'TFUILib_iOS/Classes/TFUILib_iOS.h'
   
   s.dependency  'TFBaseLib_iOS'
   s.dependency  'MJExtension'
