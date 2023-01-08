@@ -7,7 +7,7 @@
 //
 
 #import "TFTreeTableViewCell.h"
-#import <ReactiveObjC/ReactiveObjC.h>
+
 #import <Masonry/Masonry.h>
 
 #import "TFView.h"
@@ -109,13 +109,12 @@
         make.height.equalTo(@(cellViewHeight));
     }];
     
-    @weakify(self)
-    
+    __weak typeof(self) weakSelf = self;
     [self.subTableView mas_updateConstraints:^(MASConstraintMaker *make) {
-        @strongify(self)
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         
         make.left.right.offset(0);
-        make.top.equalTo(self.cellView.mas_bottom);
+        make.top.equalTo(strongSelf.cellView.mas_bottom);
         make.height.equalTo(@(tableHeight));
     }];
     

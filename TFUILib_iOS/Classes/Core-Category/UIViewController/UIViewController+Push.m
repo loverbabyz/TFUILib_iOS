@@ -161,6 +161,8 @@
 {
     UIViewController *rootVC=[self getRootViewController];
     TFNavigationController *nav=[[TFNavigationController alloc]initWithRootViewController:vc];
+    // 全屏
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     
     [rootVC presentViewController:nav animated:YES completion:nil];
 }

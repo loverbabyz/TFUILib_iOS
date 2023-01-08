@@ -13,6 +13,8 @@
 
 @interface TFAViewController ()
 
+@property(nonatomic, strong) TFWebViewController *webVC;
+
 @end
 
 @implementation TFAViewController
@@ -22,9 +24,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
      [TFActionSheet showWithTitle:@"是否要删除" cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil block:nil];
-               NSLog(@"dddddddd");
+    
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    _webVC = [[TFWebViewController alloc] initWithResultBlock:nil];
+    [_webVC loadURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+    [self presentViewController:_webVC];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

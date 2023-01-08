@@ -10,13 +10,14 @@
 #import "TFWebViewControllerAppearance.h"
 #import "Masonry.h"
 #import "MJExtension.h"
-#import "ReactiveObjC.h"
 #import "TFBaseLib_iOS.h"
 
 #define kScreen_Height SCREEN_HEIGHT
 #define kScreen_Width  SCREEN_WIDTH
 
 NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
+NSString * const DKWebViewKeyCanGoBack = @"canGoBack";
+NSString * const DKWebViewKeyTitle = @"title";
 
 @interface TFWebViewController () <WKUIDelegate, WKNavigationDelegate, UIScrollViewDelegate>
 
@@ -50,32 +51,16 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
 
 - (void)bindData {
     [super bindData];
-    
-    @weakify(self)
-    [[RACObserve(self.webView, canGoBack) distinctUntilChanged] subscribeNext:^(NSNumber *x) {
-        @strongify(self)
-
-        if (x.boolValue) {
-            self.navigationItem.leftBarButtonItems = @[self.backItem,self.closeItem];
-        } else {
-            self.navigationItem.leftBarButtonItems = @[self.backItem];
-        }
-    }];
-    
-    [[[RACObserve(self.webView, title) distinctUntilChanged] filter:^BOOL(NSString *value) {
-        return ![value isEmpty];
-    }] subscribeNext:^(id  _Nullable x) {
-        @strongify(self)
-        
-        self.title = x;
-    }];
 }
 
 - (void)createBaseView {
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.webView];
     [self.webView addSubview:self.progressView];
+    
     [self.webView addObserver:self forKeyPath:DKWebViewKeyEstimateProgress options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:DKWebViewKeyCanGoBack options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:DKWebViewKeyTitle options:NSKeyValueObservingOptionNew context:nil];
     
     [self.webView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.right.offset(0);
@@ -105,15 +90,28 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
-    if (object == self.webView && [keyPath isEqualToString:DKWebViewKeyEstimateProgress]) {
-        CGFloat newprogress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
-        [self.progressView setProgress:newprogress animated:YES];
-        if (newprogress >= 1) {
-            [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
-            } completion:^(BOOL finished) {
-                self.progressView.hidden = YES;
-            }];
+    if (object == self.webView) {
+        if([keyPath isEqualToString:DKWebViewKeyEstimateProgress]) {
+            CGFloat newprogress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
+            [self.progressView setProgress:newprogress animated:YES];
+            if (newprogress >= 1) {
+                [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
+                } completion:^(BOOL finished) {
+                    self.progressView.hidden = YES;
+                }];
+            }
+        } else if ([keyPath isEqualToString:DKWebViewKeyTitle]) {
+            NSString *title = [[change objectForKey:NSKeyValueChangeNewKey] stringValue];
+            self.title = title;
+        } else if ([keyPath isEqualToString:DKWebViewKeyCanGoBack]) {
+            bool x = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+            if (x) {
+                self.navigationItem.leftBarButtonItems = @[self.backItem,self.closeItem];
+            } else {
+                self.navigationItem.leftBarButtonItems = @[self.backItem];
+            }
         }
+        
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -197,7 +195,9 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
         NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", resourceSpecifier];
         /// 防止iOS 10及其之后，拨打电话系统弹出框延迟出现
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:^(BOOL success) {
+                
+            }];
         });
     }
     
@@ -233,7 +233,6 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
 
 - (UIProgressView *)progressView {
     if (!_progressView) {
-//        CGFloat h = STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT;
         _progressView = [[UIProgressView alloc] initWithFrame:CGRectZero];
         [_progressView setTintColor:[TFWebViewControllerAppearance sharedAppearance].progressColor];
         _progressView.progress = 0.2;
@@ -244,6 +243,8 @@ NSString * const DKWebViewKeyEstimateProgress = @"estimatedProgress";
 
 - (void)dealloc {
     [self.webView removeObserver:self forKeyPath:DKWebViewKeyEstimateProgress];
+    [self.webView removeObserver:self forKeyPath:DKWebViewKeyCanGoBack];
+    [self.webView removeObserver:self forKeyPath:DKWebViewKeyTitle];
 }
 
 @end
