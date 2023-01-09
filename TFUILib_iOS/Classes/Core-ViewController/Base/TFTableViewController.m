@@ -70,10 +70,14 @@
 }
 
 - (void)registerNib:(Class)className forCellReuseIdentifier:(NSString *)identifier forCell:(BOOL)forCell {
+    [self registerNib:className cellReuseIdentifier:identifier forCell:forCell bundle:nil];
+}
+
+- (void)registerNib:(Class)className cellReuseIdentifier:(NSString *)identifier forCell:(BOOL)forCell bundle:(NSBundle *)bundle {
     if (forCell) {
-        [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:nil] forCellReuseIdentifier:identifier];
+        [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:bundle] forCellReuseIdentifier:identifier];
     } else {
-        [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:nil] forHeaderFooterViewReuseIdentifier:identifier];
+        [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:bundle] forHeaderFooterViewReuseIdentifier:identifier];
     }
 }
 

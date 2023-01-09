@@ -114,6 +114,13 @@
  */
 - (void)registerNib:(Class)className forCell:(BOOL)forCell;
 
+/// 注册cell Nib文件
+/// @param className Nib文件类名称
+/// @param identifier ReuseIdentifier
+/// @param forCell YES:为Cell注册 / NO:为Header和Footer注册
+/// @param bundle bundle
+- (void)registerNib:(Class)className cellReuseIdentifier:(NSString *)identifier forCell:(BOOL)forCell bundle:(NSBundle *)bundle;
+
 /**
  *  显示Header
  */
