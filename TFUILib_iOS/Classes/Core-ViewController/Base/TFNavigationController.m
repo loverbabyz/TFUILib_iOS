@@ -7,7 +7,7 @@
 //
 
 #import "TFNavigationController.h"
-#import "TFTabBarController.h"
+#import "TFViewController.h"
 
 @interface TFNavigationController ()
 
@@ -42,12 +42,6 @@
     [self bindData];
 }
 
-- (void)setNavigationBarBackgroundColor:(UIColor *)color alpha:(NSInteger)alpha
-{
-    [self.navigationBar setBgColor:color];
-    [self.navigationBar setElementsAlpha:alpha];
-}
-
 #pragma mark- init autolayout bind
 
 - (void)initViews
@@ -76,11 +70,6 @@
     }
     
     return previousVC;
-}
-
-- (void)setRootViewController:(TFViewController *)rootViewController
-{
-    
 }
 
 - (UIViewController *)rootViewController
