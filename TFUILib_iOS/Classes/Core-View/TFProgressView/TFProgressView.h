@@ -2,7 +2,7 @@
 //  TFProgressView.h
 //  TFUILib
 //
-//  Created by 张国平 on 16/3/9.
+//  Created by Daniel on 16/3/9.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 

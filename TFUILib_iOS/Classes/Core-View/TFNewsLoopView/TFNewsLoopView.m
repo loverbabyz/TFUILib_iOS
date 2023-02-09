@@ -2,7 +2,7 @@
 //  TFNewsLoopView.m
 //  TFUILib
 //
-//  Created by 张国平 on 16/3/8.
+//  Created by Daniel on 16/3/8.
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 
