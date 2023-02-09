@@ -18,7 +18,6 @@
 #import "UIImage+Category.h"
 #import "UIImageView+Category.h"
 #import "UILabel+Category.h"
-#import "UINavigationBar+Category.h"
 #import "UIScrollView+Category.h"
 #import "UITableView+Category.h"
 #import "UITableViewCell+Category.h"
