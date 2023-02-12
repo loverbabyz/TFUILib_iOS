@@ -40,15 +40,15 @@
 }
 
 - (void)registerNib:(nullable Class)className {
-    [self registerNib:className bundle:nil]];
+    [self registerNib:className bundle:nil];
 }
 
 - (void)registerHeaderNib:(nullable Class)className {
-    [self registerHeaderNib:className bundle:nil]];
+    [self registerHeaderNib:className bundle:nil];
 }
 
 - (void)registerFooterNib:(nullable Class)className {
-    [self registerFooterNib:className bundle:nil]];
+    [self registerFooterNib:className bundle:nil];
 }
 
 - (void)registerNib:(nullable Class)className bundle:(NSBundle *)bundle {
