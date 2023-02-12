@@ -256,7 +256,7 @@
         self.menuArrowImageView.image=self.configuration.arrowImage;
         
         self.maskView = [[UIView alloc] init];
-        self.maskView.frame=CGRectMake(0, self.offsetY, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height-self.offsetY);
+        self.maskView.frame=CGRectMake(0, self.offsetY, MAIN_SCREEN.bounds.size.width , MAIN_SCREEN.bounds.size.height-self.offsetY);
         self.maskView.backgroundColor = self.configuration.maskBackgroundColor;
         self.maskView.clipsToBounds=YES;
         
@@ -267,7 +267,7 @@
         
         self.didSelectItemAtIndexHandler=block;
         
-        self.tableView = [[TFNavigationMenuTableView alloc] initWithFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,(CGFloat)(self.items.count) * self.configuration.cellHeight)
+        self.tableView = [[TFNavigationMenuTableView alloc] initWithFrame:CGRectMake(0,0,MAIN_SCREEN.bounds.size.width,(CGFloat)(self.items.count) * self.configuration.cellHeight)
                                                                     items:items
                                                             configuration:self.configuration];
         self.tableView.didSelectItemAtIndexHandler = ^(NSUInteger index){

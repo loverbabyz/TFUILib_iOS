@@ -7,7 +7,8 @@
 //
 
 #import "TFViewModel.h"
-#import "MJExtension.h"
+#import <MJExtension/MJExtension.h>
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation TFViewModel
 
@@ -154,7 +155,7 @@
 
 - (NSString *)pathWithFileName:(NSString *)fileName ofType:(NSString *)type
 {
-    return [[NSBundle mainBundle] pathForResource:fileName ofType:type];
+    return [MAIN_BUNDLE pathForResource:fileName ofType:type];
 }
 
 @end

@@ -25,11 +25,11 @@
     
     if (self)
     {
-        self.frame=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height);
+        self.frame=CGRectMake(0, 0, [MAIN_SCREEN bounds].size.width, [MAIN_SCREEN bounds].size.height);
         
-        if (height<=0||height>[[UIScreen mainScreen]bounds].size.height)
+        if (height<=0||height>[MAIN_SCREEN bounds].size.height)
         {
-            height=[[UIScreen mainScreen]bounds].size.height;
+            height=[MAIN_SCREEN bounds].size.height;
         }
         
         UIViewAutoresizing autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight |
@@ -60,7 +60,7 @@
 
 -(void)show
 {
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [APP_APPLICATION.keyWindow addSubview:self];
     
     _alertView.frame = CGRectMake(-_alertView.frame.origin.x, -_alertView.frame.size.height, _alertView.frame.size.width, _alertView.frame.size.height);
     

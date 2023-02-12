@@ -9,6 +9,7 @@
 #import "TFProvincePicker.h"
 
 #import <Masonry/Masonry.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #pragma mark -
 #pragma mark MoreFunctionViewCell
@@ -188,7 +189,7 @@
 {
     self.backgroundView.alpha = 0;
     self.alertView.frame = CGRectMake(0, SCREEN_HEIGHT, self.alertView.frame.size.width, self.alertView.frame.size.height);
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
+    [APP_KEY_WINDOW addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     

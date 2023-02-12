@@ -17,7 +17,7 @@ alpha:a]
 
 #define kImageWithName(Name) ([UIImage imageNamed:Name])
 
-#define kBigImageWithName(Name) ([UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:Name ofType:nil]])
+#define kBigImageWithName(Name) ([UIImage imageWithContentsOfFile:[MAIN_BUNDLE pathForResource:Name ofType:nil]])
 
 //    获得按钮的大小
 #define fl_btnWidth self.bounds.size.width

@@ -14,7 +14,7 @@
  *
  *  @return 获取到的图片
  */
-#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[MAIN_BUNDLEpathForResource:file ofType:ext]]
 
 /**
  *  定义UIImage对象
@@ -84,7 +84,7 @@ otherButtonTitles:nil]; \
 *
 */
 #define STYLE_BY_PIX(pixel)\
-pixel * [UIScreen mainScreen].scale
+pixel * MAIN_SCREEN.scale
 
 
 /**

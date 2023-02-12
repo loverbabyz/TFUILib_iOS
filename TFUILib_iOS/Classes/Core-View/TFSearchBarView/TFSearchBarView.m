@@ -6,6 +6,7 @@
 //
 
 #import "TFSearchBarView.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface TFSearchBarView()<UITextFieldDelegate>
 {
@@ -271,7 +272,7 @@
     _placeholderColor = placeholderColor;
     NSAssert(_placeholderColor, @"Please set placeholder before setting placeholdercolor");
 
-    if ([[[UIDevice currentDevice] systemVersion] integerValue] < 6)
+    if ([SYSTEM_VERSION integerValue] < 6)
     {
         [_textField setValue:_placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
     }

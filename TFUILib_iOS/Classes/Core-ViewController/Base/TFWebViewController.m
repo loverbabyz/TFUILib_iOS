@@ -195,7 +195,7 @@ NSString * const DKWebViewKeyTitle = @"title";
         NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", resourceSpecifier];
         /// 防止iOS 10及其之后，拨打电话系统弹出框延迟出现
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:^(BOOL success) {
+            [APP_APPLICATION openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:^(BOOL success) {
                 
             }];
         });

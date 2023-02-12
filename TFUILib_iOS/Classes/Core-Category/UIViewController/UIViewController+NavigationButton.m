@@ -12,8 +12,8 @@
 #import "TFUIUtil.h"
 #import "TFButton.h"
 
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_WIDTH (MAIN_SCREEN.bounds.size.width)
+#define SCREEN_HEIGHT (MAIN_SCREEN.bounds.size.height)
 
 @implementation UIViewController (NavigationButton)
 

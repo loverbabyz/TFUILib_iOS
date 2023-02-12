@@ -8,12 +8,13 @@
 
 #import "UIView+Capture.h"
 #import <QuartzCore/QuartzCore.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation UIView (Capture)
 
 - (UIImage *)captureScreenshot
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, MAIN_SCREEN.scale);
     
     // after ios 7
     if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)])
@@ -41,19 +42,19 @@
 
 - (UIImage *)takeScreenshot
 {
-    BOOL ignoreOrientation = ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0);
+    BOOL ignoreOrientation = ([SYSTEM_VERSION floatValue]>=8.0);
     
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    UIInterfaceOrientation orientation = APP_APPLICATION.statusBarOrientation;
     
     CGSize imageSize = CGSizeZero;
     if (UIInterfaceOrientationIsPortrait(orientation) || ignoreOrientation)
     {
-        imageSize = [UIScreen mainScreen].bounds.size;
+        imageSize = MAIN_SCREEN.bounds.size;
     }
     else
     {
-        imageSize = CGSizeMake([UIScreen mainScreen].bounds.size.height,
-                               [UIScreen mainScreen].bounds.size.width);
+        imageSize = CGSizeMake(MAIN_SCREEN.bounds.size.height,
+                               MAIN_SCREEN.bounds.size.width);
     }
     
     UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);

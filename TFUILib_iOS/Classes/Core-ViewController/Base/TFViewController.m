@@ -117,7 +117,7 @@
     [super viewWillAppear:animated];
 
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    APP_APPLICATION.statusBarStyle = UIStatusBarStyleDefault;
 }
 
 - (void)viewDidLoad
@@ -139,7 +139,7 @@
     }
     
     //statusbar改白色
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //[APP_APPLICATION setStatusBarStyle:UIStatusBarStyleLightContent];
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets           = YES;
     self.navigationController.navigationBar.translucent = NO;

@@ -10,6 +10,7 @@
 #import "UIImageView+Placeholder.h"
 
 #import <Masonry/Masonry.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 /**
  显示和隐藏动画持续时间
@@ -400,7 +401,7 @@
 - (void)show:(void (^)(BOOL finished))completion
 {
     self.maskView.alpha = 0;
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
+    [APP_KEY_WINDOW addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     

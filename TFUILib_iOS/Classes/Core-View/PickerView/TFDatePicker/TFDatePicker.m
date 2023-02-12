@@ -7,6 +7,7 @@
 //
 
 #import "TFDatePicker.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #define BTN_WIDTH 70
 #define BTN_HEIGHT 40
@@ -108,7 +109,7 @@
 {
     self.maskView.alpha = 0;
     self.alertView.frame = CGRectMake(0, SCREEN_HEIGHT, self.alertView.frame.size.width, self.alertView.frame.size.height);
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
+    [APP_KEY_WINDOW addSubview:self];
     
     [UIView animateWithDuration:ANIMATION_DURATION_TIME
                           delay:0

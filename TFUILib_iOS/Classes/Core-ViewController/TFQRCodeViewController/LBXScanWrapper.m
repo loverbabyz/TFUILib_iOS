@@ -11,6 +11,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface LBXScanWrapper()
 
@@ -29,12 +30,12 @@
 
 + (BOOL)isSysIos7Later
 {
-    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0;
+    return [SYSTEM_VERSION floatValue] >= 7.0;
 }
 
 + (BOOL)isSysIos8Later
 {
-    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0;
+    return [SYSTEM_VERSION floatValue] >= 8.0;
 }
 
 - (instancetype)initWithPreView:(UIView*)preView objectType:(NSArray*)arrayBarCodeType cropRect:(CGRect)cropRect
@@ -156,7 +157,7 @@
 {
     BOOL isCameraValid = YES;
     //ios7之前系统默认拥有权限
-    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    if([SYSTEM_VERSION floatValue] >= 7.0)
     {
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         
@@ -170,7 +171,7 @@
 
 + (BOOL)isGetPhotoPermission
 {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
+    if ([SYSTEM_VERSION floatValue] < 8.0)
     {
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
         

@@ -8,6 +8,7 @@
 
 #import "UIAlertController+Block.h"
 #import <objc/runtime.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation UIAlertController (Block)
 
@@ -191,7 +192,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 
 - (UIViewController*)topShowViewController
 {
-    return [self topViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self topViewControllerWithRootViewController:APP_APPLICATION.keyWindow.rootViewController];
 }
 
 - (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController
@@ -222,7 +223,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 
 + (BOOL)isIosVersion8AndAfter
 {
-    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 ;
+    return [SYSTEM_VERSION floatValue] >= 8.0 ;
 }
 
 @end

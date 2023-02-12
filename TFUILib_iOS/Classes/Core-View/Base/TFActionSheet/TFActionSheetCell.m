@@ -8,6 +8,7 @@
 
 #import "TFActionSheetCell.h"
 #import "TFActionSheetItem.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface TFActionSheetCell ()
 
@@ -59,7 +60,7 @@
     topLine.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview:topLine];
     self.topLine = topLine;
-    CGFloat lineHeight = 1/[UIScreen mainScreen].scale; ///< 线条高度
+    CGFloat lineHeight = 1/MAIN_SCREEN.scale; ///< 线条高度
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[topLine]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(topLine)]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[topLine(lineHeight)]" options:0 metrics:@{@"lineHeight":@(lineHeight)} views:NSDictionaryOfVariableBindings(topLine)]];
 }

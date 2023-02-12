@@ -7,6 +7,7 @@
 
 #import "TFPicker.h"
 #import "TFTreeNode.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #define BTN_WIDTH 70
 #define BTN_HEIGHT 40
@@ -103,7 +104,7 @@
 {
     self.maskView.alpha = 0;
     self.alertView.frame = CGRectMake(0, SCREEN_HEIGHT, self.alertView.width, self.alertView.height);
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
+    [APP_KEY_WINDOW addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     

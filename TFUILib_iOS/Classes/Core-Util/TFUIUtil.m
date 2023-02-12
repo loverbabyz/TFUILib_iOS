@@ -97,13 +97,13 @@
 
 + (UIViewController *)getRootViewController
 {
-    UIViewController *rootVC=[[UIApplication sharedApplication].delegate window].rootViewController;
+    UIViewController *rootVC=[APP_APPLICATION.delegate window].rootViewController;
     return rootVC;
 }
 
 + (UIView *)getRootView
 {
-    UIView *rootVC=[[UIApplication sharedApplication].delegate window].rootViewController.view;
+    UIView *rootVC=[APP_APPLICATION.delegate window].rootViewController.view;
     return rootVC;
 }
 

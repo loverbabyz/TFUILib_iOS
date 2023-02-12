@@ -119,7 +119,7 @@ static const NSInteger  MessageToastContentTag          = 10087;
         messageLabel.tag = MessageToastContentTag;
         
         NSDictionary *attribute = @{NSFontAttributeName: messageLabel.font};
-        CGSize size = [text boundingRectWithSize:CGSizeMake(([UIScreen mainScreen].bounds.size.width) * 0.8, ([UIScreen mainScreen].bounds.size.height) * 0.8)
+        CGSize size = [text boundingRectWithSize:CGSizeMake((MAIN_SCREEN.bounds.size.width) * 0.8, (MAIN_SCREEN.bounds.size.height) * 0.8)
                                             options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
         messageLabel.frame = CGRectMake(0.0, 0.0, size.width, size.height);
         

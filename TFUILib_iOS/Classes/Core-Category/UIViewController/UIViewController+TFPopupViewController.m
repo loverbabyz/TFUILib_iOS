@@ -8,6 +8,7 @@
 
 #import "UIViewController+TFPopupViewController.h"
 #import <objc/runtime.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #define kTFPopupView @"kTFPopupView"
 #define kTFOverlayView @"kTFOverlayView"
@@ -141,7 +142,7 @@
     popupView.layer.shadowRadius = 5;
     popupView.layer.shadowOpacity = 0.5;
     popupView.layer.shouldRasterize = YES;
-    popupView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    popupView.layer.rasterizationScale = [MAIN_SCREEN scale];
     
     // Add overlay
     if (self.overlayView == nil)

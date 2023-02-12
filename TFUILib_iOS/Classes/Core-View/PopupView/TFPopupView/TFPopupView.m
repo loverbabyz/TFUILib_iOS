@@ -287,7 +287,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// é€‰é
         newFrame.origin.y = CGRectGetMaxY(self->_controllerView.frame);
         self.frame        = newFrame;
     } completion:^(BOOL finished) {
-        [[[UIApplication sharedApplication].delegate window] makeKeyWindow];
+        [[APP_APPLICATION.delegate window] makeKeyWindow];
         if (completion) {
             completion();
         }
@@ -312,7 +312,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// é€‰é
         return _window;
     }
     
-    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _window = [[UIWindow alloc] initWithFrame:MAIN_SCREEN.bounds];
     _window.windowLevel = UIWindowLevelStatusBar+1;
     _window.rootViewController = [[UIViewController alloc] init];
     

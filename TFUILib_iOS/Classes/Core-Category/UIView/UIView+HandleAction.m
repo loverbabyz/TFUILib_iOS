@@ -9,7 +9,8 @@
 #import "UIView+HandleAction.h"
 #import "TFViewController.h"
 #import "TFWebViewController.h"
-#import "MJExtension.h"
+#import <MJExtension/MJExtension.h>
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation UIView (HandleAction)
 
@@ -88,7 +89,7 @@
     NSString *action = item.action;
     if (action!=nil)
     {
-        NSString *fielPath = [[NSBundle mainBundle] pathForResource:@"ActionConfig" ofType:@"plist"];
+        NSString *fielPath = [MAIN_BUNDLE pathForResource:@"ActionConfig" ofType:@"plist"];
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fielPath];
         
         if (dict==nil)

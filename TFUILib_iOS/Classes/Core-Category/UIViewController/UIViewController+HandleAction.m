@@ -11,6 +11,7 @@
 #import "TFWebViewController.h"
 #import "MJExtension.h"
 #import "TFWebModel.h"
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation UIViewController (HandleAction)
 
@@ -98,7 +99,7 @@
     NSString *action = item.action;
     if (action!=nil)
     {
-        NSString *fielPath = [[NSBundle mainBundle] pathForResource:@"ActionConfig" ofType:@"plist"];
+        NSString *fielPath = [MAIN_BUNDLE pathForResource:@"ActionConfig" ofType:@"plist"];
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fielPath];
         
         if (dict==nil)

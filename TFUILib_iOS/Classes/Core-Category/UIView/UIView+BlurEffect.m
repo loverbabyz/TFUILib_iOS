@@ -7,12 +7,13 @@
 //
 
 #import "UIView+BlurEffect.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation UIView (BlurEffect)
 
 - (void)blueEffectWithStyle:(UIBlurEffectStyle)style
 {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f)
+    if ([SYSTEM_VERSION floatValue] < 8.0f)
     {
 #ifdef DEBUG
         NSAssert(YES, @"Only support iOS 8.0+");

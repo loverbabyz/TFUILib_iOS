@@ -9,6 +9,7 @@
 #import "TFCollectionViewController.h"
 
 #import <MJRefresh/MJRefresh.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation TFCollectionViewController
 

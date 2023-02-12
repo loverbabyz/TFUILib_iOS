@@ -9,6 +9,7 @@
 #import "UIViewController+TFHud.h"
 #import "UIViewController+Ext.h"
 #import "TFHud.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation UIViewController (TFHud)
 
@@ -19,7 +20,7 @@
     MAIN_THREAD(^(){
         [TFHud showLoadingWithText:@"加载中..."
                       textPosition:kTextPositionTypeRight
-                            atView:[[UIApplication sharedApplication] keyWindow]];
+                            atView:APP_KEY_WINDOW];
     });
 }
 
@@ -28,7 +29,7 @@
     MAIN_THREAD(^(){
         [TFHud showLoadingWithText:text
                          textPosition:kTextPositionTypeRight
-                            atView:[[UIApplication sharedApplication] keyWindow]];
+                            atView:APP_KEY_WINDOW];
     });
 }
 
@@ -46,7 +47,7 @@
 - (void)hideHud
 {
     MAIN_THREAD(^(){
-        [TFHud hideInView:[[UIApplication sharedApplication] keyWindow]];
+        [TFHud hideInView:APP_KEY_WINDOW];
     });
 }
 

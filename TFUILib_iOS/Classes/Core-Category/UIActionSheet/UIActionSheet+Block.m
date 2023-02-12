@@ -8,6 +8,7 @@
 
 #import "UIActionSheet+Block.h"
 #import <objc/runtime.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface UIActionSheet() <UIActionSheetDelegate>
 
@@ -184,10 +185,10 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 {
     UIViewController *result = nil;
     
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow * window = APP_KEY_WINDOW;
     if (window.windowLevel != UIWindowLevelNormal)
     {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
+        NSArray *windows = [APP_APPLICATION windows];
         for(UIWindow * tmpWin in windows)
         {
             if (tmpWin.windowLevel == UIWindowLevelNormal)

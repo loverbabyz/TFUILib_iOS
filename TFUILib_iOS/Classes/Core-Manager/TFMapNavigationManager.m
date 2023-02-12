@@ -7,6 +7,7 @@
 //
 
 #import "TFMapNavigationManager.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 const double tfx_pi = 3.14159265358979324 * 3000.0 / 180.0;
 
@@ -63,10 +64,10 @@ void bd_decrypt(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
 {
     UIViewController *result = nil;
     
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow * window = APP_KEY_WINDOW;
     if (window.windowLevel != UIWindowLevelNormal)
     {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
+        NSArray *windows = [APP_APPLICATION windows];
         for(UIWindow * tmpWin in windows)
         {
             if (tmpWin.windowLevel == UIWindowLevelNormal)
@@ -99,7 +100,7 @@ void bd_decrypt(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
     NSMutableArray *appListArr = [[NSMutableArray alloc] initWithObjects:@"苹果原生地图", nil];
     
     for (int i = 0; i < [mapSchemeArr count]; i++) {
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[mapSchemeArr objectAtIndex:i]]]]) {
+        if ([APP_APPLICATION canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[mapSchemeArr objectAtIndex:i]]]]) {
             if (i == 0)
             {
                 [appListArr addObject:@"google地图"];
@@ -160,13 +161,13 @@ void bd_decrypt(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
     if ([btnTitle isEqualToString:@"google地图"])
     {
         NSString *urlStr = [NSString stringWithFormat:@"comgooglemaps://?saddr=%.8f,%.8f&daddr=%.8f,%.8f&directionsmode=transit",_fromLatitude,_fromLongitute,_toLatitude,_toLongitute];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+        [APP_APPLICATION openURL:[NSURL URLWithString:urlStr]];
     }
     else if ([btnTitle isEqualToString:@"高德地图"])
     {
         NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=applicationName&sid=BGVIS1&slat=%f&slon=%f&sname=%@&did=BGVIS2&dlat=%f&dlon=%f&dname=%@&dev=0&m=0&t=0",_fromLatitude,_fromLongitute,@"我的位置",_toLatitude,_toLongitute,_name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *r = [NSURL URLWithString:urlString];
-        [[UIApplication sharedApplication] openURL:r];
+        [APP_APPLICATION openURL:r];
         
     }
     else if ([btnTitle isEqualToString:@"腾讯地图"])
@@ -174,7 +175,7 @@ void bd_decrypt(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
         
         NSString *urlStr = [NSString stringWithFormat:@"qqmap://map/routeplan?type=drive&fromcoord=%f,%f&tocoord=%f,%f&policy=1",_fromLatitude,_fromLongitute,_toLatitude,_toLongitute];
         NSURL *r = [NSURL URLWithString:urlStr];
-        [[UIApplication sharedApplication] openURL:r];
+        [APP_APPLICATION openURL:r];
     }
     else if([btnTitle isEqualToString:@"百度地图"])
     {
@@ -185,7 +186,7 @@ void bd_decrypt(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
         bd_encrypt(_fromLatitude,_fromLongitute, &NowLat, &NowLon);
         NSString *stringURL = [NSString stringWithFormat:@"baidumap://map/direction?origin=%f,%f&destination=%f,%f&&mode=driving",NowLat,NowLon,AdressLat,AdressLon];
         NSURL *url = [NSURL URLWithString:stringURL];
-        [[UIApplication sharedApplication] openURL:url];
+        [APP_APPLICATION openURL:url];
     }
 }
 

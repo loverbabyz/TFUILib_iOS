@@ -8,13 +8,14 @@
 
 #import "UIImage+Ext.h"
 #import "QuartzCore/QuartzCore.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #define imageBytesPerMB 1048576.0f
 #define imageBytesPerPixel 4.0f
 
 // 262144 pixels, for 4 bytes per pixel.
 #define imagePixelsPerMB ( imageBytesPerMB / imageBytesPerPixel )
-#define ORIGINAL_MAX_WIDTH ([UIScreen mainScreen].bounds.size.width * 2)
+#define ORIGINAL_MAX_WIDTH (MAIN_SCREEN.bounds.size.width * 2)
 
 CGFloat tf_DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
@@ -322,7 +323,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 - (UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality {
-  CGFloat screenScale = [UIScreen mainScreen].scale;
+  CGFloat screenScale = MAIN_SCREEN.scale;
   
   // note! CGImageGetWidth/CGImageGetHeight return different values
   // from self.size.width/self.size.height depending on orientation
@@ -396,7 +397,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
                 transform:(CGAffineTransform)transform
            drawTransposed:(BOOL)transpose
      interpolationQuality:(CGInterpolationQuality)quality {
-  CGFloat screenScale = [UIScreen mainScreen].scale;
+  CGFloat screenScale = MAIN_SCREEN.scale;
   
   CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
   CGRect transposedRect = CGRectMake(0, 0, newRect.size.height, newRect.size.width);
@@ -551,7 +552,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   BOOL hasBlur = blurRadius > __FLT_EPSILON__;
   BOOL hasSaturationChange = fabs(saturationDeltaFactor - 1.) > __FLT_EPSILON__;
   if (hasBlur || hasSaturationChange) {
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [MAIN_SCREEN scale]);
     CGContextRef effectInContext = UIGraphicsGetCurrentContext();
     CGContextScaleCTM(effectInContext, 1.0, -1.0);
     CGContextTranslateCTM(effectInContext, 0, -self.size.height);
@@ -563,7 +564,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     effectInBuffer.height   = CGBitmapContextGetHeight(effectInContext);
     effectInBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectInContext);
     
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [MAIN_SCREEN scale]);
     CGContextRef effectOutContext = UIGraphicsGetCurrentContext();
     vImage_Buffer effectOutBuffer;
     effectOutBuffer.data     = CGBitmapContextGetData(effectOutContext);
@@ -584,7 +585,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
       //
       // ... if d is odd, use three box-blurs of size 'd', centered on the output pixel.
       //
-      CGFloat inputRadius = blurRadius * [[UIScreen mainScreen] scale];
+      CGFloat inputRadius = blurRadius * [MAIN_SCREEN scale];
       NSUInteger radius = floor(inputRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5);
       if (radius % 2 != 1) {
         radius += 1; // force radius to be odd so that the three box-blur methodology works.
@@ -640,7 +641,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
   }
   
   // set up output context
-  UIGraphicsBeginImageContextWithOptions(self.size, NO, [[UIScreen mainScreen] scale]);
+  UIGraphicsBeginImageContextWithOptions(self.size, NO, [MAIN_SCREEN scale]);
   CGContextRef outputContext = UIGraphicsGetCurrentContext();
   CGContextScaleCTM(outputContext, 1.0, -1.0);
   CGContextTranslateCTM(outputContext, 0, -self.size.height);
@@ -741,7 +742,7 @@ CGFloat tf_RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 + (UIImage *)captureScreenWithScale:(CGFloat)scale
 {
-    UIWindow *screenWindow = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *screenWindow = APP_KEY_WINDOW;
     // UIGraphicsBeginImageContext(screenWindow.frame.size);
     UIGraphicsBeginImageContextWithOptions(screenWindow.frame.size, YES, scale);
     [screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];

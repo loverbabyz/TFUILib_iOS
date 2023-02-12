@@ -13,12 +13,12 @@
 
 - (UIViewController*)toppestViewController
 {
-    return [self toppestViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self toppestViewControllerWithRootViewController:APP_APPLICATION.keyWindow.rootViewController];
 }
 
 - (UIViewController*)rootViewController
 {
-    return [UIApplication sharedApplication].keyWindow.rootViewController;
+    return APP_APPLICATION.keyWindow.rootViewController;
 }
 
 - (UIViewController*)toppestViewControllerWithRootViewController:(UIViewController*)rootViewController
@@ -51,12 +51,12 @@
 
 -(CGFloat)screenWidth
 {
-    return [UIScreen mainScreen].bounds.size.width;
+    return MAIN_SCREEN.bounds.size.width;
 }
 
 -(CGFloat)screenHeight
 {
-    return [UIScreen mainScreen].bounds.size.height;
+    return MAIN_SCREEN.bounds.size.height;
 }
 
 @end
