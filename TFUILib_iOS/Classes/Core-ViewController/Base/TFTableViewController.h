@@ -10,10 +10,12 @@
 
 #import "TFTableViewCell.h"
 #import "TFTableViewHeaderFooterView.h"
+#import "TFTableViewControllerDelegate.h"
 
 @interface TFTableViewController : TFViewController<
                                                     UITableViewDelegate,
-                                                    UITableViewDataSource
+                                                    UITableViewDataSource,
+                                                    TFTableViewControllerDelegate
                                                     >
 /**
  *  是否在加载状态

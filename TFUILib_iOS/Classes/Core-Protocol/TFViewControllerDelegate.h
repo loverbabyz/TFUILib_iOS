@@ -1,16 +1,17 @@
 //
-//  TFViewDelegate.h
+//  TFViewControllerDelegate.h
 //  TFUILib
 //
 //  Created by Daniel on 16/3/11.
-//  Copyright © 2016年 上海赛可电子商务有限公司. All rights reserved.
+//  Copyright © 2016年. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@protocol TFViewDelegate <NSObject>
+@protocol TFViewControllerDelegate <NSObject>
 
-@required
+@optional
+
 - (void)initViews;
 
 - (void)autolayoutViews;

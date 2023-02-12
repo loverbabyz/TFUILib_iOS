@@ -10,10 +10,12 @@
 
 #import "TFCollectionView.h"
 #import "TFCollectionViewCell.h"
+#import "TFCollectionViewControllerDelegate.h"
 
 @interface TFCollectionViewController : TFViewController<
                                                         UICollectionViewDataSource,
-                                                        UICollectionViewDelegate
+                                                        UICollectionViewDelegate,
+                                                        TFCollectionViewControllerDelegate
                                                         >
 
 /**

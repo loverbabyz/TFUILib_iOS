@@ -10,10 +10,11 @@
 #import "TFViewModel.h"
 #import "TFView.h"
 #import "TFActionSheet.h"
+#import "TFViewControllerDelegate.h"
 
 typedef void (^TFViewControllerResultBlock)(id x);
 
-@interface TFViewController : UIViewController
+@interface TFViewController : UIViewController<TFViewControllerDelegate>
 
 /**
  *  控制器的viewModel
