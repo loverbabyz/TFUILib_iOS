@@ -32,7 +32,7 @@
                views:(NSArray *)viewArr
                block:(TFSegmentedViewTouchBlock)block
 {
-    if (self = [self initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)
+    if (self = [self initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, 44)
                             titles:titleArr
                              views:viewArr
                              block:block])

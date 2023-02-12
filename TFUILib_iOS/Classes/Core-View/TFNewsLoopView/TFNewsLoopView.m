@@ -87,9 +87,9 @@
         UILabel *label=[[UILabel alloc]initWithFrame:labelFram];
         label.backgroundColor = [UIColor clearColor];
         [label setText:obj.title];
-        label.font = FONT_BY_PIXEL(28, 30 , 44);
-        label.textColor= HEXCOLOR(0X333333,  1) ;
-        label.tag=LABELTAG+i;
+        label.font = TF_AppFont(28);
+        label.textColor = TF_HRGBA(0X333333,  1) ;
+        label.tag = LABELTAG+i;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapInLabel:)];
         [label addGestureRecognizer:tap];
         label.userInteractionEnabled = YES;
@@ -112,9 +112,9 @@
             }
             UILabel *labelLast=[[UILabel alloc]initWithFrame:lastFrame];
             [labelLast setText:obj.title];
-            labelLast.tag=LABELTAG+i+1;
-            labelLast.font = FONT_BY_PIXEL(28, 30 , 44);
-            labelLast.textColor= HEXCOLOR(0X333333,  1) ;
+            labelLast.tag = LABELTAG+i+1;
+            labelLast.font = TF_AppFont(28);
+            labelLast.textColor = TF_HRGBA(0X333333,  1) ;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapInLabel:)];
             [label addGestureRecognizer:tap];
             label.userInteractionEnabled = YES;

@@ -10,6 +10,7 @@
 
 #import "TFUIUtil.h"
 #import "TFViewController.h"
+#import <TFUILib_iOS/TFUILib_iOS.h>
 
 @interface TFUIUtil()
 
@@ -72,7 +73,7 @@
 
 + (void)popToRootViewController
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
         UIViewController *rootVC = [TFUIUtil getRootViewController];
         [rootVC popToRootViewController];
     });
@@ -97,13 +98,13 @@
 
 + (UIViewController *)getRootViewController
 {
-    UIViewController *rootVC=[APP_APPLICATION.delegate window].rootViewController;
+    UIViewController *rootVC=[TF_APP_APPLICATION.delegate window].rootViewController;
     return rootVC;
 }
 
 + (UIView *)getRootView
 {
-    UIView *rootVC=[APP_APPLICATION.delegate window].rootViewController.view;
+    UIView *rootVC=[TF_APP_APPLICATION.delegate window].rootViewController.view;
     return rootVC;
 }
 

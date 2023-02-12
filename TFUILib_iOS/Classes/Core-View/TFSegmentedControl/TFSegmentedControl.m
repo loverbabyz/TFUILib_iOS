@@ -29,7 +29,7 @@
 
 - (id)initWithTitles:(NSArray *)titleArr block:(TFSegmentedControlTouchBlock)block
 {
-    if (self = [self initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)
+    if (self = [self initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, 44)
                             titles:titleArr
                              block:block])
     {
@@ -47,10 +47,10 @@
     {
         _selectedIndex          = 0;
         self.titleHeight        = frame.size.height;
-        self.titleColor         = HEXCOLOR(0x333333, 1);
-        self.titleSelectedColor = HEXCOLOR(0x03a9f4, 1);
+        self.titleColor         = TF_HRGBA(0x333333, 1);
+        self.titleSelectedColor = TF_HRGBA(0x03a9f4, 1);
         
-        self.lineColor          = HEXCOLOR(0X03A9F4,  1);
+        self.lineColor          = TF_HRGBA(0X03A9F4,  1);
         self.lineHeight         = 2;
         
         self.titleArr           = [self createTitleArr:titleArr];
@@ -74,10 +74,10 @@
     {
         _selectedIndex          = 0;
         self.titleHeight        = frame.size.height;
-        self.titleColor         = HEXCOLOR(0x333333, 1);
-        self.titleSelectedColor = HEXCOLOR(0x03a9f4, 1);
+        self.titleColor         = TF_HRGBA(0x333333, 1);
+        self.titleSelectedColor = TF_HRGBA(0x03a9f4, 1);
         
-        self.lineColor          = HEXCOLOR(0X03A9F4,  1);
+        self.lineColor          = TF_HRGBA(0X03A9F4,  1);
         self.lineHeight         = 2;
         
         self.imageNormelArr = imageNormelArr;
@@ -233,7 +233,7 @@
         }
         
         btn.tag = i;
-        btn.titleLabel.font = FONT_BY_PIXEL(26, 28 , 42);
+        btn.titleLabel.font = TF_AppFont(13);
         
         [tmpArr addObject:btn];
     }

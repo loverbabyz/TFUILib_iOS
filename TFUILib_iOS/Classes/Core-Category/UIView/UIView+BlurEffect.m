@@ -13,7 +13,7 @@
 
 - (void)blueEffectWithStyle:(UIBlurEffectStyle)style
 {
-    if ([SYSTEM_VERSION floatValue] < 8.0f)
+    if ([TF_SYSTEM_VERSION floatValue] < 8.0f)
     {
 #ifdef DEBUG
         NSAssert(YES, @"Only support iOS 8.0+");

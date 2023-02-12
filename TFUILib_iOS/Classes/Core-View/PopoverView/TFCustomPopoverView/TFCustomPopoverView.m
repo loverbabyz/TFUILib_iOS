@@ -672,7 +672,7 @@
     parentView = view;
     
     // get the top view
-    topView = [[APP_KEY_WINDOW subviews] lastObject];
+    topView = [[TF_APP_KEY_WINDOW subviews] lastObject];
     
     [self setupLayout:point inView:view];
     
@@ -1080,9 +1080,9 @@
 
 - (CGSize) screenSize
 {
-    UIInterfaceOrientation orientation = APP_APPLICATION.statusBarOrientation;
-    CGSize size = MAIN_SCREEN.bounds.size;
-    UIApplication *application = APP_APPLICATION;
+    UIInterfaceOrientation orientation = TF_APP_APPLICATION.statusBarOrientation;
+    CGSize size = TF_MAIN_SCREEN.bounds.size;
+    UIApplication *application = TF_APP_APPLICATION;
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
         size = CGSizeMake(size.height, size.width);

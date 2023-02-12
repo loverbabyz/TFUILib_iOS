@@ -155,7 +155,7 @@
 
 - (NSString *)pathWithFileName:(NSString *)fileName ofType:(NSString *)type
 {
-    return [MAIN_BUNDLE pathForResource:fileName ofType:type];
+    return [TF_MAIN_BUNDLE pathForResource:fileName ofType:type];
 }
 
 @end

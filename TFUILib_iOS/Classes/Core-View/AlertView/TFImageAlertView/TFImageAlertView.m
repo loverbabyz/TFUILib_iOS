@@ -122,25 +122,25 @@
   otherButtonTitles:(NSArray *)otherButtonTitles
               block:(TFImageAlertViewBlock)block
 {
-    self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT)];
     
     if (self)
     {
-        self.lineColor=HEXCOLOR(0xe0e0e0, 1);
+        self.lineColor= TF_HRGBA(0xe0e0e0, 1);
         self.lineHeight=1;
         
-        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.frame = CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT);
         self.backgroundColor = [UIColor clearColor];
         
         self.clipsToBounds=YES;
         
         self.maskView = [[UIButton alloc] initWithFrame:self.frame];
-        self.maskView.backgroundColor = HEXCOLOR(0X000008,0.5);
+        self.maskView.backgroundColor = TF_HRGBA(0X000008,0.5);
         [self.maskView addTarget:self action:@selector(dismissButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.maskView];
         
         self.alertView = [[UIView alloc] init];
-        self.alertView.backgroundColor = HEXCOLOR(0xffffff, 1);
+        self.alertView.backgroundColor = TF_HRGBA(0xffffff, 1);
         self.alertView.layer.masksToBounds=YES;
         self.alertView.layer.cornerRadius=2;
         [self addSubview:self.alertView];
@@ -148,16 +148,16 @@
         self.titleLabel=[[UILabel alloc]init];
         self.titleLabel.textAlignment=NSTextAlignmentCenter;
         self.titleLabel.text=title;
-        self.titleLabel.font=FONT(20);
-        self.titleLabel.textColor=HEXCOLOR(0x000000, 1);
+        self.titleLabel.font= TF_AppFont(20);
+        self.titleLabel.textColor= TF_HRGBA(0x000000, 1);
         [self.alertView addSubview:self.titleLabel];
         
         self.messageLabel=[[UILabel alloc]init];
         self.messageLabel.textAlignment=NSTextAlignmentCenter;
         self.messageLabel.numberOfLines=0;
         self.messageLabel.text=message;
-        self.messageLabel.font=FONT(18);
-        self.messageLabel.textColor=HEXCOLOR(0x333333, 1);;
+        self.messageLabel.font= TF_AppFont(18);
+        self.messageLabel.textColor= TF_HRGBA(0x333333, 1);;
         [self.alertView addSubview:self.messageLabel];
         
         self.spaceView = [[UIView alloc] init];
@@ -165,11 +165,11 @@
         [self.alertView addSubview:self.spaceView];
         
         self.lineView = [[UIView alloc] init];
-        self.lineView.backgroundColor = HEXCOLOR(0xdfdfdf, 1);
+        self.lineView.backgroundColor = TF_HRGBA(0xdfdfdf, 1);
         [self.alertView addSubview:self.lineView];
         
         self.buttonContainerView = [[UIView alloc] init];
-        self.buttonContainerView.backgroundColor = HEXCOLOR(0XEFEFF4,  1);
+        self.buttonContainerView.backgroundColor = TF_HRGBA(0XEFEFF4,  1);
         [self.alertView addSubview:self.buttonContainerView];
         
         NSMutableArray *buttonTitles=[[NSMutableArray alloc]init];
@@ -203,25 +203,25 @@
   otherButtonTitles:(NSArray *)otherButtonTitles
               block:(TFImageAlertViewBlock)block
 {
-    self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT)];
     
     if (self)
     {
-        self.lineColor  = HEXCOLOR(0X03A9F4,  1);
+        self.lineColor  = TF_HRGBA(0X03A9F4,  1);
         self.lineHeight = 2;
         
-        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.frame = CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT);
         self.backgroundColor = [UIColor clearColor];
         
         self.clipsToBounds=YES;
         
         self.maskView = [[UIButton alloc] initWithFrame:self.frame];
-        self.maskView.backgroundColor = HEXCOLOR(0X000008,0.5);
+        self.maskView.backgroundColor = TF_HRGBA(0X000008,0.5);
         [self.maskView addTarget:self action:@selector(dismissButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.maskView];
         
         self.alertView = [[UIView alloc] init];
-        self.alertView.backgroundColor = HEXCOLOR(0xffffff, 1);
+        self.alertView.backgroundColor = TF_HRGBA(0xffffff, 1);
         self.alertView.layer.masksToBounds=YES;
         self.alertView.layer.cornerRadius=2;
         [self addSubview:self.alertView];
@@ -229,8 +229,8 @@
         self.titleLabel=[[UILabel alloc]init];
         self.titleLabel.textAlignment=NSTextAlignmentCenter;
         self.titleLabel.text=title;
-        self.titleLabel.font=FONT(20);
-        self.titleLabel.textColor=HEXCOLOR(0x000000, 1);
+        self.titleLabel.font= TF_AppFont(20);
+        self.titleLabel.textColor= TF_HRGBA(0x000000, 1);
         [self.alertView addSubview:self.titleLabel];
         
         self.descImageView = UIImageView.new;
@@ -239,11 +239,11 @@
         [self.alertView addSubview:self.descImageView];
         
         self.lineView = [[UIView alloc] init];
-        self.lineView.backgroundColor = HEXCOLOR(0xdfdfdf, 1);
+        self.lineView.backgroundColor = TF_HRGBA(0xdfdfdf, 1);
         [self.alertView addSubview:self.lineView];
         
         self.buttonContainerView = [[UIView alloc] init];
-        self.buttonContainerView.backgroundColor = HEXCOLOR(0xffffff, 1);
+        self.buttonContainerView.backgroundColor = TF_HRGBA(0xffffff, 1);
         [self.alertView addSubview:self.buttonContainerView];
         
         NSMutableArray *buttonTitles=[[NSMutableArray alloc]init];
@@ -401,7 +401,7 @@
 - (void)show:(void (^)(BOOL finished))completion
 {
     self.maskView.alpha = 0;
-    [APP_KEY_WINDOW addSubview:self];
+    [TF_APP_KEY_WINDOW addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     
@@ -450,12 +450,12 @@
         
         btn.backgroundColor = [UIColor clearColor];
         [btn setTitle:arr[i] forState:UIControlStateNormal];
-        [btn setTitleColor:i==count-1?HEXCOLOR(0X0077DD,  1):HEXCOLOR(0X333333,  1) forState:UIControlStateNormal];
+        [btn setTitleColor: i==count-1 ? TF_HRGBA(0X0077DD,  1):TF_HRGBA(0X333333,  1) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0xffffff, 1)] forState:UIControlStateNormal];
-        [btn setBackgroundImage:[UIImage imageWithColor:HEXCOLOR(0xeeeeee, 1)] forState:UIControlStateHighlighted];
+        [btn setBackgroundImage:[UIImage imageWithColor:TF_HRGBA(0xffffff, 1)] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageWithColor:TF_HRGBA(0xeeeeee, 1)] forState:UIControlStateHighlighted];
         btn.tag=i;
-        btn.titleLabel.font = FONT(18);
+        btn.titleLabel.font = TF_AppFont(18);
         
         [tmpArr addObject:btn];
     }
@@ -471,7 +471,7 @@
     for (int i=0; i<count-1; i++)
     {
         UILabel *ln = UILabel.new;
-        ln.backgroundColor = HEXCOLOR(0xededed, 1);
+        ln.backgroundColor = TF_HRGBA(0xededed, 1);
         [tmpArr addObject:ln];
     }
     
@@ -544,7 +544,7 @@
     // 中间的线条
     NSInteger count = views.count;
     
-    CGFloat width=(SCREEN_WIDTH-LEFT_RIGHT_PADDING*2)/(count+1);
+    CGFloat width=(TF_SCREEN_WIDTH-LEFT_RIGHT_PADDING*2)/(count+1);
     
     for (int i=0; i<count; i++)
     {

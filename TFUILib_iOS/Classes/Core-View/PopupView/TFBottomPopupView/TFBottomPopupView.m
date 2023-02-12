@@ -46,14 +46,14 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
     
     if (self)
     {
-        self.frame=CGRectMake(0, 0, [MAIN_SCREEN bounds].size.width, [MAIN_SCREEN bounds].size.height);
+        self.frame=CGRectMake(0, 0, [TF_MAIN_SCREEN bounds].size.width, [TF_MAIN_SCREEN bounds].size.height);
         
-        if (height<=0||height>[MAIN_SCREEN bounds].size.height)
+        if (height<=0||height>[TF_MAIN_SCREEN bounds].size.height)
         {
-            height=[MAIN_SCREEN bounds].size.height;
+            height=[TF_MAIN_SCREEN bounds].size.height;
         }
         
-        self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [MAIN_SCREEN bounds].size.width, height)];
+        self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [TF_MAIN_SCREEN bounds].size.width, height)];
         self.alertView.backgroundColor = [UIColor clearColor];
         self.alertView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
@@ -90,7 +90,7 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
 
 -(void)show
 {
-    UIWindow *keyWindow = APP_KEY_WINDOW;
+    UIWindow *keyWindow = TF_APP_KEY_WINDOW;
     UIView *rootView = keyWindow.rootViewController.view;
 
     UIImage *rootViewRenderImage = [self imageWithView:rootView];
@@ -106,7 +106,7 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
                      animations:^{
                          //_alertView.center = self.center;
         self->_alertView.frame=CGRectMake(0,
-                                                     [MAIN_SCREEN bounds].size.height - self->_alertView.frame.size.height,
+                                                     [TF_MAIN_SCREEN bounds].size.height - self->_alertView.frame.size.height,
                                                      self->_alertView.frame.size.width,
                                                      self->_alertView.frame.size.height);
                      }
@@ -129,7 +129,7 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
                                           animations:^{
                                               float newWidht = self->_renderImageView.frame.size.width * 0.7;
                                               float newHeight = self->_renderImageView.frame.size.height * 0.7;
-                                              self->_renderImageView.frame = CGRectMake(([MAIN_SCREEN bounds].size.width - newWidht) / 2, 22, newWidht, newHeight);
+                                              self->_renderImageView.frame = CGRectMake(([TF_MAIN_SCREEN bounds].size.width - newWidht) / 2, 22, newWidht, newHeight);
                                               self->_renderImageView.layer.transform = CATransform3DMakePerspective(0, 0);
                                           } completion:^(BOOL finished) {
                                               
@@ -146,7 +146,7 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self->_alertView.center = CGPointMake(self.frame.size.width/2.0, self->_alertView.frame.size.height * 1.5);
-                         self->_alertView.frame=CGRectMake(0, [MAIN_SCREEN bounds].size.height, self->_alertView.frame.size.width, self->_alertView.frame.size.height);
+                         self->_alertView.frame=CGRectMake(0, [TF_MAIN_SCREEN bounds].size.height, self->_alertView.frame.size.width, self->_alertView.frame.size.height);
                      }
                      completion:^(BOOL finished) {
                          
@@ -165,7 +165,7 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
 
                          [UIView animateWithDuration:0.2
                                           animations:^{
-                                              self->_renderImageView.frame = [MAIN_SCREEN bounds];
+                                              self->_renderImageView.frame = [TF_MAIN_SCREEN bounds];
                                               self->_renderImageView.layer.transform = CATransform3DMakePerspective(0, 0);
                                           } completion:^(BOOL finished) {
                                               [self removeFromSuperview];
@@ -176,7 +176,7 @@ CATransform3DMake(CGFloat m11, CGFloat m12, CGFloat m13, CGFloat m14,
 -(UIImage *)imageWithView:(UIView *)view
 {
     
-    UIGraphicsBeginImageContextWithOptions(_renderImageView.frame.size, view.opaque, [MAIN_SCREEN scale]);
+    UIGraphicsBeginImageContextWithOptions(_renderImageView.frame.size, view.opaque, [TF_MAIN_SCREEN scale]);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();

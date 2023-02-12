@@ -56,10 +56,10 @@ TFSingletonM(Manager)
 {
     UIViewController *result = nil;
     
-    UIWindow * window = APP_KEY_WINDOW;
+    UIWindow * window = TF_APP_KEY_WINDOW;
     if (window.windowLevel != UIWindowLevelNormal)
     {
-        NSArray *windows = [APP_APPLICATION windows];
+        NSArray *windows = [TF_APP_APPLICATION windows];
         for(UIWindow * tmpWin in windows)
         {
             if (tmpWin.windowLevel == UIWindowLevelNormal)
@@ -92,7 +92,7 @@ TFSingletonM(Manager)
     NSMutableArray *appListArr = [[NSMutableArray alloc] initWithObjects:@"苹果原生地图", nil];
     
     for (int i = 0; i < [mapSchemeArr count]; i++) {
-        if ([APP_APPLICATION canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[mapSchemeArr objectAtIndex:i]]]]) {
+        if ([TF_APP_APPLICATION canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[mapSchemeArr objectAtIndex:i]]]]) {
             if (i == 0)
             {
                 [appListArr addObject:@"google地图"];
@@ -153,13 +153,13 @@ TFSingletonM(Manager)
     if ([btnTitle isEqualToString:@"google地图"])
     {
         NSString *urlStr = [NSString stringWithFormat:@"comgooglemaps://?saddr=%.8f,%.8f&daddr=%.8f,%.8f&directionsmode=transit",_fromLatitude,_fromLongitute,_toLatitude,_toLongitute];
-        [APP_APPLICATION openURL:[NSURL URLWithString:urlStr]];
+        [TF_APP_APPLICATION openURL:[NSURL URLWithString:urlStr]];
     }
     else if ([btnTitle isEqualToString:@"高德地图"])
     {
         NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=applicationName&sid=BGVIS1&slat=%f&slon=%f&sname=%@&did=BGVIS2&dlat=%f&dlon=%f&dname=%@&dev=0&m=0&t=0",_fromLatitude,_fromLongitute,@"我的位置",_toLatitude,_toLongitute,_name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *r = [NSURL URLWithString:urlString];
-        [APP_APPLICATION openURL:r];
+        [TF_APP_APPLICATION openURL:r];
         
     }
     else if ([btnTitle isEqualToString:@"腾讯地图"])
@@ -167,7 +167,7 @@ TFSingletonM(Manager)
         
         NSString *urlStr = [NSString stringWithFormat:@"qqmap://map/routeplan?type=drive&fromcoord=%f,%f&tocoord=%f,%f&policy=1",_fromLatitude,_fromLongitute,_toLatitude,_toLongitute];
         NSURL *r = [NSURL URLWithString:urlStr];
-        [APP_APPLICATION openURL:r];
+        [TF_APP_APPLICATION openURL:r];
     }
     else if([btnTitle isEqualToString:@"百度地图"])
     {
@@ -178,7 +178,7 @@ TFSingletonM(Manager)
         bd_encrypt(_fromLatitude,_fromLongitute, &NowLat, &NowLon);
         NSString *stringURL = [NSString stringWithFormat:@"baidumap://map/direction?origin=%f,%f&destination=%f,%f&&mode=driving",NowLat,NowLon,AdressLat,AdressLon];
         NSURL *url = [NSURL URLWithString:stringURL];
-        [APP_APPLICATION openURL:url];
+        [TF_APP_APPLICATION openURL:url];
     }
 }
 

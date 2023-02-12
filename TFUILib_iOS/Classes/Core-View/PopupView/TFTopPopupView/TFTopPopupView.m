@@ -7,6 +7,7 @@
 //
 
 #import "TFTopPopupView.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface TFTopPopupView ()
 
@@ -25,11 +26,11 @@
     
     if (self)
     {
-        self.frame=CGRectMake(0, 0, [MAIN_SCREEN bounds].size.width, [MAIN_SCREEN bounds].size.height);
+        self.frame=CGRectMake(0, 0, [TF_MAIN_SCREEN bounds].size.width, [TF_MAIN_SCREEN bounds].size.height);
         
-        if (height<=0||height>[MAIN_SCREEN bounds].size.height)
+        if (height<=0||height>[TF_MAIN_SCREEN bounds].size.height)
         {
-            height=[MAIN_SCREEN bounds].size.height;
+            height=[TF_MAIN_SCREEN bounds].size.height;
         }
         
         UIViewAutoresizing autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight |
@@ -38,7 +39,7 @@
 
         
         self.blackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.blackgroundView.backgroundColor = HEXCOLOR(0X000008,0.5);
+        self.blackgroundView.backgroundColor = TF_HRGBA(0X000008,0.5);
         self.blackgroundView.autoresizingMask = autoresizingMask;
         
         
@@ -60,7 +61,7 @@
 
 -(void)show
 {
-    [APP_APPLICATION.keyWindow addSubview:self];
+    [TF_APP_KEY_WINDOW addSubview:self];
     
     _alertView.frame = CGRectMake(-_alertView.frame.origin.x, -_alertView.frame.size.height, _alertView.frame.size.width, _alertView.frame.size.height);
     

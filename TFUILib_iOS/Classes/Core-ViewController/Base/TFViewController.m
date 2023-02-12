@@ -9,6 +9,7 @@
 #import "TFViewController.h"
 
 #import <MJExtension/MJExtension.h>
+#import <TFUILib_iOS/TFUILib_iOS.h>
 
 @interface TFViewController ()<UINavigationBarDelegate>
 
@@ -117,7 +118,7 @@
     [super viewWillAppear:animated];
 
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    APP_APPLICATION.statusBarStyle = UIStatusBarStyleDefault;
+    TF_APP_APPLICATION.statusBarStyle = UIStatusBarStyleDefault;
 }
 
 - (void)viewDidLoad
@@ -139,7 +140,7 @@
     }
     
     //statusbar改白色
-    //[APP_APPLICATION setStatusBarStyle:UIStatusBarStyleLightContent];
+    //[TF_APP_APPLICATION setStatusBarStyle:UIStatusBarStyleLightContent];
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets           = YES;
     self.navigationController.navigationBar.translucent = NO;
@@ -182,14 +183,14 @@
 
 - (void)startLoadData
 {
-     MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
           [self showHud];
        });
 }
 
 - (void)endLoadData
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
        [self hideHud];
     });
 }

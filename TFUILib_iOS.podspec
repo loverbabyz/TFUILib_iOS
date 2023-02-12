@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TFUILib_iOS'
-  s.version          = '1.1.8'
+  s.version          = '1.1.9'
   s.summary          = 'UI lib for Treasure framework.'
 
 # This description is used to generate tags and improve search results.
@@ -51,7 +51,7 @@ UI lib for Treasure framework.
       'OTHER_LDFLAGS' => '-ObjC -all_load -force_load'
   }
   
-  s.dependency 'TFBaseLib_iOS'
+  s.dependency 'TFBaseLib_iOS',"1.1.12"
   s.dependency 'MJExtension'
   s.dependency 'MJRefresh'
   s.dependency 'Masonry'

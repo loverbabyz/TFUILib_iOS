@@ -14,12 +14,12 @@
 
 - (UIViewController*)rootViewController
 {
-    return APP_APPLICATION.keyWindow.rootViewController;
+    return TF_APP_KEY_WINDOW .rootViewController;
 }
 
 - (UIViewController*)topViewController
 {
-    return [self topViewControllerWithRootViewController:APP_APPLICATION.keyWindow.rootViewController];
+    return [self topViewControllerWithRootViewController:TF_APP_KEY_WINDOW .rootViewController];
 }
 
 - (UIViewController *)viewController

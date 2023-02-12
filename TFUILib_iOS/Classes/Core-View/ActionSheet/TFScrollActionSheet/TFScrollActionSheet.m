@@ -30,9 +30,9 @@ static CGFloat horizontalMargin = 20.0;
 {
     self = [super init];
     if (self) {
-        _screenRect = MAIN_SCREEN.bounds;
-        if ([SYSTEM_VERSION floatValue] < 7.5 &&
-            UIDeviceOrientationIsLandscape(CURREND_DEVICE.orientation))
+        _screenRect = TF_MAIN_SCREEN.bounds;
+        if ([TF_SYSTEM_VERSION floatValue] < 7.5 &&
+            UIDeviceOrientationIsLandscape(TF_CURREND_DEVICE.orientation))
         {
             _screenRect = CGRectMake(0, 0, _screenRect.size.height, _screenRect.size.width);
         }

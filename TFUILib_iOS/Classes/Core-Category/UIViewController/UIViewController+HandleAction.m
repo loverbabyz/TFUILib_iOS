@@ -99,7 +99,7 @@
     NSString *action = item.action;
     if (action!=nil)
     {
-        NSString *fielPath = [MAIN_BUNDLE pathForResource:@"ActionConfig" ofType:@"plist"];
+        NSString *fielPath = [TF_MAIN_BUNDLE pathForResource:@"ActionConfig" ofType:@"plist"];
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fielPath];
         
         if (dict==nil)

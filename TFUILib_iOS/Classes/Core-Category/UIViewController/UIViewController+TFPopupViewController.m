@@ -142,7 +142,7 @@
     popupView.layer.shadowRadius = 5;
     popupView.layer.shadowOpacity = 0.5;
     popupView.layer.shouldRasterize = YES;
-    popupView.layer.rasterizationScale = [MAIN_SCREEN scale];
+    popupView.layer.rasterizationScale = [TF_MAIN_SCREEN scale];
     
     // Add overlay
     if (self.overlayView == nil)

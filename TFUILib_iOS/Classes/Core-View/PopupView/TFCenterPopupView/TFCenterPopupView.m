@@ -23,7 +23,7 @@
     
     if (self)
     {
-        self.frame=CGRectMake(0, 0, [MAIN_SCREEN bounds].size.width, [MAIN_SCREEN bounds].size.height);
+        self.frame=CGRectMake(0, 0, [TF_MAIN_SCREEN bounds].size.width, [TF_MAIN_SCREEN bounds].size.height);
         self.userInteractionEnabled = YES;
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
         
@@ -49,7 +49,7 @@
 {
     self.type=type;
     
-    [APP_APPLICATION.keyWindow addSubview:self];
+    [TF_APP_KEY_WINDOW addSubview:self];
     
     if (type==kCenterPopupViewAnimateSpring)
     {
@@ -91,7 +91,7 @@
 
 -(void)show
 {
-    [APP_APPLICATION.keyWindow addSubview:self];
+    [TF_APP_KEY_WINDOW addSubview:self];
 }
 
 -(void)hide

@@ -17,19 +17,19 @@
 
 - (void)showHud
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
         [TFHud showLoadingWithText:@"加载中..."
                       textPosition:kTextPositionTypeRight
-                            atView:APP_KEY_WINDOW];
+                            atView:TF_APP_KEY_WINDOW];
     });
 }
 
 - (void)showHudWithText:(NSString*)text
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
         [TFHud showLoadingWithText:text
                          textPosition:kTextPositionTypeRight
-                            atView:APP_KEY_WINDOW];
+                            atView:TF_APP_KEY_WINDOW];
     });
 }
 
@@ -46,8 +46,8 @@
 
 - (void)hideHud
 {
-    MAIN_THREAD(^(){
-        [TFHud hideInView:APP_KEY_WINDOW];
+    TF_MAIN_THREAD(^(){
+        [TFHud hideInView:TF_APP_KEY_WINDOW];
     });
 }
 

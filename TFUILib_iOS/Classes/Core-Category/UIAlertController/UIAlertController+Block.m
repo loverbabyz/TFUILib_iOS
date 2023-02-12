@@ -192,7 +192,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 
 - (UIViewController*)topShowViewController
 {
-    return [self topViewControllerWithRootViewController:APP_APPLICATION.keyWindow.rootViewController];
+    return [self topViewControllerWithRootViewController:TF_APP_KEY_WINDOW.rootViewController];
 }
 
 - (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController
@@ -223,7 +223,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 
 + (BOOL)isIosVersion8AndAfter
 {
-    return [SYSTEM_VERSION floatValue] >= 8.0 ;
+    return [TF_SYSTEM_VERSION floatValue] >= 8.0 ;
 }
 
 @end

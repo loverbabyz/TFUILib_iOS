@@ -15,7 +15,7 @@
 
 + (id)loadViewFromXib
 {
-    NSArray* nibView = [MAIN_BUNDLE loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil];
+    NSArray* nibView = [TF_MAIN_BUNDLE loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil];
     return [nibView objectAtIndex:0];
 }
 

@@ -17,7 +17,7 @@
 
 - (UIViewController *)getRootViewController
 {
-    UIViewController *rootVC=[APP_APPLICATION.delegate window].rootViewController;
+    UIViewController *rootVC = [TF_APP_APPLICATION.delegate window].rootViewController;
     return rootVC;
 }
 
@@ -236,7 +236,7 @@
         return NO;
     }
     
-    NSString *fielPath = [MAIN_BUNDLE pathForResource:@"ModuleConfig" ofType:@"plist"];
+    NSString *fielPath = [TF_MAIN_BUNDLE pathForResource:@"ModuleConfig" ofType:@"plist"];
     if (fielPath==nil)
     {
         return NO;

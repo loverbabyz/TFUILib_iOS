@@ -82,7 +82,7 @@
         
         [sideDrawerViewController.view.layer setAnchorPoint:anchorPoint];
         [sideDrawerViewController.view.layer setShouldRasterize:YES];
-        [sideDrawerViewController.view.layer setRasterizationScale:[MAIN_SCREEN scale]];
+        [sideDrawerViewController.view.layer setRasterizationScale:[TF_MAIN_SCREEN scale]];
         
         CATransform3D swingingDoorTransform = CATransform3DIdentity;
         if (percentVisible <= 1.f) {

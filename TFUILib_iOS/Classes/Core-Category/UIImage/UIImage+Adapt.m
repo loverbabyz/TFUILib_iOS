@@ -18,12 +18,12 @@
 
 +(UIImage*)imageWithName:(NSString*)name
 {
-    if (([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208),[MAIN_SCREEN currentMode].size) : NO))
+    if (([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208),[TF_MAIN_SCREEN currentMode].size) : NO))
     {
 
         NSString *name3x = [[UIImage getImageName:name] stringByAppendingString:SUFFIX_3X_PNG];
         
-        NSString *path3x=[MAIN_BUNDLE pathForResource:name3x ofType:@""];
+        NSString *path3x=[TF_MAIN_BUNDLE pathForResource:name3x ofType:@""];
         
         if (path3x)
         {
@@ -33,7 +33,7 @@
         {
             NSString *name2x = [[UIImage getImageName:name] stringByAppendingString:SUFFIX_2X_PNG];
             
-            NSString *path2x=[MAIN_BUNDLE pathForResource:name2x ofType:@""];
+            NSString *path2x=[TF_MAIN_BUNDLE pathForResource:name2x ofType:@""];
             
             if (path2x)
             {
@@ -42,7 +42,7 @@
             else
             {
                 NSString *name1x = [[UIImage getImageName:name] stringByAppendingString:SUFFIX_1X_PNG];
-                NSString *path1x=[MAIN_BUNDLE pathForResource:name1x ofType:@""];
+                NSString *path1x=[TF_MAIN_BUNDLE pathForResource:name1x ofType:@""];
                 return [UIImage imageWithContentsOfFile:path1x];
             }
         }
@@ -51,7 +51,7 @@
     {
         NSString *name2x = [[UIImage getImageName:name] stringByAppendingString:SUFFIX_2X_PNG];
         
-        NSString *path2x=[MAIN_BUNDLE pathForResource:name2x ofType:@""];
+        NSString *path2x=[TF_MAIN_BUNDLE pathForResource:name2x ofType:@""];
         
         if (path2x)
         {
@@ -60,7 +60,7 @@
         else
         {
             NSString *name1x = [[UIImage getImageName:name] stringByAppendingString:SUFFIX_1X_PNG];
-            NSString *path1x=[MAIN_BUNDLE pathForResource:name1x ofType:@""];
+            NSString *path1x=[TF_MAIN_BUNDLE pathForResource:name1x ofType:@""];
             return [UIImage imageWithContentsOfFile:path1x];
         }
     }

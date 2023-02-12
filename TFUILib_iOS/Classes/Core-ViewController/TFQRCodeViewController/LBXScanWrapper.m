@@ -30,12 +30,12 @@
 
 + (BOOL)isSysIos7Later
 {
-    return [SYSTEM_VERSION floatValue] >= 7.0;
+    return [TF_SYSTEM_VERSION floatValue] >= 7.0;
 }
 
 + (BOOL)isSysIos8Later
 {
-    return [SYSTEM_VERSION floatValue] >= 8.0;
+    return [TF_SYSTEM_VERSION floatValue] >= 8.0;
 }
 
 - (instancetype)initWithPreView:(UIView*)preView objectType:(NSArray*)arrayBarCodeType cropRect:(CGRect)cropRect
@@ -157,7 +157,7 @@
 {
     BOOL isCameraValid = YES;
     //ios7之前系统默认拥有权限
-    if([SYSTEM_VERSION floatValue] >= 7.0)
+    if([TF_SYSTEM_VERSION floatValue] >= 7.0)
     {
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         
@@ -171,7 +171,7 @@
 
 + (BOOL)isGetPhotoPermission
 {
-    if ([SYSTEM_VERSION floatValue] < 8.0)
+    if ([TF_SYSTEM_VERSION floatValue] < 8.0)
     {
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
         

@@ -34,7 +34,7 @@
 
 - (UIEdgeInsets)tf_safeAreaInset {
     if (@available(iOS 11.0, *)) {
-        UIWindow *window = [[UIWindow alloc] initWithFrame:MAIN_SCREEN.bounds];
+        UIWindow *window = [[UIWindow alloc] initWithFrame:TF_MAIN_SCREEN.bounds];
         window.windowLevel = UIWindowLevelStatusBar+1;
         UIEdgeInsets insets = window.safeAreaInsets;
         

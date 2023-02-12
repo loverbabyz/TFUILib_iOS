@@ -888,7 +888,7 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
 }
 
 -(void)setShowsStatusBarBackgroundView:(BOOL)showsDummyStatusBar{
-    NSArray *sysVersion = [SYSTEM_VERSION componentsSeparatedByString:@"."];
+    NSArray *sysVersion = [TF_SYSTEM_VERSION componentsSeparatedByString:@"."];
     float majorVersion = [[sysVersion objectAtIndex:0] floatValue];
     if (majorVersion >= 7){
         if(showsDummyStatusBar!=_showsStatusBarBackgroundView){

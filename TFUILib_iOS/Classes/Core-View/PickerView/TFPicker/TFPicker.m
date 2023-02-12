@@ -44,7 +44,7 @@
 
 - (id)initWithBlock:(TFPickerBlock)block dataArray:(NSArray<TFTreeNode *> *)dataArray components:(NSInteger)components
 {
-    self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT)];
     if (self)
     {
         self.block = block;
@@ -55,23 +55,23 @@
         self.backgroundColor = [UIColor clearColor];
         
         self.maskView = [[UIButton alloc] initWithFrame:self.frame];
-        self.maskView.backgroundColor = HEXCOLOR(0X000008,0.5) ;
+        self.maskView.backgroundColor = TF_HRGBA(0X000008,0.5) ;
         [self.maskView addTarget:self action:@selector(cancelButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.maskView];
         
-        self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, BTN_HEIGHT+DATE_PICK_HEIGHT + self.tf_safeAreaInset.bottom)];
-        self.alertView.backgroundColor = HEXCOLOR(0XFAFAFD,  1);
+        self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, BTN_HEIGHT+DATE_PICK_HEIGHT + self.tf_safeAreaInset.bottom)];
+        self.alertView.backgroundColor = TF_HRGBA(0XFAFAFD,  1);
         [self addSubview:self.alertView];
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, BTN_HEIGHT, self.width, 0.5)];
-        lineView.backgroundColor = HEXCOLOR(0XEFEFF4,  1);
+        lineView.backgroundColor = TF_HRGBA(0XEFEFF4,  1);
         [self.alertView addSubview:lineView];
         
         self.cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_HEIGHT)];
         self.cancelButton.backgroundColor = [UIColor clearColor];
         [self.cancelButton setTitle:NSLocalizedString(@"cancel", @"cancel") forState:UIControlStateNormal];
         [self.cancelButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
-        [self.cancelButton setTitleColor:HEXCOLOR(0X333333,  1) forState:UIControlStateNormal];
+        [self.cancelButton setTitleColor:TF_HRGBA(0X333333,  1) forState:UIControlStateNormal];
         [self.cancelButton addTarget:self action:@selector(cancelButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self.alertView addSubview:self.cancelButton];
         
@@ -79,8 +79,8 @@
         self.okButton.backgroundColor = [UIColor clearColor];
         [self.okButton setTitle:NSLocalizedString(@"ok", @"ok") forState:UIControlStateNormal];
         [self.okButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
-        [self.okButton setTitleColor:HEXCOLOR(0X03A9F4,  1) forState:UIControlStateNormal];
-        [self.okButton setTitleColor:HEXCOLOR(0X0077DD,  1) forState:UIControlStateHighlighted];
+        [self.okButton setTitleColor:TF_HRGBA(0X03A9F4,  1) forState:UIControlStateNormal];
+        [self.okButton setTitleColor:TF_HRGBA(0X0077DD,  1) forState:UIControlStateHighlighted];
         [self.okButton addTarget:self action:@selector(okButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self.alertView addSubview:self.okButton];
         
@@ -103,8 +103,8 @@
 - (void)show:(void (^)(BOOL finished))completion
 {
     self.maskView.alpha = 0;
-    self.alertView.frame = CGRectMake(0, SCREEN_HEIGHT, self.alertView.width, self.alertView.height);
-    [APP_KEY_WINDOW addSubview:self];
+    self.alertView.frame = CGRectMake(0, TF_SCREEN_HEIGHT, self.alertView.width, self.alertView.height);
+    [TF_APP_KEY_WINDOW addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     
@@ -112,7 +112,7 @@
                           delay:0
                         options:UIViewAnimationOptionCurveLinear animations:^{
                             weakSelf.maskView.alpha = 1;
-        [weakSelf.alertView setFrame:CGRectMake(0, SCREEN_HEIGHT - weakSelf.alertView.height, weakSelf.alertView.width, weakSelf.alertView.height)];
+        [weakSelf.alertView setFrame:CGRectMake(0, TF_SCREEN_HEIGHT - weakSelf.alertView.height, weakSelf.alertView.width, weakSelf.alertView.height)];
                         } completion:^(BOOL finished) {
                             if (completion) {
                                 completion(finished);
@@ -128,7 +128,7 @@
                                  options:UIViewKeyframeAnimationOptionLayoutSubviews
                               animations:^{
         weakSelf.maskView.alpha = 0;
-        [weakSelf.alertView setFrame:CGRectMake(0, SCREEN_HEIGHT, weakSelf.alertView.width, weakSelf.alertView.height)];
+        [weakSelf.alertView setFrame:CGRectMake(0, TF_SCREEN_HEIGHT, weakSelf.alertView.width, weakSelf.alertView.height)];
                               }
                               completion:^(BOOL finished) {
                                   [weakSelf removeFromSuperview];

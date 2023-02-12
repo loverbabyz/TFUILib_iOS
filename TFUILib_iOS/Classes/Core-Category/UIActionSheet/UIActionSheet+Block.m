@@ -185,10 +185,10 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 {
     UIViewController *result = nil;
     
-    UIWindow * window = APP_KEY_WINDOW;
+    UIWindow * window = TF_APP_KEY_WINDOW;
     if (window.windowLevel != UIWindowLevelNormal)
     {
-        NSArray *windows = [APP_APPLICATION windows];
+        NSArray *windows = [TF_APP_APPLICATION windows];
         for(UIWindow * tmpWin in windows)
         {
             if (tmpWin.windowLevel == UIWindowLevelNormal)

@@ -272,7 +272,7 @@
     _placeholderColor = placeholderColor;
     NSAssert(_placeholderColor, @"Please set placeholder before setting placeholdercolor");
 
-    if ([SYSTEM_VERSION integerValue] < 6)
+    if ([TF_SYSTEM_VERSION integerValue] < 6)
     {
         [_textField setValue:_placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
     }

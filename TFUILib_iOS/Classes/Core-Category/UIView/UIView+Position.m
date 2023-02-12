@@ -8,6 +8,7 @@
 
 #import "UIView+Position.h"
 #import <TFBaseLib_iOS/TFBaseMacro+System.h>
+#import "TFUILibMacro+View.h"
 
 @implementation UIView (Position)
 
@@ -204,12 +205,12 @@
 
 -(CGFloat)screenWidth
 {
-    return MAIN_SCREEN.bounds.size.width;
+    return TF_SCREEN_WIDTH;
 }
 
 -(CGFloat)screenHeight
 {
-    return MAIN_SCREEN.bounds.size.height;
+    return TF_SCREEN_HEIGHT;
 }
 
 - (CGSize)size

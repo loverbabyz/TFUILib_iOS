@@ -17,14 +17,14 @@
 #pragma mark toast
 
 - (void)showToast:(NSString*)text {
-    MAIN_THREAD(^(){
-        [TFToast showWithText:text duration:2.5 atView:APP_KEY_WINDOW type:kToastTypeTop offsetY:64];
+    TF_MAIN_THREAD(^(){
+        [TFToast showWithText:text duration:2.5 atView:TF_APP_KEY_WINDOW type:kToastTypeTop offsetY:64];
     });
 }
 
 - (void)showToastWithText:(NSString*)text {
-    MAIN_THREAD(^(){
-        [TFToast showWithText:text duration:2.5 atView:APP_KEY_WINDOW type:kToastTypeTop offsetY:64];
+    TF_MAIN_THREAD(^(){
+        [TFToast showWithText:text duration:2.5 atView:TF_APP_KEY_WINDOW type:kToastTypeTop offsetY:64];
     });
 }
 

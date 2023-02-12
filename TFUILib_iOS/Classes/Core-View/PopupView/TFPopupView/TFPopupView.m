@@ -108,7 +108,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
 
 // 默认设置
 - (void)baseSetting {
-    self.backgroundColor = HEXCOLOR(TFPopupViewBackColor, 1);
+    self.backgroundColor = TF_HRGBA(TFPopupViewBackColor, 1);
     self.translatesAutoresizingMaskIntoConstraints = NO; // 允许约束
     
     _hideOnTouchOutside = YES; // 默认点击半透明层隐藏弹窗
@@ -246,7 +246,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
     // 富文本相关配置
     NSRange  attributeRange = NSMakeRange(0, _title.length);
     UIFont  *titleFont      = [UIFont boldSystemFontOfSize:16];
-    UIColor *titleTextColor = HEXCOLOR(0x333333, 1);
+    UIColor *titleTextColor = TF_HRGBA(0x333333, 1);
     CGFloat  lineSpacing = TFPopupViewTitleLineSpacing;
     CGFloat  kernSpacing = TFPopupViewTitleKernSpacing;
     
@@ -287,7 +287,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
         newFrame.origin.y = CGRectGetMaxY(self->_controllerView.frame);
         self.frame        = newFrame;
     } completion:^(BOOL finished) {
-        [[APP_APPLICATION.delegate window] makeKeyWindow];
+        [[TF_APP_APPLICATION.delegate window] makeKeyWindow];
         if (completion) {
             completion();
         }
@@ -312,7 +312,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
         return _window;
     }
     
-    _window = [[UIWindow alloc] initWithFrame:MAIN_SCREEN.bounds];
+    _window = [[UIWindow alloc] initWithFrame:TF_MAIN_SCREEN.bounds];
     _window.windowLevel = UIWindowLevelStatusBar+1;
     _window.rootViewController = [[UIViewController alloc] init];
     
@@ -323,12 +323,12 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
 
 - (TFView *)headerView {
     TFView *headerView = [[TFView alloc] init];
-    headerView.backgroundColor = HEXCOLOR(TFPopupViewRowNormalColor, 1);
+    headerView.backgroundColor = TF_HRGBA(TFPopupViewRowNormalColor, 1);
     
     // 标题
     TFLabel *titleLabel = [[TFLabel alloc] init];
     titleLabel.numberOfLines = 0;
-    titleLabel.textColor = HEXCOLOR(TFPopupViewTitleColor, 1);
+    titleLabel.textColor = TF_HRGBA(TFPopupViewTitleColor, 1);
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.titleLabel = titleLabel;
@@ -350,7 +350,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
     self.closeButton = closeButton;
     
     TFView *lineView = [TFView new];
-    lineView.backgroundColor = HEXCOLOR(TFPopupViewRowTopLineColor, 1);
+    lineView.backgroundColor = TF_HRGBA(TFPopupViewRowTopLineColor, 1);
     
     // 计算内容高度
     CGFloat headerHeight = [self heightForHeaderView];
@@ -391,10 +391,10 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
     }
     
     TFButton *cancelButton = [TFButton new];
-    [cancelButton setNormalTitle:self.cancelTitle textFont:[UIFont systemFontOfSize:17] textColor:HEXCOLOR(TFPopupViewItemNormalColor, 1)];
-    [cancelButton setNormalBackgroundImage:[UIImage imageWithColor:HEXCOLOR(TFPopupViewRowNormalColor, 1)]
-               hightlightedBackgroundImage:[UIImage imageWithColor:HEXCOLOR(TFPopupViewRowHighlightedColor, 1)]
-                   disabledBackgroundImage:[UIImage imageWithColor:HEXCOLOR(TFPopupViewRowDisabledColor, 1)]];
+    [cancelButton setNormalTitle:self.cancelTitle textFont:[UIFont systemFontOfSize:17] textColor:TF_HRGBA(TFPopupViewItemNormalColor, 1)];
+    [cancelButton setNormalBackgroundImage:[UIImage imageWithColor:TF_HRGBA(TFPopupViewRowNormalColor, 1)]
+               hightlightedBackgroundImage:[UIImage imageWithColor:TF_HRGBA(TFPopupViewRowHighlightedColor, 1)]
+                   disabledBackgroundImage:[UIImage imageWithColor:TF_HRGBA(TFPopupViewRowDisabledColor, 1)]];
     [cancelButton touchAction:^{
         [self hideWithCompletion:^{
             if (self.selectedHandler) {
@@ -408,7 +408,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
     CGFloat footY = [self headerView].height + self.contentView.height + kTFPopupViewSectionHeight;
     
     TFView *footerView = [[TFView alloc] init];
-    footerView.backgroundColor = HEXCOLOR(0xFBFBFE, 1);
+    footerView.backgroundColor = TF_HRGBA(0xFBFBFE, 1);
     footerView.frame = CGRectMake(0, footY, CGRectGetWidth(self.window.frame), TFPopupViewRowHeight);
     
     [footerView addSubview:self.cancelButton];

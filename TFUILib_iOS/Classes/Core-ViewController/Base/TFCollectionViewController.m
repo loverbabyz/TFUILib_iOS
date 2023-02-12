@@ -150,7 +150,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat width = SCREEN_WIDTH/3;
+    CGFloat width = TF_SCREEN_WIDTH/3;
     
     return CGSizeMake(width, width);
 }
@@ -227,7 +227,7 @@
         }
         // 固定在顶端
         //_flowLayout.scrollDirection                     = UICollectionViewScrollDirectionVertical;
-        //_flowLayout.headerReferenceSize                 = CGSizeMake(SCREEN_WIDTH, 30);
+        //_flowLayout.headerReferenceSize                 = CGSizeMake(TF_SCREEN_WIDTH, 30);
     }
     
     return _flowLayout;

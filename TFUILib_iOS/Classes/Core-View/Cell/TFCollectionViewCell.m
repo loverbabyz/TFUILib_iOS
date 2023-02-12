@@ -12,7 +12,7 @@
 @implementation TFCollectionViewCell
 
 + (id)loadCellFromXib {
-    return [UINib nibWithNibName:[self reusableIdentifier] bundle:MAIN_BUNDLE];
+    return [UINib nibWithNibName:[self reusableIdentifier] bundle:TF_MAIN_BUNDLE];
 }
 
 + (NSString*)reusableIdentifier {

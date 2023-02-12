@@ -39,14 +39,14 @@ static const char *ActionHandlerPanGestureKey;
             if ((sender.view.center.x + point.x - senderHalfViewWidth) <= 12) {
                 viewCenter.x = senderHalfViewWidth + 12;
             }
-            if ((sender.view.center.x + point.x + senderHalfViewWidth) >= (ScreenWidth - 12)) {
-                viewCenter.x = ScreenWidth - senderHalfViewWidth - 12;
+            if ((sender.view.center.x + point.x + senderHalfViewWidth) >= (TF_SCREEN_WIDTH - 12)) {
+                viewCenter.x = TF_SCREEN_WIDTH - senderHalfViewWidth - 12;
             }
             if ((sender.view.center.y + point.y - senderHalfViewHeight) <= 12) {
                 viewCenter.y = senderHalfViewHeight + 12;
             }
-            if ((sender.view.center.y + point.y + senderHalfViewHeight) >= (ScreenHeight - 12)) {
-                viewCenter.y = ScreenHeight - senderHalfViewHeight - 12;
+            if ((sender.view.center.y + point.y + senderHalfViewHeight) >= (TF_SCREEN_HEIGHT - 12)) {
+                viewCenter.y = TF_SCREEN_HEIGHT - senderHalfViewHeight - 12;
             }
             sender.view.center = viewCenter;
         } completion:^(BOOL finished) {

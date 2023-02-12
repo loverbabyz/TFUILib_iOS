@@ -14,7 +14,7 @@
 
 - (UIImage *)captureScreenshot
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, MAIN_SCREEN.scale);
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, TF_MAIN_SCREEN.scale);
     
     // after ios 7
     if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)])
@@ -42,19 +42,19 @@
 
 - (UIImage *)takeScreenshot
 {
-    BOOL ignoreOrientation = ([SYSTEM_VERSION floatValue]>=8.0);
+    BOOL ignoreOrientation = ([TF_SYSTEM_VERSION floatValue]>=8.0);
     
-    UIInterfaceOrientation orientation = APP_APPLICATION.statusBarOrientation;
+    UIInterfaceOrientation orientation = TF_APP_APPLICATION.statusBarOrientation;
     
     CGSize imageSize = CGSizeZero;
     if (UIInterfaceOrientationIsPortrait(orientation) || ignoreOrientation)
     {
-        imageSize = MAIN_SCREEN.bounds.size;
+        imageSize = TF_MAIN_SCREEN.bounds.size;
     }
     else
     {
-        imageSize = CGSizeMake(MAIN_SCREEN.bounds.size.height,
-                               MAIN_SCREEN.bounds.size.width);
+        imageSize = CGSizeMake(TF_MAIN_SCREEN.bounds.size.height,
+                               TF_MAIN_SCREEN.bounds.size.width);
     }
     
     UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
