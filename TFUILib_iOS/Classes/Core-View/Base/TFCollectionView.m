@@ -40,15 +40,27 @@
 }
 
 - (void)registerNib:(nullable Class)className {
-    [self registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(className)];
+    [self registerNib:className bundle:nil]];
 }
 
 - (void)registerHeaderNib:(nullable Class)className {
-    [self registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(className)];
+    [self registerHeaderNib:className bundle:nil]];
 }
 
 - (void)registerFooterNib:(nullable Class)className {
-    [self registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(className)];
+    [self registerFooterNib:className bundle:nil]];
+}
+
+- (void)registerNib:(nullable Class)className bundle:(NSBundle *)bundle {
+    [self registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:bundle] forCellWithReuseIdentifier:NSStringFromClass(className)];
+}
+
+- (void)registerHeaderNib:(nullable Class)className bundle:(NSBundle *)bundle {
+    [self registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:bundle] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(className)];
+}
+
+- (void)registerFooterNib:(nullable Class)className bundle:(NSBundle *)bundle {
+    [self registerNib:[UINib nibWithNibName:NSStringFromClass(className) bundle:bundle] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(className)];
 }
 
 @end

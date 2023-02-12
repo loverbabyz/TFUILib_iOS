@@ -46,4 +46,20 @@
 /// @param className Nib文件类名称
 - (void)registerFooterNib:(Class)className;
 
+
+/// <#Description#>
+/// @param className <#className description#>
+/// @param bundle <#bundle description#>
+- (void)registerNib:(nullable Class)className bundle:(NSBundle *)bundle;
+
+/// <#Description#>
+/// @param className <#className description#>
+/// @param bundle <#bundle description#>
+- (void)registerHeaderNib:(nullable Class)className bundle:(NSBundle *)bundle;
+
+/// <#Description#>
+/// @param className <#className description#>
+/// @param bundle <#bundle description#>
+- (void)registerFooterNib:(nullable Class)className bundle:(NSBundle *)bundle;
+
 @end
