@@ -51,7 +51,7 @@ UI lib for Treasure framework.
       'OTHER_LDFLAGS' => '-ObjC -all_load -force_load'
   }
   
-  s.dependency 'TFBaseLib_iOS',"1.1.12"
+  s.dependency 'TFBaseLib_iOS'
   s.dependency 'MJExtension'
   s.dependency 'MJRefresh'
   s.dependency 'Masonry'
