@@ -8,6 +8,7 @@
 
 #import "TFTimeoutPoolManager.h"
 #import "TFTimeOutModel.h"
+#import <TFBaseLib_iOS/TFBaseMacro+Singleton.h>
 
 @interface TFTimeoutPoolManager()
 
@@ -25,17 +26,7 @@
     [_poolDict removeAllObjects];
 }
 
-+ (instancetype)sharedManager {
-    static TFTimeoutPoolManager *instance = nil;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[TFTimeoutPoolManager alloc] init];
-        instance.poolDict = [NSMutableDictionary new];
-    });
-    
-    return instance;
-}
+TFSingletonM(Manager)
 
 - (void)addTimeoutObserver:(float)timeout
                 forKeyPath:(NSString *)forKeyPath

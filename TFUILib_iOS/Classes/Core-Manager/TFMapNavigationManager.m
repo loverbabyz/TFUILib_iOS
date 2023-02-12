@@ -8,6 +8,7 @@
 
 #import "TFMapNavigationManager.h"
 #import <TFBaseLib_iOS/TFBaseMacro+System.h>
+#import <TFBaseLib_iOS/TFBaseMacro+Singleton.h>
 
 const double tfx_pi = 3.14159265358979324 * 3000.0 / 180.0;
 
@@ -49,16 +50,7 @@ void bd_decrypt(double bd_lat, double bd_lon, double *gg_lat, double *gg_lon)
     [TFMapNavigationManager sharedManager];
 }
 
-+ (instancetype) sharedManager
-{
-    static TFMapNavigationManager *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[TFMapNavigationManager alloc] init];
-    });
-    
-    return sharedInstance;
-}
+TFSingletonM(Manager)
 
 + (UIViewController*)getTopViewController
 {
