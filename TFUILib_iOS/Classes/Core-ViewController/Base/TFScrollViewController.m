@@ -9,7 +9,7 @@
 #import "TFScrollViewController.h"
 
 #import <MJRefresh/MJRefresh.h>
-#import <MJExtension/MJExtension.h>
+#import <TFBaseLib_iOS/TFMJExtension.h>
 #import <Masonry/Masonry.h>
 
 @implementation TFScrollViewController

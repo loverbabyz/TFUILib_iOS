@@ -4,13 +4,13 @@
 //
 //  Created by Daniel on 15/7/2.
 //  Copyright (c) daniel.xiaofei@gmail.com All rights reserved.
-//  Usage: https://github.com/listenzz/HBDNavigationBar
+//  Usage: https://github.com/listenzz/TFHBDNavigationBar
 //
 
 #import <UIKit/UIKit.h>
-#import <HBDNavigationBar/HBDNavigationController.h>
+#import "TFHBDNavigationController.h"
 
-@interface TFNavigationController : HBDNavigationController
+@interface TFNavigationController : TFHBDNavigationController
 
 /**
  *  根视图

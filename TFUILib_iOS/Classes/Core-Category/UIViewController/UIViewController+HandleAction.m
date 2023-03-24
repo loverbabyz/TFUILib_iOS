@@ -9,7 +9,7 @@
 #import "UIViewController+HandleAction.h"
 #import "UIViewController+Push.h"
 #import "TFWebViewController.h"
-#import "MJExtension.h"
+#import <TFBaseLib_iOS/TFMJExtension.h>
 #import "TFWebModel.h"
 
 @implementation UIViewController (HandleAction)
@@ -146,7 +146,7 @@
             TFViewController *tempViewController = (TFViewController *)vc;
             if ([parameter isKindOfClass:viewModelClass])
             {
-                tempViewController.viewModel = [viewModelClass mj_objectWithKeyValues:dict];
+                tempViewController.viewModel = [viewModelClass tf_mj_objectWithKeyValues:dict];
             }
             else if ([parameter isKindOfClass:[NSString class]])
             {
@@ -158,7 +158,7 @@
                 }
                 else
                 {
-                    tempViewController.viewModel = [viewModelClass mj_objectWithKeyValues:dict];
+                    tempViewController.viewModel = [viewModelClass tf_mj_objectWithKeyValues:dict];
                 }
             }
             else

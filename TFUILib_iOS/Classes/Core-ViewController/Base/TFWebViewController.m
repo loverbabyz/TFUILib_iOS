@@ -9,7 +9,7 @@
 #import "TFWebViewController.h"
 #import "TFWebViewControllerAppearance.h"
 #import "Masonry.h"
-#import "MJExtension.h"
+#import <TFBaseLib_iOS/TFMJExtension.h>
 #import "TFBaseLib_iOS.h"
 
 #define kScreen_Height SCREEN_HEIGHT

@@ -10,7 +10,7 @@
 #import "TFImageView.h"
 
 #import <Masonry/Masonry.h>
-#import <pop/POP.h>
+//#import <pop/POP.h>
 
 @interface TFCustomTabBar()
 
@@ -294,6 +294,7 @@
 {
     if (animated)
     {
+        /*
         [self pop_removeAllAnimations];
         
         if (hidden)
@@ -318,6 +319,7 @@
             
             [self pop_addAnimation:animation forKey:@"showTabBarAnimation"];
         }
+        */
     }
     else
     {

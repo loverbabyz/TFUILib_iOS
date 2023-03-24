@@ -9,8 +9,8 @@
 #import "TFLoopView.h"
 #import "TFLoopViewCell.h"
 #import "TFPageControl.h"
-#import "SDImageCache.h"
-#import "UIImageView+WebCache.h"
+//#import "SDImageCache.h"
+//#import "UIImageView+WebCache.h"
 
 @interface TFLoopView () <UICollectionViewDelegate>
 
@@ -369,7 +369,8 @@
 
 + (void)clearImagesCache
 {
-    [[[SDWebImageManager sharedManager] imageCache] clearWithCacheType:SDImageCacheTypeDisk completion:nil];
+    NSAssert(YES, @"TODO...");
+    // [[[SDWebImageManager sharedManager] imageCache] clearWithCacheType:SDImageCacheTypeDisk completion:nil];
 }
 
 #pragma mark - life circles

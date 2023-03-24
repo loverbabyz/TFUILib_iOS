@@ -7,7 +7,7 @@
 //
 
 #import "TFWebView.h"
-#import <MJExtension/MJExtension.h>
+#import <TFBaseLib_iOS/TFMJExtension.h>
 
 @interface TFWebView()
 
@@ -153,11 +153,11 @@
     }
     
     WebBridgeResponseModel *response = [WebBridgeResponseModel new];
-    response.errorCode = result ? @(200) : @(-1);
+    response.errorCode = result ? 200 : -1;
     response.message = realMessage;
     response.result = responseObject;
 
-    responseCallBack([response mj_keyValues]);
+    responseCallBack([response tf_mj_keyValues]);
 }
 
 - (BOOL)registerBridge:(nonnull WKWebViewJavascriptBridge *)bridge {

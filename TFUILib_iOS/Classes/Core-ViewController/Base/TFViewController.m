@@ -8,7 +8,7 @@
 
 #import "TFViewController.h"
 
-#import <MJExtension/MJExtension.h>
+#import <TFBaseLib_iOS/TFMJExtension.h>
 
 @interface TFViewController ()<UINavigationBarDelegate>
 
@@ -64,7 +64,7 @@
         Class viewModel = NSClassFromString(viewModelClassName);
         if (viewModel)
         {
-            _viewModel = [viewModel mj_objectWithKeyValues:data];
+            _viewModel = [viewModel tf_mj_objectWithKeyValues:data];
         }
     }
     

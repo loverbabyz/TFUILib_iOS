@@ -7,7 +7,7 @@
 //
 
 #import "UIImageView+Placeholder.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 
 @implementation UIImageView (Placeholder)
 
@@ -23,12 +23,15 @@
     }
     else if ([name hasPrefix:@"http"])
     {
+        NSAssert(YES, @"TODO...");
         // 如果占位图片为空，不设置占位图，避免出现<CUICatalog: Invalid asset name supplied: ''>调试警告
+        /*
         if (placeholder && placeholder.length > 0) {
             [self sd_setImageWithURL:[NSURL URLWithString:name] placeholderImage:[UIImage imageNamed:placeholder]];
         } else {
             [self sd_setImageWithURL:[NSURL URLWithString:name]];
         }
+        */
     }
     else
     {
