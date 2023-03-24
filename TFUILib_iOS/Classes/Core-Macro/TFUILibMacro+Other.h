@@ -6,6 +6,9 @@
 //  Copyright (c) daniel.xiaofei@gmail.com All rights reserved.
 //
 
+#if __has_include("TFUILibMacro+View.h")
+#import "TFUILibMacro+View.h"
+#endif
 /**
  *  读取本地图片
  *
@@ -14,7 +17,9 @@
  *
  *  @return 获取到的图片
  */
-#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+#ifndef TF_LOADIMAGE
+#define TF_LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[TF_MAIN_BUNDLEpathForResource:file ofType:ext]]
+#endif
 
 /**
  *  定义UIImage对象
@@ -23,7 +28,9 @@
  *
  *  @return UIImage对象
  */
-#define IMAGE(name) [UIImage imageNamed:name]
+#ifndef TF_IMAGE
+#define TF_IMAGE(name) [UIImage imageNamed:name]
+#endif
 
 /**
  *  创建alter
@@ -33,11 +40,13 @@
  *
  *  @return alter
  */
-#define ALERT(title, msg) \
+#ifndef TF_ALERT
+#define TF_ALERT(title, msg) \
 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil \
 cancelButtonTitle:NSLocalizedString(@"ok", @"ok") \
 otherButtonTitles:nil]; \
 [alert show];
+#endif
 
 /**
  *  创建imageview并设置偏移量
@@ -50,7 +59,9 @@ otherButtonTitles:nil]; \
  *
  *  @return 设置好的image
  */
-#define RESIZABLE_IMAGE(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]
+#ifndef TF_RESIZABLE_IMAGE
+#define TF_RESIZABLE_IMAGE(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]
+#endif
 
 /**
  *  创建imageview并设置偏移量
@@ -64,7 +75,9 @@ otherButtonTitles:nil]; \
  *
  *  @return 设置好的image
  */
-#define RESIZABLE_IMAGE_MODEL(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]
+#ifndef TF_RESIZABLE_IMAGE_MODEL
+#define TF_RESIZABLE_IMAGE_MODEL(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]
+#endif
 
 /**
  * 通过不同机型的设计稿像素值获取高度
@@ -74,8 +87,9 @@ otherButtonTitles:nil]; \
  *  @param p_x3  x3像素
  *
  */
-#define STYLE_BY_PIXEL(p_x1, p_x2, p_x3)\
-(TARGET_IPHONE_6PLUS ? p_x3 / 3.0 : (TARGET_IPHONE_6 ? p_x2 / 2.0 : p_x1 / 2.0))
+#ifndef TF_STYLE_BY_PIXEL
+#define TF_STYLE_BY_PIXEL(p_x1, p_x2, p_x3) (TF_TARGET_IPHONE_6PLUS ? p_x3 / 3.0 : (TF_TARGET_IPHONE_6 ? p_x2 / 2.0 : p_x1 / 2.0))
+#endif
 
 /**
 * 通过设计稿像素值获取高度
@@ -83,17 +97,38 @@ otherButtonTitles:nil]; \
 *  @param pixel  设计稿像素
 *
 */
-#define STYLE_BY_PIX(pixel)\
-pixel * [UIScreen mainScreen].scale
-
+#ifndef TF_STYLE_BY_PIX
+#define TF_STYLE_BY_PIX(pixel) pixel * TF_MAIN_SCREEN.scale
+#endif
 
 /**
  *  通过设计稿中给的像素获取实际设备像素
  *
  *  @param designedPixel 设计稿中给的像素值
  */
-#define REAL_PIXEL(designedPixel)\
-(TARGET_IPHONE_6PLUS ? (designedPixel / 3.0) : (designedPixel / 2.0))
+#ifndef TF_REAL_PIXEL
+#define TF_REAL_PIXEL(designedPixel) (TF_TARGET_IPHONE_6PLUS ? (designedPixel / 3.0) : (designedPixel / 2.0))
+#endif
 
-#define HEIGHT(px) (TARGET_IPHONE_6PLUS ? px*1.5 : px)
-#define WIDTH(px) (TARGET_IPHONE_6PLUS ? px*1.5 : px)
+#ifndef TF_WIDTH_SCALE
+#define TF_HEIGHT(px) (TF_TARGET_IPHONE_6PLUS ? px*1.5 : px)
+#endif
+
+#ifndef TF_WIDTH_SCALE
+#define TF_WIDTH(px) (TF_TARGET_IPHONE_6PLUS ? px*1.5 : px)
+#endif
+
+/**
+ *  宽的缩放比例
+ */
+#ifndef TF_WIDTH_SCALE
+#define TF_WIDTH_SCALE (TF_MAIN_SCREEN.bounds.size.width / 320.0)
+#endif
+
+/**
+ *  高的缩放比例
+ *
+ */
+#ifndef TF_HEIGHT_SCALE
+#define TF_HEIGHT_SCALE (TF_MAIN_SCREEN.bounds.size.height / 568.0)
+#endif

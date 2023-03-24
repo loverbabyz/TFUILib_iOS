@@ -7,11 +7,12 @@
 //
 
 #import "TFCollectionViewCell.h"
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation TFCollectionViewCell
 
 + (id)loadCellFromXib {
-    return [UINib nibWithNibName:[self reusableIdentifier] bundle:[NSBundle mainBundle]];
+    return [UINib nibWithNibName:[self reusableIdentifier] bundle:TF_MAIN_BUNDLE];
 }
 
 + (NSString*)reusableIdentifier {

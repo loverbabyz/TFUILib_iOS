@@ -23,6 +23,7 @@
 #import "UIViewController+TFDrawerController.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 CGFloat const MMDrawerDefaultWidth = 280.0f;
 CGFloat const MMDrawerDefaultAnimationVelocity = 840.0f;
@@ -887,7 +888,7 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
 }
 
 -(void)setShowsStatusBarBackgroundView:(BOOL)showsDummyStatusBar{
-    NSArray *sysVersion = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    NSArray *sysVersion = [TF_SYSTEM_VERSION componentsSeparatedByString:@"."];
     float majorVersion = [[sysVersion objectAtIndex:0] floatValue];
     if (majorVersion >= 7){
         if(showsDummyStatusBar!=_showsStatusBarBackgroundView){

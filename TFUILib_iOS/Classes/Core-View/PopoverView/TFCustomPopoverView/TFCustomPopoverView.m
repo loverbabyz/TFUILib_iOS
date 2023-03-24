@@ -8,6 +8,7 @@
 
 #import "TFCustomPopoverView.h"
 #import <QuartzCore/QuartzCore.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #ifdef __IPHONE_6_0
 
@@ -671,7 +672,7 @@
     parentView = view;
     
     // get the top view
-    topView = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+    topView = [[TF_APP_KEY_WINDOW subviews] lastObject];
     
     [self setupLayout:point inView:view];
     
@@ -1079,9 +1080,9 @@
 
 - (CGSize) screenSize
 {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    UIApplication *application = [UIApplication sharedApplication];
+    UIInterfaceOrientation orientation = TF_APP_APPLICATION.statusBarOrientation;
+    CGSize size = TF_MAIN_SCREEN.bounds.size;
+    UIApplication *application = TF_APP_APPLICATION;
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
         size = CGSizeMake(size.height, size.width);

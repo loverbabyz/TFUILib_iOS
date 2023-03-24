@@ -45,8 +45,8 @@
 
 - (void)initViews
 {
-    self.textLabel.font      = FONT(14);
-    self.textLabel.textColor = HEXCOLOR(0X333333, 1);
+    self.textLabel.font      = TF_AppFont(14);
+    self.textLabel.textColor = TF_HRGBA(0X333333, 1);
 }
 
 - (void)autolayoutViews

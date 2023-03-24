@@ -139,13 +139,13 @@
     if (!_topTitle)
     {
         self.topTitle = [[UILabel alloc]init];
-        _topTitle.bounds = CGRectMake(0, 0, SCREEN_WIDTH, 60);
-        _topTitle.center = CGPointMake(CGRectGetWidth(self.view.frame)/2, SCREEN_HEIGHT-200);
+        _topTitle.bounds = CGRectMake(0, 0, TF_SCREEN_WIDTH, 60);
+        _topTitle.center = CGPointMake(CGRectGetWidth(self.view.frame)/2, TF_SCREEN_HEIGHT-200);
         
         //3.5inch iphone
-        if ([UIScreen mainScreen].bounds.size.height <= 568 )
+        if (TF_MAIN_SCREEN.bounds.size.height <= 568 )
         {
-            _topTitle.center = CGPointMake(CGRectGetWidth(self.view.frame)/2, SCREEN_HEIGHT-160);
+            _topTitle.center = CGPointMake(CGRectGetWidth(self.view.frame)/2, TF_SCREEN_HEIGHT-160);
             _topTitle.font = [UIFont systemFontOfSize:14];
         }
         
@@ -425,7 +425,7 @@
     style.centerUpOffset = 60;
     style.xScanRetangleOffset = 30;
     
-    if ([UIScreen mainScreen].bounds.size.height <= 480 )
+    if (TF_MAIN_SCREEN.bounds.size.height <= 480 )
     {
         //3.5inch 显示的扫码缩小
         style.centerUpOffset = 40;

@@ -7,6 +7,7 @@
 //
 
 #import "TFView.h"
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation TFView
 
@@ -14,7 +15,7 @@
 
 + (id)loadViewFromXib
 {
-    NSArray* nibView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil];
+    NSArray* nibView = [TF_MAIN_BUNDLE loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil];
     return [nibView objectAtIndex:0];
 }
 

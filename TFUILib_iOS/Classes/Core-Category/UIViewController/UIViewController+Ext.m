@@ -8,17 +8,18 @@
 
 #import "UIViewController+Ext.h"
 #import "TFTabBarController.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation UIViewController (Ext)
 
 - (UIViewController*)toppestViewController
 {
-    return [self toppestViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self toppestViewControllerWithRootViewController: TF_APP_KEY_WINDOW.rootViewController];
 }
 
 - (UIViewController*)rootViewController
 {
-    return [UIApplication sharedApplication].keyWindow.rootViewController;
+    return TF_APP_KEY_WINDOW.rootViewController;
 }
 
 - (UIViewController*)toppestViewControllerWithRootViewController:(UIViewController*)rootViewController
@@ -51,12 +52,12 @@
 
 -(CGFloat)screenWidth
 {
-    return [UIScreen mainScreen].bounds.size.width;
+    return TF_SCREEN_WIDTH;
 }
 
 -(CGFloat)screenHeight
 {
-    return [UIScreen mainScreen].bounds.size.height;
+    return TF_SCREEN_HEIGHT;
 }
 
 @end

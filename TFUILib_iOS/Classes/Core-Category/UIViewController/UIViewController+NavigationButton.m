@@ -12,8 +12,8 @@
 #import "TFUIUtil.h"
 #import "TFButton.h"
 
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_WIDTH (TF_MAIN_SCREEN.bounds.size.width)
+#define SCREEN_HEIGHT (TF_MAIN_SCREEN.bounds.size.height)
 
 @implementation UIViewController (NavigationButton)
 
@@ -70,7 +70,7 @@
       highLightImage:(NSString *)highLightImage
             selector:(SEL)selector
 {
-    CGRect rect   = CGRectMake(0, -2*SCREEN_WIDTH/320, [UIImage imageNamed:strImage].size.width, 44);
+    CGRect rect   = CGRectMake(0, -2*TF_SCREEN_WIDTH/320, [UIImage imageNamed:strImage].size.width, 44);
     UIButton *btn = [[UIButton alloc] initWithFrame:rect];
     
     [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
@@ -162,7 +162,7 @@
                color:(UIColor *)color
             selector:(SEL)selector
 {
-    CGRect rect = CGRectMake(0, -2*SCREEN_WIDTH/320, 60, 44);
+    CGRect rect = CGRectMake(0, -2*TF_SCREEN_WIDTH/320, 60, 44);
     
     UIButton *btn = [[UIButton alloc] initWithFrame:rect];
     
@@ -209,7 +209,7 @@
        highLightImage:(NSString *)highLightImage
              selector:(SEL)selector
 {
-    CGRect rect = CGRectMake(0, -2*SCREEN_WIDTH/320, [UIImage imageNamed:strImage].size.width, 44);
+    CGRect rect = CGRectMake(0, -2*TF_SCREEN_WIDTH/320, [UIImage imageNamed:strImage].size.width, 44);
     
     UIButton *btn = [[UIButton alloc] initWithFrame:rect];
     
@@ -298,7 +298,7 @@
                 color:(UIColor *)color
              selector:(SEL)selector
 {
-    CGRect rect = CGRectMake(0, -2*SCREEN_WIDTH/320, 60, 44);
+    CGRect rect = CGRectMake(0, -2*TF_SCREEN_WIDTH/320, 60, 44);
     
     UIButton *btn = [[UIButton alloc] initWithFrame:rect];
     

@@ -10,14 +10,14 @@
 
 #define BORDERWIDTH (1.0) // 边框宽度
 
-#define HEXCOLORINBUTTON(c,a)  [UIColor colorWithRed:((c>>16)&0xFF)/255.0 \
+#define kHRGBAINBUTTON(c,a)  [UIColor colorWithRed:((c>>16)&0xFF)/255.0 \
 green:((c>>8)&0xFF)/255.0 \
 blue:(c&0xFF)/255.0 \
 alpha:a]
 
 #define kImageWithName(Name) ([UIImage imageNamed:Name])
 
-#define kBigImageWithName(Name) ([UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:Name ofType:nil]])
+#define kBigImageWithName(Name) ([UIImage imageWithContentsOfFile:[TF_MAIN_BUNDLE pathForResource:Name ofType:nil]])
 
 //    获得按钮的大小
 #define fl_btnWidth self.bounds.size.width

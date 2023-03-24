@@ -15,21 +15,21 @@
 
 - (void)showLoading
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
         [TFLoadingView showWithText:@"" activityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite atView:self.view offsetY:0];
     });
 }
 
 - (void)showLoadingWithText:(NSString*)text
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
         [TFLoadingView showWithText:text activityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite atView:self.view offsetY:0];
     });
 }
 
 - (void)hideLoading
 {
-    MAIN_THREAD(^(){
+    TF_MAIN_THREAD(^(){
         [TFLoadingView hideAtView:self.view];
     });
 }

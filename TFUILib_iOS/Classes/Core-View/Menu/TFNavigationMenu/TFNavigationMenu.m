@@ -8,7 +8,7 @@
 
 #import "TFNavigationMenu.h"
 
-#define HEXCOLOR(c,a)        [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
+#define kHRGBA(c,a)        [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
 
 #pragma mark - TFNavigationMenuConfiguration
 
@@ -94,7 +94,7 @@
         [self.contentView addSubview:self.checkImageView];
         
         self.lineImageView = [[UIImageView alloc] init];
-        self.lineImageView.backgroundColor = HEXCOLOR(0xDFDFDD, 1);
+        self.lineImageView.backgroundColor = TF_HRGBA(0xDFDFDD, 1);
         [self.contentView addSubview:self.lineImageView];
         
         UIView *backgroundView=[[UIView alloc]init];
@@ -256,7 +256,7 @@
         self.menuArrowImageView.image=self.configuration.arrowImage;
         
         self.maskView = [[UIView alloc] init];
-        self.maskView.frame=CGRectMake(0, self.offsetY, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height-self.offsetY);
+        self.maskView.frame=CGRectMake(0, self.offsetY, TF_MAIN_SCREEN.bounds.size.width , TF_MAIN_SCREEN.bounds.size.height-self.offsetY);
         self.maskView.backgroundColor = self.configuration.maskBackgroundColor;
         self.maskView.clipsToBounds=YES;
         
@@ -267,7 +267,7 @@
         
         self.didSelectItemAtIndexHandler=block;
         
-        self.tableView = [[TFNavigationMenuTableView alloc] initWithFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,(CGFloat)(self.items.count) * self.configuration.cellHeight)
+        self.tableView = [[TFNavigationMenuTableView alloc] initWithFrame:CGRectMake(0,0,TF_MAIN_SCREEN.bounds.size.width,(CGFloat)(self.items.count) * self.configuration.cellHeight)
                                                                     items:items
                                                             configuration:self.configuration];
         self.tableView.didSelectItemAtIndexHandler = ^(NSUInteger index){
@@ -305,7 +305,7 @@
     
     [self rotateArrow];
     
-    self.maskView.backgroundColor = HEXCOLOR(0x000000, 0);
+    self.maskView.backgroundColor = TF_HRGBA(0x000000, 0);
     
     self.tableView.frame = CGRectMake(self.tableView.frame.origin.x,
                                       -(CGFloat)(self.items.count) * self.configuration.cellHeight,
@@ -325,7 +325,7 @@
                                                            0,
                                                            strongSelf.tableView.frame.size.width,
                                                            strongSelf.tableView.frame.size.height);
-                         strongSelf.maskView.backgroundColor = HEXCOLOR(0x000000, strongSelf.configuration.maskBackgroundOpacity);
+                         strongSelf.maskView.backgroundColor = TF_HRGBA(0x000000, strongSelf.configuration.maskBackgroundOpacity);
                      }
                      completion:nil];
 }
@@ -334,7 +334,7 @@
 {
     [self rotateArrow];
 
-    self.maskView.backgroundColor = HEXCOLOR(0x000000, self.configuration.maskBackgroundOpacity);
+    self.maskView.backgroundColor = TF_HRGBA(0x000000, self.configuration.maskBackgroundOpacity);
     
     __weak typeof(self) weakSelf = self;
     
@@ -348,7 +348,7 @@
                                                            -(CGFloat)(strongSelf.items.count) * strongSelf.configuration.cellHeight,
                                                            strongSelf.tableView.frame.size.width,
                                                            strongSelf.tableView.frame.size.height);
-                         strongSelf.maskView.backgroundColor = HEXCOLOR(0x000000, 0);
+                         strongSelf.maskView.backgroundColor = TF_HRGBA(0x000000, 0);
                      }
                      completion:^(BOOL finished) {
                          [weakSelf.maskView removeFromSuperview];

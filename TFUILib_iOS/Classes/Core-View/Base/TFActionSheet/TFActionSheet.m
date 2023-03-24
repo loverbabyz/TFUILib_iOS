@@ -8,6 +8,7 @@
 
 #import "TFActionSheet.h"
 #import "TFActionSheetCell.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 /**
  *  分区间距
@@ -251,7 +252,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
         newFrame.origin.y = CGRectGetMaxY(weakSelf.controllerView.frame);
         weakSelf.frame        = newFrame;
     } completion:^(BOOL finished) {
-        [[[UIApplication sharedApplication].delegate window] makeKeyWindow];
+        [[TF_APP_APPLICATION.delegate window] makeKeyWindow];
         if (completion) completion();
         [weakSelf.backView removeFromSuperview];
         weakSelf.backView = nil;
@@ -316,7 +317,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 {
     if (_window) return _window;
     
-    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _window = [[UIWindow alloc] initWithFrame:TF_MAIN_SCREEN.bounds];
     _window.windowLevel = UIWindowLevelStatusBar+1;
     _window.rootViewController = [[UIViewController alloc] init];
     self.controllerView = _window.rootViewController.view;

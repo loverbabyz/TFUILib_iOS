@@ -4,6 +4,7 @@
 //
 
 #import "TFCenterPopupView.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface TFCenterPopupView ()
 
@@ -22,7 +23,7 @@
     
     if (self)
     {
-        self.frame=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.height);
+        self.frame=CGRectMake(0, 0, [TF_MAIN_SCREEN bounds].size.width, [TF_MAIN_SCREEN bounds].size.height);
         self.userInteractionEnabled = YES;
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
         
@@ -48,7 +49,7 @@
 {
     self.type=type;
     
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [TF_APP_KEY_WINDOW addSubview:self];
     
     if (type==kCenterPopupViewAnimateSpring)
     {
@@ -90,7 +91,7 @@
 
 -(void)show
 {
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [TF_APP_KEY_WINDOW addSubview:self];
 }
 
 -(void)hide

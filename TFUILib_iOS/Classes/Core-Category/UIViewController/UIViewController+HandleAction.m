@@ -9,8 +9,9 @@
 #import "UIViewController+HandleAction.h"
 #import "UIViewController+Push.h"
 #import "TFWebViewController.h"
-#import <TFBaseLib_iOS/TFMJExtension.h>
+#import "MJExtension.h"
 #import "TFWebModel.h"
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation UIViewController (HandleAction)
 
@@ -98,7 +99,7 @@
     NSString *action = item.action;
     if (action!=nil)
     {
-        NSString *fielPath = [[NSBundle mainBundle] pathForResource:@"ActionConfig" ofType:@"plist"];
+        NSString *fielPath = [TF_MAIN_BUNDLE pathForResource:@"ActionConfig" ofType:@"plist"];
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fielPath];
         
         if (dict==nil)
@@ -146,7 +147,7 @@
             TFViewController *tempViewController = (TFViewController *)vc;
             if ([parameter isKindOfClass:viewModelClass])
             {
-                tempViewController.viewModel = [viewModelClass tf_mj_objectWithKeyValues:dict];
+                tempViewController.viewModel = [viewModelClass mj_objectWithKeyValues:dict];
             }
             else if ([parameter isKindOfClass:[NSString class]])
             {
@@ -158,7 +159,7 @@
                 }
                 else
                 {
-                    tempViewController.viewModel = [viewModelClass tf_mj_objectWithKeyValues:dict];
+                    tempViewController.viewModel = [viewModelClass mj_objectWithKeyValues:dict];
                 }
             }
             else

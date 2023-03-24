@@ -9,6 +9,7 @@
 #import "TFProvincePicker.h"
 
 #import <Masonry/Masonry.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #pragma mark -
 #pragma mark MoreFunctionViewCell
@@ -32,13 +33,13 @@
         self.backgroundColor=[UIColor clearColor];
         
         UIView *backgroundView = [[UIView alloc]init];
-        [backgroundView setBackgroundColor:HEXCOLOR(0x666666, 1)];
+        [backgroundView setBackgroundColor:TF_HRGBA(0x666666, 1)];
         self.selectedBackgroundView = backgroundView;
         
         self.titleLabel = UILabel.new;
         self.titleLabel.textAlignment=NSTextAlignmentCenter;
-        self.titleLabel.textColor=HEXCOLOR(0x333333, 1);
-        self.titleLabel.font=FONT(15);
+        self.titleLabel.textColor= TF_HRGBA(0x333333, 1);
+        self.titleLabel.font= TF_AppFont(15);
         self.titleLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
         self.titleLabel.layer.borderWidth = 1.0;
         
@@ -102,7 +103,7 @@
 
 - (id)initWithBlock:(TFProvincePickerBlock)block
 {
-    self = [super initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT)];
     if (self)
     {
         self.clipsToBounds=YES;
@@ -187,8 +188,8 @@
 - (void)show:(void (^)(BOOL finished))completion
 {
     self.backgroundView.alpha = 0;
-    self.alertView.frame = CGRectMake(0, SCREEN_HEIGHT, self.alertView.frame.size.width, self.alertView.frame.size.height);
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self];
+    self.alertView.frame = CGRectMake(0, TF_SCREEN_HEIGHT, self.alertView.frame.size.width, self.alertView.frame.size.height);
+    [TF_APP_KEY_WINDOW addSubview:self];
     
     __weak typeof(self) weakSelf = self;
     
@@ -197,7 +198,7 @@
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                               weakSelf.backgroundView.alpha = 1;
-        self->_alertView.frame = CGRectMake(0, SCREEN_HEIGHT-self->_alertView.frame.size.height, self->_alertView.frame.size.width, self->_alertView.frame.size.height);
+        self->_alertView.frame = CGRectMake(0, TF_SCREEN_HEIGHT-self->_alertView.frame.size.height, self->_alertView.frame.size.width, self->_alertView.frame.size.height);
                           } completion:^(BOOL finished) {
                               if (completion) {
                                   completion(finished);
@@ -214,7 +215,7 @@
                                  options:UIViewKeyframeAnimationOptionLayoutSubviews
                               animations:^{
                                   weakSelf.backgroundView.alpha = 0;
-                                  self->_alertView.frame = CGRectMake(0, SCREEN_HEIGHT, self->_alertView.frame.size.width, self->_alertView.frame.size.height);
+                                  self->_alertView.frame = CGRectMake(0, TF_SCREEN_HEIGHT, self->_alertView.frame.size.width, self->_alertView.frame.size.height);
                               }
                               completion:^(BOOL finished) {
                                   [self removeFromSuperview];
@@ -251,7 +252,7 @@
     if (_maskView==nil)
     {
         _maskView = [[UIButton alloc] initWithFrame:self.frame];
-        _maskView.backgroundColor = HEXCOLOR(0X000008,0.5);
+        _maskView.backgroundColor = TF_HRGBA(0X000008,0.5);
         [_maskView addTarget:self action:@selector(cancelButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -263,8 +264,8 @@
     if (_alertView==nil)
     {
         _alertView = [[UIView alloc] init];
-        _alertView.frame=CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, [self alertViewHeight]);
-        _alertView.backgroundColor=HEXCOLOR(0xeeeeee, 1);;
+        _alertView.frame=CGRectMake(0, TF_SCREEN_HEIGHT, TF_SCREEN_WIDTH, [self alertViewHeight]);
+        _alertView.backgroundColor= TF_HRGBA(0xeeeeee, 1);;
     }
     
     return _alertView;
@@ -277,8 +278,8 @@
         _titleLabel = UILabel.new;
         _titleLabel.text=@"请选择车牌前缀";
         _titleLabel.textAlignment=NSTextAlignmentLeft;
-        _titleLabel.textColor=HEXCOLOR(0x333333, 1);
-        _titleLabel.font=FONT(15);
+        _titleLabel.textColor= TF_HRGBA(0x333333, 1);
+        _titleLabel.font= TF_AppFont(15);
     }
     
     return _titleLabel;
@@ -291,7 +292,7 @@
         UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = 0;
-        flowLayout.itemSize=CGSizeMake(SCREEN_WIDTH/self.numOfRow,SCREEN_WIDTH/self.numOfRow);;
+        flowLayout.itemSize=CGSizeMake(TF_SCREEN_WIDTH/self.numOfRow, TF_SCREEN_WIDTH/self.numOfRow);;
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
         
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
@@ -307,9 +308,9 @@
 
 -(CGFloat)alertViewHeight
 {
-    CGFloat xxx=SCREEN_WIDTH/self.numOfRow;
-    NSInteger yyy=self.dataArray.count/self.numOfRow+(self.dataArray.count%self.numOfRow!=0?1:0);
-    int height=xxx*yyy+44;
+    CGFloat xxx = TF_SCREEN_WIDTH/self.numOfRow;
+    NSInteger yyy = self.dataArray.count/self.numOfRow+(self.dataArray.count%self.numOfRow!=0?1:0);
+    int height = xxx*yyy+44;
     return height;
 }
 

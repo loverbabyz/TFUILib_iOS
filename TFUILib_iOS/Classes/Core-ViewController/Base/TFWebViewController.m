@@ -9,7 +9,7 @@
 #import "TFWebViewController.h"
 #import "TFWebViewControllerAppearance.h"
 #import "Masonry.h"
-#import <TFBaseLib_iOS/TFMJExtension.h>
+#import "MJExtension.h"
 #import "TFBaseLib_iOS.h"
 
 #define kScreen_Height SCREEN_HEIGHT
@@ -119,7 +119,7 @@ NSString * const DKWebViewKeyTitle = @"title";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     // 让webview的内容一直居中显示
-    scrollView.contentOffset = CGPointMake((scrollView.contentSize.width - kScreen_Width) / 2, scrollView.contentOffset.y);
+    scrollView.contentOffset = CGPointMake((scrollView.contentSize.width - TF_SCREEN_WIDTH) / 2, scrollView.contentOffset.y);
 }
 
 #pragma mark -- load request
@@ -195,7 +195,7 @@ NSString * const DKWebViewKeyTitle = @"title";
         NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", resourceSpecifier];
         /// 防止iOS 10及其之后，拨打电话系统弹出框延迟出现
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:^(BOOL success) {
+            [TF_APP_APPLICATION openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:^(BOOL success) {
                 
             }];
         });
@@ -220,7 +220,7 @@ NSString * const DKWebViewKeyTitle = @"title";
 #pragma mark - get & set
 - (TFWebView *)webView {
     if (!_webView) {
-        _webView = [[TFWebView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height-STATUS_BAR_HEIGHT-44)];
+        _webView = [[TFWebView alloc] initWithFrame:CGRectMake(0, 0, TF_SCREEN_WIDTH, TF_SCREEN_HEIGHT-TF_STATUS_BAR_HEIGHT-44)];
         _webView.scrollView.delegate = self;
         [_webView setWebViewDelegate:self];
         

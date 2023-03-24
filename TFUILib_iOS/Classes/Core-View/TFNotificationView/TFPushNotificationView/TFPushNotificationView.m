@@ -9,6 +9,8 @@
 #import "TFPushNotificationView.h"
 #import <Accelerate/Accelerate.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface TFPushNotificationView ()
 {
@@ -115,7 +117,7 @@
         self.autoresizesSubviews = YES;
         self.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.800];
         
-        UIApplication *sharedApplication = [UIApplication sharedApplication];
+        UIApplication *sharedApplication = TF_APP_APPLICATION;
         self.frame = sharedApplication.statusBarFrame;
         
         [self addSubview:self.iconView];
@@ -208,13 +210,13 @@
     self.nameLabel.frame = CGRectMake(self.edge.left, self.edge.top, CGRectGetWidth(self.frame)-self.edge.left-self.edge.right,nameLabelHeight);
 
     
-    CGFloat detailLabelHeight =  MIN(CGRectGetHeight([UIScreen mainScreen].bounds)-40-self.edge.bottom, [self heightWithString:message fontSize:self.font.pointSize width:CGRectGetWidth(self.frame)-self.edge.left-self.edge.right]);
+    CGFloat detailLabelHeight =  MIN(CGRectGetHeight(TF_MAIN_SCREEN.bounds)-40-self.edge.bottom, [self heightWithString:message fontSize:self.font.pointSize width:CGRectGetWidth(self.frame)-self.edge.left-self.edge.right]);
     
     self.detailLabel.frame = CGRectMake(self.edge.left,
                              CGRectGetMaxY(self.nameLabel.frame),
                              CGRectGetWidth(self.frame)-self.edge.left-self.edge.right,detailLabelHeight);
     
-    CGFloat selfHeight = MIN(CGRectGetHeight([UIScreen mainScreen].bounds), CGRectGetMaxY(self.detailLabel.frame)+self.edge.bottom);
+    CGFloat selfHeight = MIN(CGRectGetHeight(TF_MAIN_SCREEN.bounds), CGRectGetMaxY(self.detailLabel.frame)+self.edge.bottom);
     self.frame = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame),selfHeight);
 
     [self setNeedsDisplay];
@@ -260,7 +262,7 @@
 {
     if (!_appName)
     {
-        _appName =  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]?:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+        _appName =  [TF_MAIN_BUNDLE objectForInfoDictionaryKey:@"CFBundleDisplayName"]?:[TF_MAIN_BUNDLE objectForInfoDictionaryKey:@"CFBundleName"];
     }
     return _appName;
 }
@@ -295,7 +297,7 @@
 
 -(UIImage*)loadPlistIcon
 {
-    NSDictionary *infoPlist = [[NSBundle mainBundle] infoDictionary];
+    NSDictionary *infoPlist = [TF_MAIN_BUNDLE infoDictionary];
     NSString *icon = [[infoPlist valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
     UIImage *shareImage = [UIImage imageNamed:icon];
     

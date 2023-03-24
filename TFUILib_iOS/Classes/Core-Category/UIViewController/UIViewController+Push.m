@@ -10,11 +10,14 @@
 #import "TFNavigationController.h"
 #import "TFUIUtil.h"
 
+#import <TFBaseLib_iOS/TFBaseMacro+Path.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
+
 @implementation UIViewController (Push)
 
 - (UIViewController *)getRootViewController
 {
-    UIViewController *rootVC=[[UIApplication sharedApplication].delegate window].rootViewController;
+    UIViewController *rootVC = [TF_APP_APPLICATION.delegate window].rootViewController;
     return rootVC;
 }
 
@@ -233,7 +236,7 @@
         return NO;
     }
     
-    NSString *fielPath = [[NSBundle mainBundle] pathForResource:@"ModuleConfig" ofType:@"plist"];
+    NSString *fielPath = [TF_MAIN_BUNDLE pathForResource:@"ModuleConfig" ofType:@"plist"];
     if (fielPath==nil)
     {
         return NO;

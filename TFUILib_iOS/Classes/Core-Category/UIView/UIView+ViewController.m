@@ -8,17 +8,18 @@
 
 #import "UIView+ViewController.h"
 #import "TFUIUtil.h"
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation UIView (ViewController)
 
 - (UIViewController*)rootViewController
 {
-    return [UIApplication sharedApplication].keyWindow.rootViewController;
+    return TF_APP_KEY_WINDOW .rootViewController;
 }
 
 - (UIViewController*)topViewController
 {
-    return [self topViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self topViewControllerWithRootViewController:TF_APP_KEY_WINDOW .rootViewController];
 }
 
 - (UIViewController *)viewController

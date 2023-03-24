@@ -21,6 +21,7 @@
 
 #import "TFDrawerVisualState.h"
 #import <QuartzCore/QuartzCore.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @implementation TFDrawerVisualState
 +(TFDrawerControllerDrawerVisualStateBlock)slideAndScaleVisualStateBlock{
@@ -81,7 +82,7 @@
         
         [sideDrawerViewController.view.layer setAnchorPoint:anchorPoint];
         [sideDrawerViewController.view.layer setShouldRasterize:YES];
-        [sideDrawerViewController.view.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
+        [sideDrawerViewController.view.layer setRasterizationScale:[TF_MAIN_SCREEN scale]];
         
         CATransform3D swingingDoorTransform = CATransform3DIdentity;
         if (percentVisible <= 1.f) {

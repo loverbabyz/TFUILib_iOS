@@ -6,16 +6,47 @@
 //  Copyright (c) daniel.xiaofei@gmail.com All rights reserved.
 //
 
-#define RGB(r,g,b) RGBA(r,g,b,1.0f)
+// Color Convenient api
+#ifndef TF_RGB
+#   define TF_RGB(r, g, b) (TF_RGBA(r, g, b, 1.0))
+#endif
 
-// rgbs设置颜色
-#define RGBA(r,g,b,a)   [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#ifndef TF_RGBA
+#define TF_RGBA(r, g, b, a) \
+    [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:a]
+#endif
 
-/**
- *  十六进制设置颜色
- *
- *  @param c 十六进制
- *  @param a 透明度
- */
-#define HEXCOLOR(c,a)   [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
-#define CLEARCOLOR      [UIColor clearColor]
+#ifndef TF_HRGB
+#   define TF_HRGB(hex) (TF_HRGBA(hex, 1.0))
+#endif
+
+#ifndef TF_HRGBA
+#define TF_HRGBA(hex, alpha) \
+    (TF_RGBA(((hex >> 16) & 0xff), ((hex >> 8) & 0xff), (hex & 0xff), alpha))
+#endif
+
+#ifndef TF_HRGBA2
+#define TF_HRGBA2(hex) \
+    (TF_RGBA(((hex >> 24) & 0xff), ((hex >> 16) & 0xff), ((hex >> 8) & 0xff), ((hex & 0xff) / 255.0)))
+#endif
+
+#ifndef TF_HARGB
+#define TF_HARGB(alpha, hex) \
+    (TF_RGBA(((hex >> 16) & 0xff), ((hex >> 8) & 0xff), (hex & 0xff), alpha))
+#endif
+
+#ifndef TF_HARGB2
+#define TF_HARGB2(hex) \
+    (TF_RGBA(((hex >> 16) & 0xff), ((hex >> 8) & 0xff), (hex & 0xff), (((hex >> 24) & 0xff) / 255.0)))
+#endif
+
+#ifndef TF_RandomColor
+#   define TF_RandomColor (TF_RandomColorA(1.0))
+#endif
+
+#ifndef TF_RandomColorA
+#define TF_RandomColorA(alpha) \
+    (TF_RGBA(arc4random() % 255, arc4random() % 255, arc4random() % 255, alpha))
+#endif
+
+#define TF_CLEARCOLOR      [UIColor clearColor]
