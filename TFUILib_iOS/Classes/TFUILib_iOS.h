@@ -25,6 +25,7 @@ FOUNDATION_EXPORT const unsigned char TFUILibVersionString[];
 #import "TFUILibView.h"
 #import "TFUILibCustomControl.h"
 #import "TFUILibViewController.h"
+#import "TFUILibFork.h"
 
 #import "TFUILibModel.h"
 #import "TFUILibViewModel.h"
