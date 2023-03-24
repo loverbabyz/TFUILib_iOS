@@ -8,9 +8,9 @@
 
 #import "TFScrollViewController.h"
 
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefresh.h"
+#import "TFMasonry.h"
 #import <TFBaseLib_iOS/TFMJExtension.h>
-#import <Masonry/Masonry.h>
 
 @implementation TFScrollViewController
 
@@ -33,7 +33,7 @@
     
     [self.view addSubview:self.scrollView];
     
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.scrollView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.edges.equalTo(super.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
@@ -43,17 +43,17 @@
 
 - (void)showRefreshHeader
 {
-    self.scrollView.mj_header.hidden = NO;
+    self.scrollView.tf_mj_header.hidden = NO;
 }
 
 - (void)hideRefreshHeader
 {
-    self.scrollView.mj_header.hidden = YES;
+    self.scrollView.tf_mj_header.hidden = YES;
 }
 
 - (void)refreshNewData
 {
-    [self.scrollView.mj_header beginRefreshing];
+    [self.scrollView.tf_mj_header beginRefreshing];
 }
 
 #pragma mark -  加载数据方法
@@ -71,7 +71,7 @@
 - (void)endLoadData
 {
     [super endLoadData];
-    [self.scrollView.mj_header endRefreshing];
+    [self.scrollView.tf_mj_header endRefreshing];
 }
 
 #pragma mark -  get set
@@ -90,13 +90,13 @@
         _scrollView.showsVerticalScrollIndicator   = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
         
-        _scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        _scrollView.tf_mj_header = [TFMJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
 
-        _scrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        _scrollView.tf_mj_footer = [TFMJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
         
-//        _scrollView.mj_footer.automaticallyHidden = NO;
-        _scrollView.mj_header.hidden              = YES;
-        _scrollView.mj_footer.hidden              = YES;
+//        _scrollView.tf_mj_footer.automaticallyHidden = NO;
+        _scrollView.tf_mj_header.hidden              = YES;
+        _scrollView.tf_mj_footer.hidden              = YES;
     }
     
     return _scrollView;

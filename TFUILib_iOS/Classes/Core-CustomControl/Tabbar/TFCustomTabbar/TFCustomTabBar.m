@@ -8,8 +8,7 @@
 
 #import "TFCustomTabBar.h"
 #import "TFImageView.h"
-
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 //#import <pop/POP.h>
 
 @interface TFCustomTabBar()
@@ -68,40 +67,40 @@
     [super layoutSubviews];
     
     __weak __typeof(&*self)weakSelf = self;
-    [self.blurView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.blurView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.mas_top).offset(0);
-        make.right.equalTo(weakSelf.mas_right).offset(0);
-        make.bottom.equalTo(weakSelf.mas_bottom).offset(0);
-        make.left.equalTo(weakSelf.mas_left).offset(0);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(0);
+        make.right.equalTo(weakSelf.tf_mas_right).offset(0);
+        make.bottom.equalTo(weakSelf.tf_mas_bottom).offset(0);
+        make.left.equalTo(weakSelf.tf_mas_left).offset(0);
     }];
     
-    [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.backgroundImageView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.mas_top).offset(0);
-        make.right.equalTo(weakSelf.mas_right).offset(0);
-        make.bottom.equalTo(weakSelf.mas_bottom).offset(0);
-        make.left.equalTo(weakSelf.mas_left).offset(0);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(0);
+        make.right.equalTo(weakSelf.tf_mas_right).offset(0);
+        make.bottom.equalTo(weakSelf.tf_mas_bottom).offset(0);
+        make.left.equalTo(weakSelf.tf_mas_left).offset(0);
     }];
     
-    [self.separateLine mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.separateLine tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.height.equalTo(@0.5);
-        make.top.equalTo(weakSelf.mas_top).offset(-0.25);
-        make.right.equalTo(weakSelf.mas_right).offset(0);
-        make.left.equalTo(weakSelf.mas_left).offset(0);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(-0.25);
+        make.right.equalTo(weakSelf.tf_mas_right).offset(0);
+        make.left.equalTo(weakSelf.tf_mas_left).offset(0);
     }];
     
     [self.tabBarItems enumerateObjectsUsingBlock:^(TFCustomTabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         float leftOffset = idx * weakSelf.width/weakSelf.tabBarItems.count;
         
-        [obj mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [obj tf_mas_remakeConstraints:^(TFMASConstraintMaker *make) {
             
-            make.width.equalTo(weakSelf.mas_width).dividedBy(weakSelf.tabBarItems.count);
+            make.width.equalTo(weakSelf.tf_mas_width).dividedBy(weakSelf.tabBarItems.count);
             make.height.equalTo(@48);
-            make.left.equalTo(weakSelf.mas_left).offset(leftOffset);
-            make.top.equalTo(weakSelf.separateLine.mas_bottom).offset(0);
+            make.left.equalTo(weakSelf.tf_mas_left).offset(leftOffset);
+            make.top.equalTo(weakSelf.separateLine.tf_mas_bottom).offset(0);
         }];
     }];
 }
@@ -325,7 +324,7 @@
     {
         if (hidden)
         {
-            [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            [self tf_mas_remakeConstraints:^(TFMASConstraintMaker *make) {
                 
                 make.height.equalTo(@49);
                 make.right.equalTo(@0);
@@ -335,7 +334,7 @@
         }
         else
         {
-            [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+            [self tf_mas_remakeConstraints:^(TFMASConstraintMaker *make) {
                 
                 make.height.equalTo(@49);
                 make.right.equalTo(@0);

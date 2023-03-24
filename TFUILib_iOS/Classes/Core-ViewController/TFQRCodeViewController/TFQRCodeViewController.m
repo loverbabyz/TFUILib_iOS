@@ -10,7 +10,7 @@
 #import "LBXScanResult.h"
 #import "LBXScanWrapper.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 @interface TFQRCodeViewController ()
 
@@ -196,7 +196,7 @@
     [_bottomButtonView addSubview:_photoButton];
     [_bottomButtonView addSubview:_myQRButton];
     
-    [self.bottomButtonView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomButtonView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
         make.bottom.equalTo(@0);

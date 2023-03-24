@@ -8,7 +8,7 @@
 
 #import "TFCollectionViewController.h"
 
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefresh.h"
 
 @implementation TFCollectionViewController
 
@@ -162,29 +162,29 @@
 
 - (void)showRefreshHeader
 {
-    self.collectionView.mj_header.hidden=NO;
+    self.collectionView.tf_mj_header.hidden=NO;
 }
 
 - (void)hideRefreshHeader
 {
-    self.collectionView.mj_header.hidden=YES;
+    self.collectionView.tf_mj_header.hidden=YES;
 }
 
 - (void)showRefreshFooter
 {
-    self.collectionView.mj_footer.hidden=NO;
+    self.collectionView.tf_mj_footer.hidden=NO;
 }
 
 - (void)hideRefreshFooter
 {
-    self.collectionView.mj_footer.hidden=YES;
+    self.collectionView.tf_mj_footer.hidden=YES;
 }
 
 #pragma mark -  加载数据方法
 
 - (void)refreshNewData
 {
-    [self.collectionView.mj_header beginRefreshing];
+    [self.collectionView.tf_mj_header beginRefreshing];
 }
 
 - (void)loadNewData
@@ -193,20 +193,20 @@
 
 - (void)loadMoreData
 {
-    [self.collectionView.mj_footer beginRefreshing];
+    [self.collectionView.tf_mj_footer beginRefreshing];
 }
 
 - (void)endLoadData
 {
     [super endLoadData];
-    [self.collectionView.mj_header endRefreshing];
-    [self.collectionView.mj_footer endRefreshing];
+    [self.collectionView.tf_mj_header endRefreshing];
+    [self.collectionView.tf_mj_footer endRefreshing];
 }
 
 - (void)endLoadDataWithNoMoreData {
     [super endLoadData];
-    [self.collectionView.mj_header endRefreshing];
-    [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+    [self.collectionView.tf_mj_header endRefreshing];
+    [self.collectionView.tf_mj_footer endRefreshingWithNoMoreData];
 }
 
 #pragma mark -  get set
@@ -240,12 +240,12 @@
         _collectionView.dataSource                      = self;
         _collectionView.delegate                        = self;
         
-        _collectionView.mj_header                       = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        _collectionView.tf_mj_header                       = [TFMJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
         
-        _collectionView.mj_footer                       = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-//        _collectionView.mj_footer.automaticallyHidden   = NO;
-        _collectionView.mj_header.hidden                = YES;
-        _collectionView.mj_footer.hidden                = YES;
+        _collectionView.tf_mj_footer                       = [TFMJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//        _collectionView.tf_mj_footer.automaticallyHidden   = NO;
+        _collectionView.tf_mj_header.hidden                = YES;
+        _collectionView.tf_mj_footer.hidden                = YES;
     }
     
     return _collectionView;

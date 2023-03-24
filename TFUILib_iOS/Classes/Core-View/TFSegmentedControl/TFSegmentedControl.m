@@ -8,7 +8,7 @@
 
 #import "TFSegmentedControl.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 @interface TFSegmentedControl ()
 
@@ -119,9 +119,9 @@
     [self horizontalWidthViews:self.titleArr inView:self.upView viewPadding:self.horizontalWidth containerPadding:0];
     
     // 中间的线条
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.mas_left);
-        make.top.equalTo(weakSelf.upView.mas_bottom).offset(-weakSelf.lineHeight);
+    [self.lineView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.tf_mas_left);
+        make.top.equalTo(weakSelf.upView.tf_mas_bottom).offset(-weakSelf.lineHeight);
         CGFloat w = (weakSelf.width - ((count - 1) * weakSelf.horizontalWidth)) / count;
         make.width.equalTo(@(w));
         make.height.equalTo(@(weakSelf.lineHeight));
@@ -162,7 +162,7 @@
     CGFloat left = self.lineView.width * self.selectedIndex + self.selectedIndex;// * self.horizontalWidth;
     CGFloat width = (self.width - self.horizontalWidth / self.titleArr.count - 1) / self.titleArr.count;
     
-    [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.lineView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.left.equalTo(@(left));
         make.width.equalTo(@(width));
     }];
@@ -309,7 +309,7 @@
 {
     _lineHeight = lineHeight;
     
-    [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.lineView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.height.equalTo(@(_lineHeight));
     }];
 }
@@ -338,15 +338,15 @@
         [containerView addSubview:view];
         if (lastView)
         {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
                 make.top.bottom.equalTo(containerView);
-                make.left.equalTo(lastView.mas_right).priorityHigh().offset(viewPadding);
+                make.left.equalTo(lastView.tf_mas_right).priorityHigh().offset(viewPadding);
                 make.width.equalTo(lastView);
             }];
         }
         else
         {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
                 make.left.equalTo(containerView).offset(containerPadding);
                 make.top.bottom.equalTo(containerView);
             }];
@@ -355,7 +355,7 @@
         lastView = view;
     }
     
-    [lastView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [lastView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         make.right.equalTo(containerView).offset(-containerPadding);
     }];
 }

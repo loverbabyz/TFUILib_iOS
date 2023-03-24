@@ -9,7 +9,7 @@
 #import "TFImageAlertView.h"
 #import "UIImageView+Placeholder.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 #import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 /**
@@ -275,7 +275,7 @@
     
     //alwertview
     // 上面的title
-    [self.alertView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.alertView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.center.equalTo(weakSelf);
         make.left.equalTo(weakSelf).offset(LEFT_RIGHT_PADDING);
@@ -283,7 +283,7 @@
     }];
     
     // 上面的title
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.titleLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
         make.top.equalTo(weakSelf.alertView).offset(10);
@@ -292,37 +292,37 @@
     }];
     
     // 上面的内容
-    [self.messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.messageLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView).offset(20);
-        make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(10);
+        make.top.equalTo(weakSelf.titleLabel.tf_mas_bottom).offset(10);
         make.right.equalTo(weakSelf.alertView).offset(-20);;
-        make.bottom.equalTo(weakSelf.spaceView.mas_top).offset(-10);
+        make.bottom.equalTo(weakSelf.spaceView.tf_mas_top).offset(-10);
     }];
     
     // 中间的填充
-    [self.spaceView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.spaceView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
-        make.top.equalTo(weakSelf.messageLabel.mas_bottom);
+        make.top.equalTo(weakSelf.messageLabel.tf_mas_bottom);
         make.right.equalTo(weakSelf.alertView);
-        make.bottom.equalTo(weakSelf.lineView.mas_top);
+        make.bottom.equalTo(weakSelf.lineView.tf_mas_top);
     }];
 
     // 中间的线条
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
-        make.top.equalTo(weakSelf.spaceView.mas_bottom);
+        make.top.equalTo(weakSelf.spaceView.tf_mas_bottom);
         make.right.equalTo(weakSelf.alertView);
         make.height.equalTo(@(weakSelf.lineHeight));
     }];
     
     // 中间的线条
-    [self.buttonContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.buttonContainerView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
-        make.top.equalTo(weakSelf.lineView.mas_bottom);
+        make.top.equalTo(weakSelf.lineView.tf_mas_bottom);
         make.right.equalTo(weakSelf.alertView);
         make.height.equalTo(@(60));
         make.bottom.equalTo(weakSelf.alertView);
@@ -339,7 +339,7 @@
     __weak __typeof(&*self)weakSelf = self;
     
     //alwertview
-    [self.alertView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.alertView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.center.equalTo(weakSelf);
         make.left.equalTo(weakSelf).offset(20);
@@ -348,7 +348,7 @@
     }];
     
     //alwertview 上面的title
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.titleLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
         make.top.equalTo(weakSelf.alertView).offset(10);
@@ -357,28 +357,28 @@
     }];
     
     //alwertview 中间的imageview
-    [self.descImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.descImageView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView).offset(10);
-        make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(10);
+        make.top.equalTo(weakSelf.titleLabel.tf_mas_bottom).offset(10);
         make.right.equalTo(weakSelf.alertView).offset(-10);
-        make.bottom.equalTo(weakSelf.lineView.mas_top).offset(-10);
+        make.bottom.equalTo(weakSelf.lineView.tf_mas_top).offset(-10);
     }];
     
     //alwertview 中间的line
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
-        make.top.equalTo(weakSelf.descImageView.mas_bottom).offset(10);
+        make.top.equalTo(weakSelf.descImageView.tf_mas_bottom).offset(10);
         make.right.equalTo(weakSelf.alertView);
         make.height.equalTo(@(weakSelf.lineHeight));
     }];
     
     //alwertview 下面的button容器
-    [self.buttonContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.buttonContainerView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.left.equalTo(weakSelf.alertView);
-        make.top.equalTo(weakSelf.lineView.mas_bottom);
+        make.top.equalTo(weakSelf.lineView.tf_mas_bottom);
         make.right.equalTo(weakSelf.alertView);
         make.height.equalTo(@(60));
         make.bottom.equalTo(weakSelf.alertView);
@@ -515,16 +515,16 @@
         [containerView addSubview:view];
         if (lastView)
         {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
                 
                 make.top.bottom.equalTo(containerView);
-                make.left.equalTo(lastView.mas_right).offset(viewPadding);
+                make.left.equalTo(lastView.tf_mas_right).offset(viewPadding);
                 make.width.equalTo(lastView);
             }];
         }
         else
         {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
                 
                 make.left.equalTo(containerView).offset(containerPadding);
                 make.top.bottom.equalTo(containerView);
@@ -533,7 +533,7 @@
         lastView=view;
     }
     
-    [lastView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [lastView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.right.equalTo(containerView).offset(-containerPadding);
     }];
@@ -550,7 +550,7 @@
     {
         UIView *view=views[i];
         [containerView addSubview:view];
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
             
             make.left.equalTo(@(width*(i+1)));
             make.top.equalTo(containerView);

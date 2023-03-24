@@ -23,14 +23,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-     [TFActionSheet showWithTitle:@"是否要删除" cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil block:nil];
     
-    
+    [TFActionSheet showWithTitle:@"是否要删除" cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil block:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    UIView *test = [UIView new];
+    test.backgroundColor = UIColor.redColor;
+    [self.view addSubview:test];
+    
+    [test tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+    }];
+    return;
     _webVC = [[TFWebViewController alloc] initWithResultBlock:nil];
     [_webVC loadURL:[NSURL URLWithString:@"https://www.baidu.com"]];
     [self presentViewController:_webVC];

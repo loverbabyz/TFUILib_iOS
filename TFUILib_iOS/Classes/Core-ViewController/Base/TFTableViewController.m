@@ -9,8 +9,8 @@
 #import "TFTableViewController.h"
 #import "TFLabel.h"
 
-#import <MJRefresh/MJRefresh.h>
-#import <Masonry/Masonry.h>
+#import "MJRefresh.h"
+#import "TFMasonry.h"
 
 @interface TFTableViewController ()
 
@@ -96,7 +96,7 @@
 {
     [super autolayoutViews];
     
-    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.tableView tf_mas_remakeConstraints:^(TFMASConstraintMaker *make) {
         make.edges.equalTo(super.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
@@ -239,29 +239,29 @@
 
 - (void)showRefreshHeader
 {
-    self.tableView.mj_header.hidden = NO;
+    self.tableView.tf_mj_header.hidden = NO;
 }
 
 - (void)hideRefreshHeader
 {
-    self.tableView.mj_header.hidden = YES;
+    self.tableView.tf_mj_header.hidden = YES;
 }
 
 - (void)showRefreshFooter
 {
-    self.tableView.mj_footer.hidden = NO;
+    self.tableView.tf_mj_footer.hidden = NO;
 }
 
 - (void)hideRefreshFooter
 {
-    self.tableView.mj_footer.hidden = YES;
+    self.tableView.tf_mj_footer.hidden = YES;
 }
 
 #pragma mark -  加载数据方法
 
 - (void)refreshNewData
 {
-    [self.tableView.mj_header beginRefreshing];
+    [self.tableView.tf_mj_header beginRefreshing];
 }
 
 - (void)startLoadData {
@@ -305,16 +305,16 @@
     _loading = NO;
     
     [super endLoadData];
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    [self.tableView.tf_mj_header endRefreshing];
+    [self.tableView.tf_mj_footer endRefreshing];
 }
 
 - (void)endLoadDataWithNoMoreData {
 //    _loading = NO;
     
     [super endLoadData];
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    [self.tableView.tf_mj_header endRefreshing];
+    [self.tableView.tf_mj_footer endRefreshingWithNoMoreData];
 }
 
 #pragma mark -  get set
@@ -344,11 +344,11 @@
          MJRefreshNormalHeader *customRef = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
          
          // 自定义刷新状态文字
-         [customRef setTitle:@"普通闲置状态" forState:MJRefreshStateIdle];
-         [customRef setTitle:@"松开就可以进行刷新的状态" forState:MJRefreshStatePulling];
-         [customRef setTitle:@"正在刷新中的状态" forState:MJRefreshStateRefreshing];
-         [customRef setTitle:@"即将刷新的状态" forState:MJRefreshStateWillRefresh];
-         [customRef setTitle:@"所有数据加载完毕，没有更多的数据了" forState:MJRefreshStateNoMoreData];
+         [customRef setTitle:@"普通闲置状态" forState:TFMJRefreshStateIdle];
+         [customRef setTitle:@"松开就可以进行刷新的状态" forState:TFMJRefreshStatePulling];
+         [customRef setTitle:@"正在刷新中的状态" forState:TFMJRefreshStateRefreshing];
+         [customRef setTitle:@"即将刷新的状态" forState:TFMJRefreshStateWillRefresh];
+         [customRef setTitle:@"所有数据加载完毕，没有更多的数据了" forState:TFMJRefreshStateNoMoreData];
          
          // 设置字体
          customRef.stateLabel.font = [UIFont systemFontOfSize:15];
@@ -366,12 +366,12 @@
          customRef.lastUpdatedTimeLabel.hidden = YES;
          */
         
-        _tableView.mj_header                      = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-        _tableView.mj_footer                      = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        _tableView.tf_mj_header                      = [TFMJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        _tableView.tf_mj_footer                      = [TFMJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 
-        //_tableView.mj_footer.automaticallyHidden  = NO;
-        _tableView.mj_header.hidden               = YES;
-        _tableView.mj_footer.hidden               = YES;
+        //_tableView.tf_mj_footer.automaticallyHidden  = NO;
+        _tableView.tf_mj_header.hidden               = YES;
+        _tableView.tf_mj_footer.hidden               = YES;
         
     }
     

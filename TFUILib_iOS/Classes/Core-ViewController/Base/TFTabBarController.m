@@ -10,7 +10,7 @@
 #import "TFNavigationController.h"
 
 #import <objc/runtime.h>
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 #define SELECTED_VIEW_CONTROLLER_TAG 93746282
 
@@ -37,7 +37,7 @@
     
     // 获取安全区边距，适配iOS 11后iPhone X机型
     CGFloat size = self.view.tf_safeAreaInset.bottom;
-    [self.tabBar mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.tabBar tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         //make.bottom.equalTo(@(-size));
         make.height.equalTo(@(49 +size));
     }];
@@ -51,7 +51,7 @@
     self.tabBar.delegate = self;
     [self.view addSubview:self.tabBar];
     
-    [self.tabBar mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tabBar tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         make.height.equalTo(@49);
         make.right.equalTo(@0);
         make.bottom.equalTo(@(0));
@@ -99,11 +99,11 @@
             [self.view insertSubview:viewController.view belowSubview:self.tabBar];
             
             __weak __typeof(&*self)weakSelf = self;
-            [viewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.   equalTo(weakSelf.view.mas_top).offset(0);
-                make.right. equalTo(weakSelf.view.mas_right).offset(0);
-                make.bottom.equalTo(weakSelf.tabBarTranslucent ? weakSelf.view.mas_bottom : weakSelf.tabBar.mas_top).offset(0);
-                make.left.  equalTo(weakSelf.view.mas_left).offset(0);
+            [viewController.view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
+                make.top.   equalTo(weakSelf.view.tf_mas_top).offset(0);
+                make.right. equalTo(weakSelf.view.tf_mas_right).offset(0);
+                make.bottom.equalTo(weakSelf.tabBarTranslucent ? weakSelf.view.tf_mas_bottom : weakSelf.tabBar.tf_mas_top).offset(0);
+                make.left.  equalTo(weakSelf.view.tf_mas_left).offset(0);
             }];
         }
     }

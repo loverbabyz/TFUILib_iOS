@@ -12,7 +12,7 @@
 #import "TFView.h"
 #import "TFButton.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 CGFloat const kTFPopupViewSectionHeight         = 10.0f;        /// 分区间距
 CGFloat const TFPopupViewContentMaxScale        = 0.65f;        /// 弹窗内容高度与屏幕高度的默认比例
@@ -176,7 +176,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
     CGFloat selfX = 0;
     //CGFloat selfY = CGRectGetMaxY(_controllerView.frame);
     //self.frame = CGRectMake(selfX, selfY, selfW, selfH);
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.bottom.offset(selfH);
         make.left.offset(selfX);
         make.width.equalTo(@(selfW));
@@ -194,7 +194,7 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
 //        CGRect newFrame   = self.frame;
 //        newFrame.origin.y = CGRectGetMaxY(_controllerView.frame) - selfH;
 //        self.frame        = newFrame;
-        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        [self tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
             make.bottom.offset(0);
             make.top.offset((CGRectGetMaxY(self->_controllerView.frame) - selfH));
         }];
@@ -364,20 +364,20 @@ unsigned int const TFPopupViewItemHighlightedColor      = 0XE64340;     /// 选�
     CGFloat labelMargin = TFPopupViewDefaultMargin;
     
     // titleLabel constraint
-    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.titleLabel tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.top.offset(0);
         make.left.offset(labelMargin);
         make.right.offset(-labelMargin);
         make.height.equalTo(@(headerHeight));
     }];
     
-    [self.closeButton mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.closeButton tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.width.height.equalTo(@(24));
         make.centerY.equalTo(self.titleLabel);
         make.right.offset(-16);
     }];
     
-    [lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [lineView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.left.bottom.right.offset(0);
         make.height.equalTo(@(1.0f));
     }];

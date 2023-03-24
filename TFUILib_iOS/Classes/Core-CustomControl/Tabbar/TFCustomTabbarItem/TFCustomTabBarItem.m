@@ -11,7 +11,7 @@
 #import "TFButton.h"
 #import "TFImageView.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 @interface TFCustomTabBarItem()
 
@@ -77,54 +77,54 @@
     [super layoutSubviews];
     
     __weak __typeof(&*self)weakSelf = self;
-    [self.backgoundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.backgoundImageView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.mas_top).offset(0);
-        make.right.equalTo(weakSelf.mas_right).offset(0);
-        make.bottom.equalTo(weakSelf.mas_bottom).offset(0);
-        make.left.equalTo(weakSelf.mas_left).offset(0);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(0);
+        make.right.equalTo(weakSelf.tf_mas_right).offset(0);
+        make.bottom.equalTo(weakSelf.tf_mas_bottom).offset(0);
+        make.left.equalTo(weakSelf.tf_mas_left).offset(0);
     }];
     
-    [self.barButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.barButton tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf.mas_top).offset(0);
-        make.right.equalTo(weakSelf.mas_right).offset(0);
-        make.bottom.equalTo(weakSelf.mas_bottom).offset(0);
-        make.left.equalTo(weakSelf.mas_left).offset(0);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(0);
+        make.right.equalTo(weakSelf.tf_mas_right).offset(0);
+        make.bottom.equalTo(weakSelf.tf_mas_bottom).offset(0);
+        make.left.equalTo(weakSelf.tf_mas_left).offset(0);
     }];
     
    
     
-    [self.barImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.barImageView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.width.equalTo(@25);
         make.height.equalTo(@25);
-        make.top.equalTo(weakSelf.mas_top).offset(5.5);
-        make.centerX.mas_equalTo(weakSelf.mas_centerX);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(5.5);
+        make.centerX.mas_equalTo(weakSelf.tf_mas_centerX);
     }];
     
-    [self.barTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.barTitleLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.height.equalTo(@12);
-        make.right.equalTo(weakSelf.mas_right).offset(0);
-        make.top.equalTo(weakSelf.mas_top).offset(35);
-        make.left.equalTo(weakSelf.mas_left).offset(0);
+        make.right.equalTo(weakSelf.tf_mas_right).offset(0);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(35);
+        make.left.equalTo(weakSelf.tf_mas_left).offset(0);
     }];
     
-    [self.redPointView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.redPointView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.width.equalTo(@10);
         make.height.equalTo(@10);
-        make.top.equalTo(weakSelf.mas_top).offset(3);
-        make.left.equalTo(weakSelf.barImageView.mas_left).offset(25);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(3);
+        make.left.equalTo(weakSelf.barImageView.tf_mas_left).offset(25);
     }];
     
-    [self.badgeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.badgeLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.width.equalTo(@20);
         make.height.equalTo(@20);
-        make.top.equalTo(weakSelf.mas_top).offset(0);
-        make.centerX.mas_equalTo(weakSelf.mas_centerX).offset(12.5);
+        make.top.equalTo(weakSelf.tf_mas_top).offset(0);
+        make.centerX.mas_equalTo(weakSelf.tf_mas_centerX).offset(12.5);
     }];
     
     self.backgroundColor         = self.normalBackgroundColor;
@@ -285,11 +285,11 @@
 
 - (void)setRedPointSize:(float)redPointSize
 {
-    [self.redPointView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.redPointView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         
         make.width.equalTo(@(redPointSize));
         make.height.equalTo(@(redPointSize));
-//        make.top.equalTo(weakSelf.mas_top).offset(4);
+//        make.top.equalTo(weakSelf.tf_mas_top).offset(4);
 //        make.left.equalTo(weakSelf.barImageView.mas_left).offset(27);
     }];
     self.redPointView.layer.cornerRadius = redPointSize*0.5;

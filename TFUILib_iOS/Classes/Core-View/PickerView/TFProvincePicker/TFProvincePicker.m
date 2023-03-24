@@ -8,7 +8,7 @@
 
 #import "TFProvincePicker.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 #import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 #pragma mark -
@@ -47,7 +47,7 @@
         
         __weak __typeof(&*self)weakSelf = self;
         
-        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.titleLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
             make.centerX.equalTo(weakSelf);
             make.centerY.equalTo(weakSelf);
             make.top.equalTo(weakSelf).offset(5);
@@ -133,16 +133,16 @@
 {
     __weak __typeof(&*self)weakSelf = self;
     
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.titleLabel tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         make.left.equalTo(weakSelf.alertView).offset(10);
         make.top.equalTo(weakSelf.alertView).offset(-10);;
         make.right.equalTo(weakSelf.alertView);
         make.height.equalTo(@(44));
     }];
 
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.collectionView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         make.left.equalTo(weakSelf.alertView);
-        make.top.equalTo(weakSelf.titleLabel.mas_bottom);
+        make.top.equalTo(weakSelf.titleLabel.tf_mas_bottom);
         make.right.equalTo(weakSelf.alertView);
         make.bottom.equalTo(weakSelf.alertView);
     }];

@@ -8,7 +8,7 @@
 
 #import "TFTreeTableViewCell.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 #import "TFView.h"
 #import "TFTableView.h"
@@ -50,11 +50,11 @@
     
     CGFloat width = self.subTableView.width;
     
-    [self.headerView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.headerView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.width.equalTo(@(width));
     }];
     
-    [self.footerView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.footerView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.width.equalTo(@(width));
     }];
 }
@@ -104,17 +104,17 @@
     [self.headerView masViewEqualToSuperViewWithInsets:UIEdgeInsetsZero];
     [self.footerView masViewEqualToSuperViewWithInsets:UIEdgeInsetsZero];
     
-    [self.cellView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.cellView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.top.left.right.offset(0);
         make.height.equalTo(@(cellViewHeight));
     }];
     
     __weak typeof(self) weakSelf = self;
-    [self.subTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.subTableView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         
         make.left.right.offset(0);
-        make.top.equalTo(strongSelf.cellView.mas_bottom);
+        make.top.equalTo(strongSelf.cellView.tf_mas_bottom);
         make.height.equalTo(@(tableHeight));
     }];
     

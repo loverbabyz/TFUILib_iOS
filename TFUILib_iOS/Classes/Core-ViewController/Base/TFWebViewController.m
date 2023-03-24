@@ -8,7 +8,7 @@
 
 #import "TFWebViewController.h"
 #import "TFWebViewControllerAppearance.h"
-#import "Masonry.h"
+#import "TFMasonry.h"
 #import <TFBaseLib_iOS/TFMJExtension.h>
 #import "TFBaseLib_iOS.h"
 
@@ -62,11 +62,11 @@ NSString * const DKWebViewKeyTitle = @"title";
     [self.webView addObserver:self forKeyPath:DKWebViewKeyCanGoBack options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:DKWebViewKeyTitle options:NSKeyValueObservingOptionNew context:nil];
     
-    [self.webView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.webView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.top.left.bottom.right.offset(0);
     }];
     
-    [self.progressView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.progressView tf_mas_updateConstraints:^(TFMASConstraintMaker *make) {
         make.top.left.right.offset(0);
         make.height.equalTo(@(1));
     }];

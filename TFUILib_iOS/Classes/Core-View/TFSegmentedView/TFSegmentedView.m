@@ -8,7 +8,7 @@
 
 #import "TFSegmentedView.h"
 
-#import <Masonry/Masonry.h>
+#import "TFMasonry.h"
 
 @interface TFSegmentedView ()
 
@@ -90,11 +90,11 @@
 {
      __weak __typeof(&*self)weakSelf = self;
         // 下面的滚动视图
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(weakSelf.mas_left);
-            make.top.equalTo(weakSelf.tfSegmentedControl.mas_bottom);
-            make.bottom.equalTo(weakSelf.mas_bottom);
-            make.width.equalTo(weakSelf.mas_width);
+    [self.scrollView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
+            make.left.equalTo(weakSelf.tf_mas_left);
+            make.top.equalTo(weakSelf.tfSegmentedControl.tf_mas_bottom);
+            make.bottom.equalTo(weakSelf.tf_mas_bottom);
+            make.width.equalTo(weakSelf.tf_mas_width);
     }];
         
     [self horizontalWidthViews:self.viewArr inScrollView:self.scrollView];
@@ -170,16 +170,16 @@
         [containerView addSubview:view];
         if (lastView)
         {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
                 
                 make.top.bottom.equalTo(containerView);
-                make.left.equalTo(lastView.mas_right).offset(viewPadding);
+                make.left.equalTo(lastView.tf_mas_right).offset(viewPadding);
                 make.width.equalTo(lastView);
             }];
         }
         else
         {
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            [view tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
                 
                 make.left.equalTo(containerView).offset(containerPadding);
                 make.top.bottom.equalTo(containerView);
@@ -188,7 +188,7 @@
         lastView=view;
     }
     
-    [lastView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [lastView tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         
         make.right.equalTo(containerView).offset(-containerPadding);
     }];
@@ -198,7 +198,7 @@
 {
     UIView *container = [UIView new];
     [scrollView addSubview:container];
-    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+    [container tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
         make.edges.equalTo(scrollView);
         make.height.equalTo(scrollView);
     }];
@@ -213,18 +213,18 @@
         [container addSubview:subv];
         subv.backgroundColor = [UIColor randomColor];
         
-        [subv mas_makeConstraints:^(MASConstraintMaker *make) {
+        [subv tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
             
             make.top.and.bottom.equalTo(container);
-            make.width.mas_equalTo(scrollView.mas_width);
+            make.width.mas_equalTo(scrollView.tf_mas_width);
             
             if ( lastView )
             {
-                make.left.mas_equalTo(lastView.mas_right);
+                make.left.mas_equalTo(lastView.tf_mas_right);
             }
             else
             {
-                make.left.mas_equalTo(container.mas_left);
+                make.left.mas_equalTo(container.tf_mas_left);
             }
             
         }];
@@ -233,8 +233,8 @@
         
     }
     
-    [container mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(lastView.mas_right);
+    [container tf_mas_makeConstraints:^(TFMASConstraintMaker *make) {
+        make.right.equalTo(lastView.tf_mas_right);
     }];
 }
 
