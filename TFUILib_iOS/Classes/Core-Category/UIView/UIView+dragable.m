@@ -8,6 +8,7 @@
 
 #import "UIView+dragable.h"
 #import <objc/runtime.h>
+#import "TFUILibMacro+View.h"
 
 #define ScreenWidth                         [[UIScreen mainScreen] bounds].size.width
 #define ScreenHeight                        [[UIScreen mainScreen] bounds].size.height

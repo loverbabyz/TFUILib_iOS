@@ -7,7 +7,7 @@
 //
 
 #import "TFViewModel.h"
-#import <MJExtension/MJExtension.h>
+#import <TFBaseLib_iOS/TFMJExtension.h>
 #import <TFBaseLib_iOS/TFBaseMacro+Path.h>
 
 @implementation TFViewModel
@@ -37,7 +37,7 @@
         NSString *className=NSStringFromClass([self class]);
         NSString *fileName=[NSString stringWithFormat:@"%@.json",className];
         NSDictionary *data = [self jsonDataFromFileName:fileName];
-        _dataArray=[TFTableSectionModel mj_objectArrayWithKeyValuesArray:data];
+        _dataArray=[TFTableSectionModel tf_mj_objectArrayWithKeyValuesArray:data];
     }
     return _dataArray;
 }
