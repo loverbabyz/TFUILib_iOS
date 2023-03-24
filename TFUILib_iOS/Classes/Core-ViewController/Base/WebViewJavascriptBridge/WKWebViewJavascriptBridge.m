@@ -7,6 +7,7 @@
 
 
 #import "WKWebViewJavascriptBridge.h"
+#import <TFBaseLib_iOS/TFBaseMacro+Memory.h>
 
 #if defined supportsWKWebView
 
@@ -92,11 +93,13 @@
 
 
 - (void)WKFlushMessageQueue {
+    TF_WEAK_SELF
     [_webView evaluateJavaScript:[_base webViewJavascriptFetchQueyCommand] completionHandler:^(NSString* result, NSError* error) {
+        TF_STRONG_SELF
         if (error != nil) {
             NSLog(@"WebViewJavascriptBridge: WARNING: Error when trying to fetch data from WKWebView: %@", error);
         }
-        [_base flushMessageQueue:result];
+        [self->_base flushMessageQueue:result];
     }];
 }
 
