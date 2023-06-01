@@ -37,7 +37,6 @@
 #import "UIPopoverController+BlocksKit.h"
 #import "UITextField+BlocksKit.h"
 #import "UIView+BlocksKit.h"
-#import "UIWebView+BlocksKit.h"
 #import "UITextField+BlocksKit.h"
 #import "UITextView+BlocksKit.h"
 #import "UIImagePickerController+BlocksKit.h"
