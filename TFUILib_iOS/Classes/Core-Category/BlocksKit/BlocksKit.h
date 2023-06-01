@@ -25,10 +25,22 @@
 //  THE SOFTWARE.
 //
 
+#import <Foundation/Foundation.h>
+
+//! Project version number for BlocksKit.
+FOUNDATION_EXPORT double BlocksKitVersionNumber;
+
+//! Project version string for BlocksKit.
+FOUNDATION_EXPORT const unsigned char BlocksKitVersionString[];
+
+#import "BKDefines.h"
+#import "BKMacros.h"
 #import "NSArray+BlocksKit.h"
 #import "NSDictionary+BlocksKit.h"
 #import "NSIndexSet+BlocksKit.h"
 #import "NSInvocation+BlocksKit.h"
+#import "NSNumber+BlocksKit.h"
+#import "NSMapTable+BlocksKit.h"
 #import "NSMutableArray+BlocksKit.h"
 #import "NSMutableDictionary+BlocksKit.h"
 #import "NSMutableIndexSet+BlocksKit.h"
@@ -40,4 +52,4 @@
 #import "NSOrderedSet+BlocksKit.h"
 #import "NSSet+BlocksKit.h"
 #import "NSTimer+BlocksKit.h"
-#import "BKMacros.h"
+
