@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TFUILib_iOS'
-  s.version          = '1.1.15'
+  s.version          = '1.1.16.1'
   s.summary          = 'UI lib for Treasure framework.'
 
 # This description is used to generate tags and improve search results.
@@ -47,10 +47,15 @@ UI lib for Treasure framework.
   
   s.resources = "TFUILib_iOS/Assets/**/*.{bundle}"
   s.frameworks = "Foundation", "UIKit", "CoreGraphics", "CoreData", "CoreText", "ImageIO", "QuartzCore", "WebKit", "AVFoundation", "Photos", "AudioToolbox", "MapKit", "CoreLocation", "SceneKit"
-  s.xcconfig = {
-      'OTHER_LDFLAGS' => '-ObjC -all_load -force_load'
+  # 修改pod SDK、Pod 生成的.a 库和引用主工程的配置
+  s.user_target_xcconfig = {
+      'OTHER_LDFLAGS' => '-ObjC'
   }
+  # project中的Build Settings配置
+  # s.user_target_xcconfig = {"OTHER_LDFLAGS" => "-ObjC", "LD_RUNPATH_SEARCH_PATHS" => "/usr/lib/swift", "LIBRARY_SEARCH_PATHS" => "$(SDKROOT)/usr/lib/swift $(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)"}
+  # 当前库的Build Settings配置
+  # s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 x86_64 armv7' }
   
-  s.dependency 'TFBaseLib_iOS'
+  s.dependency 'TFBaseLib_iOS', "~> 1.1.17.1"
 
 end
