@@ -92,7 +92,9 @@ NSString * const DKWebViewKeyTitle = @"title";
     
     if (object == self.webView) {
         if([keyPath isEqualToString:DKWebViewKeyEstimateProgress]) {
-            CGFloat newprogress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
+            // The estimated progress of self.webView has changed.
+            NSNumber *progressNumber = change[NSKeyValueChangeNewKey];
+            double newprogress = [progressNumber doubleValue];
             [self.progressView setProgress:newprogress animated:YES];
             if (newprogress >= 1) {
                 [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -101,10 +103,12 @@ NSString * const DKWebViewKeyTitle = @"title";
                 }];
             }
         } else if ([keyPath isEqualToString:DKWebViewKeyTitle]) {
-            NSString *title = [[change objectForKey:NSKeyValueChangeNewKey] stringValue];
-            self.title = title;
+            // The title of self.webView has changed.
+            NSString *newTitle = change[NSKeyValueChangeNewKey];
+            self.title = newTitle;
         } else if ([keyPath isEqualToString:DKWebViewKeyCanGoBack]) {
-            bool x = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+            NSNumber *canGoBackNumber = change[NSKeyValueChangeNewKey];
+            BOOL x = [canGoBackNumber boolValue];
             if (x) {
                 self.navigationItem.leftBarButtonItems = @[self.backItem,self.closeItem];
             } else {
