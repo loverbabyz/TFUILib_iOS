@@ -26,8 +26,5 @@
 #import "UIView+Category.h"
 #import "UIViewController+Category.h"
 #import "NSBundle+TFUILib_iOS.h"
-#import "BlocksKit.h"
-#import "BlocksKit+MessageUI.h"
-#import "BlocksKit+UIKit.h"
 
 #endif
