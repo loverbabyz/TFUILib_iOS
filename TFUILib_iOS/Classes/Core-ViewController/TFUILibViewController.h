@@ -18,5 +18,6 @@
 #import "TFTabBarController.h"
 #import "TFDrawerController.h"
 #import "TFQRCodeViewController.h"
+#import "TFFormViewController.h"
 
 #endif

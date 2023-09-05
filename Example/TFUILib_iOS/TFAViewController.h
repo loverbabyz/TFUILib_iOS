@@ -6,9 +6,8 @@
 //  Copyright (c) 2020 SunXiaofei. All rights reserved.
 //
 
-@import UIKit;
-
 #import "TFTestViewController.h"
-@interface TFAViewController : TFViewController
+
+@interface TFAViewController : TFFormViewController
 
 @end

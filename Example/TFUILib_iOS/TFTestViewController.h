@@ -6,10 +6,10 @@
 //  Copyright © 2020 SunXiaofei. All rights reserved.
 //
 
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "TFFormViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TFTestViewController : TFViewController
+@interface TFTestViewController : TFFormViewController
 
 @end
 
