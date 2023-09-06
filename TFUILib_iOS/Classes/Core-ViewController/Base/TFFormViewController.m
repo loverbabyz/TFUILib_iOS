@@ -184,7 +184,23 @@
 
 - (void)bindData
 {
+    XLFormDescriptor * form = [XLFormDescriptor formDescriptor];
     
+    [self.viewModel.dataArray enumerateObjectsUsingBlock:^(__kindof TFTableSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        XLFormSectionDescriptor * section = [XLFormSectionDescriptor formSectionWithTitle:obj.title];
+        [obj.dataArray enumerateObjectsUsingBlock:^(__kindof TFTableRowModel * _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
+            XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:[NSString stringWithFormat:@"row-%ld", idx] rowType:XLFormRowDescriptorTypeButton title:obj1.title];
+            row.action.formSegueIdentifier = obj1.action;
+            if(obj1.vc && obj1.vc.length > 0) {
+                row.action.viewControllerClass = NSClassFromString(obj1.vc);
+            }
+            [section addFormRow:row];
+        }];
+        section.footerTitle = obj.detail;
+        [form addFormSection:section];
+    }];
+
+    self.form = form;
 }
 
 #pragma mark load data
