@@ -157,4 +157,6 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
     otherButtonTitles:(NSArray *)otherButtonTitles
                 block:(ActionSheetBlock)block;
 
+- (void)handleFormData:(XLFormRowDescriptor *)data;
+
 @end

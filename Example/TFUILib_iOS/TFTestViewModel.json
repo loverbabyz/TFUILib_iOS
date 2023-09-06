@@ -1,23 +1,128 @@
 [
     {
-        "title": "Real examples",
+        "identity": "1",
         "dataArray": [
             {
-                "title": "iOS Calendar Event Form",
-                "action": "TestFormViewControllerSegue",
-                "parameter": "button",
+                "identity": "11",
+                "action": "text",
+                "title": "",
+                "placeholder": "用户ID",
+                "parameter": 1,
+            },
+            {
+                "identity": "12",
+                "action": "text",
+                "title": "",
+                "placeholder": "手机号",
+                "parameter": 1,
             }
         ]
     },
     {
-        "title": "This form is actually an example",
-        "detail": "Footer here",
+        "identity": "2",
         "dataArray": [
             {
-                "title": "Text Fields",
-                "vc": "TFTestViewController",
-                "parameter": "button",
+                "identity": "21",
+                "action": "selectorPush",
+                "title": "品牌",
+                "parameter":  [
+                    {
+                        "identity": "11111",
+                        "title": "品牌A",
+                    },
+                    {
+                        "identity": "22222",
+                        "title": "品牌B",
+                    },
+                    {
+                        "identity": "3333",
+                        "title": "品牌C",
+                    }
+                ]
+            },
+            {
+                "identity": "22",
+                "action": "selectorPush",
+                "title": "Log level",
+                "parameter":  [
+                    {
+                        "identity": "0",
+                        "title": "NONE",
+                    },
+                    {
+                        "identity": "1",
+                        "title": "DEBUG",
+                    },
+                    {
+                        "identity": "2",
+                        "title": "TREACE",
+                    }
+                ]
+            },
+            {
+                "identity": "23",
+                "action": "selectorPickerViewInline",
+                "title": "灵敏度",
+                "parameter":  [
+                    {
+                        "identity": "-1",
+                        "title": "-1",
+                    },
+                    {
+                        "identity": "0",
+                        "title": "0",
+                    },
+                    {
+                        "identity": "1",
+                        "title": "1",
+                    }
+                ]
             }
         ]
-    }
+    },
+    {
+        "identity": "3",
+        "dataArray": [
+            {
+                "identity": "31",
+                "action": "booleanSwitch",
+                "title": "是否在主线程",
+                "parameter": 1,
+            }
+        ]
+    },
+    {
+        "identity": "5",
+        "dataArray": [
+            {
+                "identity": "51",
+                "action": "info",
+                "title": "静态字符",
+                "parameter": "abcabc",
+            },
+            {
+                "identity": "51",
+                "action": "datetimeInline",
+                "title": "开始时间",
+                "parameter": 90000,
+            },
+            {
+                "identity": "52",
+                "action": "datetimeInline",
+                "title": "结束时间",
+                "parameter": 90000,
+            },
+        ]
+    },
+    {
+        "identity": "4",
+        "dataArray": [
+            {
+                "identity": "41",
+                "action": "button",
+                "title": "登录",
+                "parameter": 1,
+            }
+        ]
+    },
 ]

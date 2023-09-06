@@ -1,20 +1,26 @@
 [
     {
-        "title": "Real examples",
+        "identity": "1",
+        "title": "header title",
         "dataArray": [
             {
-                "title": "iOS Calendar Event Form",
-                "action": "TestFormViewControllerSegue",
+                "identity": "11",
+                "action": "button",
+                "title": "Test Form ViewController from Segue",
+                "method": "TestFormViewControllerSegue",
                 "parameter": "button",
             }
         ]
     },
     {
-        "title": "This form is actually an example",
+        "identity": "2",
+        "title": "This form is login example",
         "detail": "Footer here",
         "dataArray": [
             {
-                "title": "Text Fields",
+                "identity": "21",
+                "action": "button",
+                "title": "登录",
                 "vc": "TFTestViewController",
                 "parameter": "button",
             }
