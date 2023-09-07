@@ -10,5 +10,6 @@
 #define TFUILibViewModel_h
 
 #import "TFViewModel.h"
+#import "TFFormViewModel.h"
 
 #endif

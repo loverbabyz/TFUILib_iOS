@@ -38,15 +38,9 @@
 //- (void)bindData {
 //    [self initializeForm];
 //}
-- (void)handleFormData:(XLFormRowDescriptor *)data {
-    TFTableRowModel *row = data.value;
-    if (!row) {
-        return;
-    }
-    
-    if ([row.identity isEqualToString:@"41"]) {
-        tf_showToast(row.title);
-    }
+
+- (void)login {
+    tf_showToast(@"login");
 }
 /*
 #pragma mark - Navigation

@@ -1,8 +1,9 @@
 //
 //  TFFormViewController.h
-//  TFUILib_iOS
+//  TFUILib
 //
-//  Created by Daniel on 2023/9/6.
+//  Created by Daniel on 7/9/23.
+//  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 
 #import "XLFormViewController.h"
@@ -156,7 +157,5 @@ typedef void (^TFViewControllerResultBlock)(id x);
 destructiveButtonTitle:(NSString *)destructiveButtonTitle
     otherButtonTitles:(NSArray *)otherButtonTitles
                 block:(ActionSheetBlock)block;
-
-- (void)handleFormData:(XLFormRowDescriptor *)data;
 
 @end

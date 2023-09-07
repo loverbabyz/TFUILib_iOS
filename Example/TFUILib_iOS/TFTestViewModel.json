@@ -121,6 +121,7 @@
                 "identity": "41",
                 "action": "button",
                 "title": "登录",
+                "method": "login",
                 "parameter": 1,
             }
         ]

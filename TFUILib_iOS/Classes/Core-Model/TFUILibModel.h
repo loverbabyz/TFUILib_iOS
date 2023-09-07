@@ -18,5 +18,7 @@
 #import "TFTreeNode.h"
 #import "TFWebModel.h"
 #import "TFTreeSectionModel.h"
+#import "TFFormRowModel.h"
+#import "TFFormSectionModel.h"
 
 #endif

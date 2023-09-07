@@ -13,7 +13,7 @@
 //@protocol TFTableRowModel <NSObject>
 //@end
 
-@interface TFTableRowModel : TFModel
+@protocol TFTableRowModelProtocol <NSObject>
 
 /**
  *  action
@@ -69,5 +69,8 @@
  *  webModel
  */
 @property (nonatomic, strong) id webModel;
+
+@end
+@interface TFTableRowModel : TFModel<TFTableRowModelProtocol>
 
 @end

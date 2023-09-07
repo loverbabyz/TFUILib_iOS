@@ -1,8 +1,9 @@
 //
 //  TFFormViewController.m
-//  TFUILib_iOS
+//  TFUILib
 //
-//  Created by Daniel on 2023/9/6.
+//  Created by Daniel on 7/9/23.
+//  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 
 #import "TFFormViewController.h"
@@ -251,7 +252,7 @@
     } else {
         __typeof(self) __weak weakSelf = self;
         row.action.formBlock = ^(XLFormRowDescriptor * sender){
-            [weakSelf handleFormData:sender];
+            [weakSelf handleData:obj];
             [weakSelf deselectFormRow:sender];
         };
     }
@@ -290,9 +291,9 @@
 {
     XLFormDescriptor * form = [XLFormDescriptor formDescriptor];
     
-    [self.viewModel.dataArray enumerateObjectsUsingBlock:^(__kindof TFTableSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.viewModel.dataArray enumerateObjectsUsingBlock:^(__kindof TFFormSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         XLFormSectionDescriptor * section = [XLFormSectionDescriptor formSectionWithTitle:obj.title];
-        [obj.dataArray enumerateObjectsUsingBlock:^(__kindof TFTableRowModel * _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj.dataArray enumerateObjectsUsingBlock:^(__kindof TFFormRowModel * _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
             XLFormRowDescriptor * row;
             if([obj1.action isEqualToString:XLFormRowDescriptorTypeText]){
                 row = [self rowDescriptorTypeText:obj1];

@@ -14,14 +14,14 @@
 #pragma mark -
 #pragma mark - TFModel
 @protocol TFViewModel <NSObject>
-@end
 
-@interface TFViewModel : NSObject
+@end
+@protocol TFViewModelProtocol<S,R> <NSObject>
 
 @property (nonatomic, copy) NSString *title;
 
 /**
- *  
+ *
  */
 @property (nonatomic,strong) NSArray<__kindof TFTableSectionModel *> *dataArray;
 
@@ -83,5 +83,11 @@
 /// 通过文件名返回Mock数据
 /// @param fileName JSON文件名称
 - (id)mockDataWithFileName:(NSString *)fileName;
+
+@end
+
+@interface TFViewModel : NSObject
+
+
 
 @end
