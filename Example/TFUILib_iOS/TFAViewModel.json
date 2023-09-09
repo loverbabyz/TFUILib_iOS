@@ -13,14 +13,14 @@
     },
     {
         "identity": "2",
-        "title": "This form is login example",
+        "title": "This form is example",
         "footTitle": "Footer here",
         "dataArray": [
             {
                 "identity": "21",
                 "rowType": "button",
-                "title": "登录",
-                "viewControllerClass": "TFTestViewController",
+                "title": "DEMO",
+                "viewControllerClass": "LoginViewController",
             }
         ]
     }

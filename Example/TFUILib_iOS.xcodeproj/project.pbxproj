@@ -21,16 +21,24 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6519F2DC2AACD53B0066901B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2DB2AACD53B0066901B /* HomeViewController.m */; };
+		6519F2DF2AACD5560066901B /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2DE2AACD5560066901B /* HomeViewModel.m */; };
+		6519F2E12AACD5730066901B /* HomeViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6519F2E02AACD5730066901B /* HomeViewModel.json */; };
+		6519F2E42AACD7B90066901B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2E32AACD7B90066901B /* SettingViewController.m */; };
+		6519F2E72AACD7ED0066901B /* SettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2E62AACD7ED0066901B /* SettingViewModel.m */; };
+		6519F2E92AACD7F70066901B /* SettingViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6519F2E82AACD7F70066901B /* SettingViewModel.json */; };
+		6519F2EC2AACDF8D0066901B /* ShareKeyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2EB2AACDF8D0066901B /* ShareKeyViewModel.m */; };
+		6519F2EF2AACDFA20066901B /* ShareKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2EE2AACDFA20066901B /* ShareKeyViewController.m */; };
+		6519F2F12AACDFB90066901B /* ShareKeyViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6519F2F02AACDFB90066901B /* ShareKeyViewModel.json */; };
+		6519F2F42AACE2F90066901B /* SharedKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2F32AACE2F90066901B /* SharedKeysViewController.m */; };
+		6519F2F72AACE33E0066901B /* OwnerKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2F62AACE33E0066901B /* OwnerKeysViewController.m */; };
 		6532EAD12AA7AC960036ECAF /* TFAViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532EAD02AA7AC960036ECAF /* TFAViewModel.m */; };
 		6532EAD32AA7ADB80036ECAF /* TFAViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6532EAD22AA7ADB80036ECAF /* TFAViewModel.json */; };
-		65FE3A4224C4708A00336B38 /* TFTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE3A4124C4708A00336B38 /* TFTestViewController.m */; };
+		65FE3A4224C4708A00336B38 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE3A4124C4708A00336B38 /* LoginViewController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		8D7C51012AA856A80070E0F0 /* TFTestViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D7C51002AA856A80070E0F0 /* TFTestViewModel.json */; };
-		8D7C51042AA857230070E0F0 /* TFTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C51032AA857230070E0F0 /* TFTestViewModel.m */; };
-		8D7C510F2AA85AAA0070E0F0 /* XLForm-Dates.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8D7C510A2AA85AAA0070E0F0 /* XLForm-Dates.gif */; };
-		8D7C51102AA85AAA0070E0F0 /* DatesFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C510B2AA85AAA0070E0F0 /* DatesFormViewController.m */; };
-		8D7C51112AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C510E2AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.m */; };
+		8D7C51012AA856A80070E0F0 /* LoginViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D7C51002AA856A80070E0F0 /* LoginViewModel.json */; };
+		8D7C51042AA857230070E0F0 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C51032AA857230070E0F0 /* LoginViewModel.m */; };
 		B746BAAAEC321D7F488DB5CA /* Pods_TFUILib_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BB3428B35690612708E841 /* Pods_TFUILib_iOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,22 +79,36 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6519F2DA2AACD53B0066901B /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6519F2DB2AACD53B0066901B /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6519F2DD2AACD5560066901B /* HomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
+		6519F2DE2AACD5560066901B /* HomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
+		6519F2E02AACD5730066901B /* HomeViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeViewModel.json; sourceTree = "<group>"; };
+		6519F2E22AACD7B90066901B /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		6519F2E32AACD7B90066901B /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		6519F2E52AACD7ED0066901B /* SettingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewModel.h; sourceTree = "<group>"; };
+		6519F2E62AACD7ED0066901B /* SettingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewModel.m; sourceTree = "<group>"; };
+		6519F2E82AACD7F70066901B /* SettingViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SettingViewModel.json; sourceTree = "<group>"; };
+		6519F2EA2AACDF8D0066901B /* ShareKeyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareKeyViewModel.h; sourceTree = "<group>"; };
+		6519F2EB2AACDF8D0066901B /* ShareKeyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareKeyViewModel.m; sourceTree = "<group>"; };
+		6519F2ED2AACDFA20066901B /* ShareKeyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareKeyViewController.h; sourceTree = "<group>"; };
+		6519F2EE2AACDFA20066901B /* ShareKeyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareKeyViewController.m; sourceTree = "<group>"; };
+		6519F2F02AACDFB90066901B /* ShareKeyViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ShareKeyViewModel.json; sourceTree = "<group>"; };
+		6519F2F22AACE2F90066901B /* SharedKeysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedKeysViewController.h; sourceTree = "<group>"; };
+		6519F2F32AACE2F90066901B /* SharedKeysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedKeysViewController.m; sourceTree = "<group>"; };
+		6519F2F52AACE33E0066901B /* OwnerKeysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnerKeysViewController.h; sourceTree = "<group>"; };
+		6519F2F62AACE33E0066901B /* OwnerKeysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwnerKeysViewController.m; sourceTree = "<group>"; };
 		6532EACF2AA7AC960036ECAF /* TFAViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAViewModel.h; sourceTree = "<group>"; };
 		6532EAD02AA7AC960036ECAF /* TFAViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAViewModel.m; sourceTree = "<group>"; };
 		6532EAD22AA7ADB80036ECAF /* TFAViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TFAViewModel.json; sourceTree = "<group>"; };
-		65FE3A4024C4708A00336B38 /* TFTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFTestViewController.h; sourceTree = "<group>"; };
-		65FE3A4124C4708A00336B38 /* TFTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFTestViewController.m; sourceTree = "<group>"; };
+		65FE3A4024C4708A00336B38 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		65FE3A4124C4708A00336B38 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		67AC5D7FBC895ABB5FC5D6AA /* Pods-TFUILib_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFUILib_iOS_Example.release.xcconfig"; path = "Target Support Files/Pods-TFUILib_iOS_Example/Pods-TFUILib_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8D7C51002AA856A80070E0F0 /* TFTestViewModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TFTestViewModel.json; sourceTree = "<group>"; };
-		8D7C51022AA857230070E0F0 /* TFTestViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFTestViewModel.h; sourceTree = "<group>"; };
-		8D7C51032AA857230070E0F0 /* TFTestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFTestViewModel.m; sourceTree = "<group>"; };
-		8D7C510A2AA85AAA0070E0F0 /* XLForm-Dates.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "XLForm-Dates.gif"; sourceTree = "<group>"; };
-		8D7C510B2AA85AAA0070E0F0 /* DatesFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatesFormViewController.m; sourceTree = "<group>"; };
-		8D7C510C2AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndTimeValueTrasformer.h; sourceTree = "<group>"; };
-		8D7C510D2AA85AAA0070E0F0 /* DatesFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatesFormViewController.h; sourceTree = "<group>"; };
-		8D7C510E2AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndTimeValueTrasformer.m; sourceTree = "<group>"; };
+		8D7C51002AA856A80070E0F0 /* LoginViewModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginViewModel.json; sourceTree = "<group>"; };
+		8D7C51022AA857230070E0F0 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
+		8D7C51032AA857230070E0F0 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		CDA17CAD23B28BC8904448D6 /* Pods_TFUILib_iOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFUILib_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -164,7 +186,7 @@
 		6003F593195388D20070C39A /* Example for TFUILib_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8D7C51092AA85AAA0070E0F0 /* Dates */,
+				6519F2D92AACD3F00066901B /* demo */,
 				6003F59C195388D20070C39A /* TFAppDelegate.h */,
 				6003F59D195388D20070C39A /* TFAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -176,11 +198,6 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				65FE3A4024C4708A00336B38 /* TFTestViewController.h */,
-				65FE3A4124C4708A00336B38 /* TFTestViewController.m */,
-				8D7C51002AA856A80070E0F0 /* TFTestViewModel.json */,
-				8D7C51022AA857230070E0F0 /* TFTestViewModel.h */,
-				8D7C51032AA857230070E0F0 /* TFTestViewModel.m */,
 			);
 			name = "Example for TFUILib_iOS";
 			path = TFUILib_iOS;
@@ -226,16 +243,35 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		8D7C51092AA85AAA0070E0F0 /* Dates */ = {
+		6519F2D92AACD3F00066901B /* demo */ = {
 			isa = PBXGroup;
 			children = (
-				8D7C510A2AA85AAA0070E0F0 /* XLForm-Dates.gif */,
-				8D7C510B2AA85AAA0070E0F0 /* DatesFormViewController.m */,
-				8D7C510C2AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.h */,
-				8D7C510D2AA85AAA0070E0F0 /* DatesFormViewController.h */,
-				8D7C510E2AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.m */,
+				65FE3A4024C4708A00336B38 /* LoginViewController.h */,
+				65FE3A4124C4708A00336B38 /* LoginViewController.m */,
+				8D7C51002AA856A80070E0F0 /* LoginViewModel.json */,
+				8D7C51022AA857230070E0F0 /* LoginViewModel.h */,
+				8D7C51032AA857230070E0F0 /* LoginViewModel.m */,
+				6519F2DA2AACD53B0066901B /* HomeViewController.h */,
+				6519F2DB2AACD53B0066901B /* HomeViewController.m */,
+				6519F2E02AACD5730066901B /* HomeViewModel.json */,
+				6519F2DD2AACD5560066901B /* HomeViewModel.h */,
+				6519F2DE2AACD5560066901B /* HomeViewModel.m */,
+				6519F2E22AACD7B90066901B /* SettingViewController.h */,
+				6519F2E32AACD7B90066901B /* SettingViewController.m */,
+				6519F2E82AACD7F70066901B /* SettingViewModel.json */,
+				6519F2E52AACD7ED0066901B /* SettingViewModel.h */,
+				6519F2E62AACD7ED0066901B /* SettingViewModel.m */,
+				6519F2ED2AACDFA20066901B /* ShareKeyViewController.h */,
+				6519F2EE2AACDFA20066901B /* ShareKeyViewController.m */,
+				6519F2F02AACDFB90066901B /* ShareKeyViewModel.json */,
+				6519F2EA2AACDF8D0066901B /* ShareKeyViewModel.h */,
+				6519F2EB2AACDF8D0066901B /* ShareKeyViewModel.m */,
+				6519F2F22AACE2F90066901B /* SharedKeysViewController.h */,
+				6519F2F32AACE2F90066901B /* SharedKeysViewController.m */,
+				6519F2F52AACE33E0066901B /* OwnerKeysViewController.h */,
+				6519F2F62AACE33E0066901B /* OwnerKeysViewController.m */,
 			);
-			path = Dates;
+			path = demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,11 +361,13 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				8D7C510F2AA85AAA0070E0F0 /* XLForm-Dates.gif in Resources */,
-				8D7C51012AA856A80070E0F0 /* TFTestViewModel.json in Resources */,
+				6519F2F12AACDFB90066901B /* ShareKeyViewModel.json in Resources */,
+				8D7C51012AA856A80070E0F0 /* LoginViewModel.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				6519F2E12AACD5730066901B /* HomeViewModel.json in Resources */,
 				6532EAD32AA7ADB80036ECAF /* TFAViewModel.json in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				6519F2E92AACD7F70066901B /* SettingViewModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,14 +471,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D7C51042AA857230070E0F0 /* TFTestViewModel.m in Sources */,
-				8D7C51112AA85AAA0070E0F0 /* DateAndTimeValueTrasformer.m in Sources */,
+				8D7C51042AA857230070E0F0 /* LoginViewModel.m in Sources */,
 				6003F59E195388D20070C39A /* TFAppDelegate.m in Sources */,
+				6519F2F72AACE33E0066901B /* OwnerKeysViewController.m in Sources */,
 				6532EAD12AA7AC960036ECAF /* TFAViewModel.m in Sources */,
+				6519F2E72AACD7ED0066901B /* SettingViewModel.m in Sources */,
 				6003F5A7195388D20070C39A /* TFAViewController.m in Sources */,
-				8D7C51102AA85AAA0070E0F0 /* DatesFormViewController.m in Sources */,
-				65FE3A4224C4708A00336B38 /* TFTestViewController.m in Sources */,
+				65FE3A4224C4708A00336B38 /* LoginViewController.m in Sources */,
+				6519F2EF2AACDFA20066901B /* ShareKeyViewController.m in Sources */,
+				6519F2E42AACD7B90066901B /* SettingViewController.m in Sources */,
+				6519F2DC2AACD53B0066901B /* HomeViewController.m in Sources */,
+				6519F2EC2AACDF8D0066901B /* ShareKeyViewModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				6519F2F42AACE2F90066901B /* SharedKeysViewController.m in Sources */,
+				6519F2DF2AACD5560066901B /* HomeViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

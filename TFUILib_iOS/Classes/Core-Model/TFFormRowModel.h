@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否为必填
 @property (nonatomic, assign) BOOL required;
 
+/// 是否只读
+@property (nonatomic, assign) BOOL disabled;
+
 /// value
 @property (nonatomic, strong) id value;
 
@@ -46,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 跳转目标viewController通过SegueClass
 @property (nonatomic, copy) NSString *formSegueClass;
+
+/// 值发生变化时回调方法
+@property (nonatomic, copy) NSString *onChangeBlock;
 
 @end
 

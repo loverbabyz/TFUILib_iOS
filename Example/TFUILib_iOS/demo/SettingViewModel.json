@@ -1,0 +1,85 @@
+[
+    {
+        "tag": "0",
+        "dataArray": [
+            {
+                "tag": "00",
+                "rowType": "info",
+                "title": "品牌",
+                "value": "智已",
+            },
+            {
+                "tag": "01",
+                "rowType": "info",
+                "title": "APP ID",
+                "value": "234sadf2431231",
+            },
+            {
+                "tag": "02",
+                "rowType": "info",
+                "title": "环境",
+                "value": "https://uat.IM",
+            }
+        ]
+    },
+    {
+        "tag": "1",
+        "dataArray": [
+            {
+                "tag": "10",
+                "rowType": "info",
+                "title": "用户ID",
+                "value": "AABBCC",
+            },
+            {
+                "tag": "11",
+                "rowType": "info",
+                "title": "手机号",
+                "value": "13800138000",
+            }
+        ]
+    },
+    {
+        "tag": "2",
+        "dataArray": [
+            {
+                "tag": "20",
+                "rowType": "booleanSwitch",
+                "onChangeBlock": "theadChanged:",
+                "title": "是否在主线程",
+                "value": 1,
+            },
+            {
+                "tag": "21",
+                "rowType": "selectorPush",
+                "title": "Log level",
+                "onChangeBlock": "logLevelChanged:",
+                "selectorOptions":  [
+                    {
+                        "identity": "0",
+                        "title": "NONE",
+                    },
+                    {
+                        "identity": "1",
+                        "title": "DEBUG",
+                    },
+                    {
+                        "identity": "2",
+                        "title": "TREACE",
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        "tag": "3",
+        "dataArray": [
+            {
+                "tag": "30",
+                "rowType": "button",
+                "title": "退出登录",
+                "method": "logout",
+            }
+        ]
+    },
+]

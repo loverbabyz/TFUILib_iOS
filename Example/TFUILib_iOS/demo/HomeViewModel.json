@@ -1,0 +1,142 @@
+[
+    {
+        "tag": "1",
+        "dataArray": [
+            {
+                "tag": "10",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "VIN",
+                "required": 1,
+            }
+        ]
+    },
+    {
+        "tag": "2",
+        "title": "SDK配置",
+        "dataArray": [
+            {
+                "tag": "20",
+                "rowType": "button",
+                "title": "导出日志",
+                "method": "exportLog",
+            },
+            {
+                "tag": "21",
+                "rowType": "button",
+                "title": "设置",
+                "viewControllerClass": "SettingViewController",
+            }
+        ]
+    },
+    {
+        "tag": "3",
+        "title": "钥匙相关",
+        "dataArray": [
+            {
+                "tag": "30",
+                "rowType": "button",
+                "title": "激活钥匙",
+                "method": "enableKey",
+            },
+            {
+                "tag": "31",
+                "rowType": "button",
+                "title": "激活状态",
+                "method": "keyStatus",
+            },
+            {
+                "tag": "32",
+                "rowType": "button",
+                "title": "注销钥匙",
+                "method": "revokeKey",
+            },
+            {
+                "tag": "33",
+                "rowType": "button",
+                "title": "连接车辆",
+                "method": "connect",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "连接状态",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "35",
+                "rowType": "button",
+                "title": "断开连接",
+                "method": "disconnect",
+            },
+        ]
+    },
+    {
+        "tag": "4",
+        "title": "车控",
+        "dataArray": [
+            {
+                "tag": "40",
+                "rowType": "button",
+                "title": "锁车",
+                "method": "lock",
+            },
+            {
+                "tag": "41",
+                "rowType": "button",
+                "title": "解锁",
+                "method": "unlock",
+            },
+        ]
+    },
+    {
+        "tag": "5",
+        "title": "业务",
+        "dataArray": [
+            {
+                "tag": "50",
+                "rowType": "selectorActionSheet",
+                "title": "灵敏度调节",
+                "onChangeBlock": "levelChanged:",
+                "selectorOptions": [
+                    {
+                        "identity": "-1",
+                        "title": "-1",
+                    },
+                    {
+                        "identity": "0",
+                        "title": "0",
+                    },
+                    {
+                        "identity": "1",
+                        "title": "1",
+                    },
+                ]
+            },
+            {
+                "tag": "54",
+                "rowType": "button",
+                "title": "分享钥匙",
+                "viewControllerClass": "ShareKeyViewController",
+            },
+            {
+                "tag": "51",
+                "rowType": "button",
+                "title": "已分享钥匙",
+                "viewControllerClass": "SharedKeysViewController",
+            },
+            {
+                "tag": "52",
+                "rowType": "button",
+                "title": "车主钥匙",
+                "viewControllerClass": "OwnerKeysViewController",
+            },
+            {
+                "tag": "53",
+                "rowType": "button",
+                "title": "个性化设置",
+                "viewControllerClass": "OwnerKeysViewController",
+            },
+        ]
+    },
+]

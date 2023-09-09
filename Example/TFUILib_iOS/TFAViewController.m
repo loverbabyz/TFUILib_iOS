@@ -7,8 +7,7 @@
 //
 
 #import "TFAViewController.h"
-#import "TFTestViewController.h"
-#import "TFTestViewController.h"
+#import "LoginViewController.h"
 #import <TFUILib_iOS/TFUILib_iOS.h>
 #import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 #import "TFAViewModel.h"
@@ -42,8 +41,8 @@ NSString * const kFormatters = @"Formatters";
 }
 
 - (void)initViews {
-    [TFActionSheet showWithTitle:@"是否要删除" cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil block:nil];
     return;
+    [TFActionSheet showWithTitle:@"是否要删除" cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil block:nil];
     
     UIView *test = [UIView new];
     test.backgroundColor = UIColor.redColor;

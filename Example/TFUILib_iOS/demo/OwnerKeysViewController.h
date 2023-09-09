@@ -1,8 +1,8 @@
 //
-//  TFTestViewModel.h
+//  OwnerKeysViewController.h
 //  TFUILib_iOS_Example
 //
-//  Created by Ingeek-091 on 2023/9/6.
+//  Created by Daniel on 2023/9/10.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TFTestViewModel : TFFormViewModel
+@interface OwnerKeysViewController : TFTableViewController
 
 @end
 

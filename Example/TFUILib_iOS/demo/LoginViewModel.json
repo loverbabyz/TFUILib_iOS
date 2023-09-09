@@ -1,0 +1,97 @@
+[
+    {
+        "tag": "0",
+        "dataArray": [
+            {
+                "tag": "00",
+                "rowType": "text",
+                "title": "用户ID",
+                "required": 1,
+            },
+            {
+                "tag": "01",
+                "rowType": "text",
+                "title": "手机号码",
+                "required": 1,
+            }
+        ]
+    },
+    {
+        "tag": "1",
+        "dataArray": [
+            {
+                "tag": "10",
+                "rowType": "selectorPush",
+                "title": "品牌",
+                "selectorOptions":  [
+                    {
+                        "identity": "11111",
+                        "title": "智已",
+                    },
+                    {
+                        "identity": "22222",
+                        "title": "东风乘用车",
+                    },
+                    {
+                        "identity": "3333",
+                        "title": "高合",
+                    }
+                ]
+            },
+            {
+                "tag": "11",
+                "rowType": "selectorPush",
+                "title": "环境",
+                "selectorOptions":  [
+                    {
+                        "identity": "https://uat.IM",
+                        "title": "智已UAT",
+                    },
+                    {
+                        "identity": "https://dev.IM",
+                        "title": "智已DEV",
+                    },
+                    {
+                        "identity": "https://pro.IM",
+                        "title": "智已PRO",
+                    },
+                    {
+                        "identity": "https://uat.DFM",
+                        "title": "东风乘用车UAT",
+                    },
+                    {
+                        "identity": "https://dev.DFM",
+                        "title": "东风乘用车DEV",
+                    },
+                    {
+                        "identity": "https://pro.DFM",
+                        "title": "东风乘用车PRO",
+                    },
+                    {
+                        "identity": "https://uat.HH",
+                        "title": "高合UAT",
+                    },
+                    {
+                        "identity": "https://dev.HH",
+                        "title": "高合DEV",
+                    },
+                    {
+                        "identity": "https://pro.HH",
+                        "title": "高合PRO",
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        "tag": "2",
+        "dataArray": [
+            {
+                "tag": "20",
+                "rowType": "button",
+                "title": "登录",
+                "viewControllerClass": "HomeViewController",
+            }
+        ]
+    },
+]

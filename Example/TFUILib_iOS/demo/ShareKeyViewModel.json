@@ -1,0 +1,59 @@
+[
+    {
+        "tag": "0",
+        "dataArray": [
+            {
+                "tag": "00",
+                "rowType": "info",
+                "title": "VIN",
+                "value": "abcabc",
+            },
+        ]
+    },
+    {
+        "tag": "1",
+        "dataArray": [
+            {
+                "tag": "11",
+                "rowType": "text",
+                "title": "name",
+                "required": 1,
+            },
+            {
+                "tag": "12",
+                "rowType": "text",
+                "title": "mobile",
+                "required": 1,
+            },
+            {
+                "tag": "13",
+                "rowType": "text",
+                "title": "kpre",
+                "required": 1,
+            },
+            {
+                "tag": "14",
+                "rowType": "datetimeInline",
+                "title": "开始时间",
+                "value": 90000,
+            },
+            {
+                "tag": "15",
+                "rowType": "datetimeInline",
+                "title": "结束时间",
+                "value": 90000,
+            },
+        ]
+    },
+    {
+        "tag": "2",
+        "dataArray": [
+            {
+                "tag": "20",
+                "rowType": "button",
+                "title": "分享钥匙",
+                "method": "shareKey",
+            }
+        ]
+    },
+]

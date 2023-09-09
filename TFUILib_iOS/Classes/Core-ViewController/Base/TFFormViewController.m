@@ -184,6 +184,14 @@
 
 - (XLFormRowDescriptor *)rowDescriptorCommon:(TFFormRowModel * _Nonnull)obj rowType:(NSString *)rowType {
     XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:obj.tag ?: [NSString stringWithFormat:@"row-%@", obj.identity] rowType:rowType title:obj.title];
+    row.disabled = @(obj.disabled);
+    typeof(self) __weak weakself = self;
+    
+    if (obj.onChangeBlock) {
+        row.onChangeBlock = ^(id oldValue, id newValue, XLFormRowDescriptor* __unused rowDescriptor){
+            [weakself handleOnChangeBlock:obj newValue:newValue];
+        };
+    }
     
     return row;
 }
@@ -240,6 +248,7 @@
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeButton];
     row.value = obj;
     row.action.viewControllerPresentationMode = (XLFormPresentationMode)obj.viewControllerPresentationMode;
+    typeof(self) __weak weakself = self;
     
     if(obj.viewControllerClass) {
         row.action.viewControllerClass = NSClassFromString(obj.viewControllerClass);
@@ -291,6 +300,24 @@
     return row;
 }
 
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorAlertView:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorAlertView];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeName:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeName];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorActionSheet:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorActionSheet];
+    
+    return row;
+}
+
 - (void)bindData
 {
     XLFormDescriptor * form = [XLFormDescriptor formDescriptor];
@@ -303,7 +330,7 @@
                 row = [self rowDescriptorTypeText:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeName]){
-//                row = [self rowDescriptorTypeName:obj1];
+                row = [self rowDescriptorTypeName:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeNumber]){
 //                row = [self rowDescriptorTypeNumber:obj1];
@@ -311,7 +338,6 @@
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypePhone]){
 //                row = [self rowDescriptorTypePhone:obj1];
             }
-            
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPush]){
                 row = [self rowDescriptorTypeSelectorPush:obj1];
             }
@@ -319,10 +345,10 @@
 //                row = [self rowDescriptorTypeSelectorPopover:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorActionSheet]){
-//                row = [self rowDescriptorTypeSelectorActionSheet:obj1];
+                row = [self rowDescriptorTypeSelectorActionSheet:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorAlertView]){
-//                row = [self rowDescriptorTypeSelectorAlertView:obj1];
+                row = [self rowDescriptorTypeSelectorAlertView:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPickerView]){
 //                row = [self rowDescriptorTypeSelectorPickerView:obj1];
@@ -401,6 +427,37 @@
     }];
 
     self.form = form;
+}
+
+-(void)handleOnChangeBlock:(TFFormRowModel *)data newValue:(id)newValue
+{
+    if (data==nil)
+    {
+        return;
+    }
+    
+    if (![data isKindOfClass:[TFFormRowModel class]])
+    {
+        return;
+    }
+    
+    if (data.onChangeBlock!=nil)
+    {
+        SEL selector = NSSelectorFromString(data.onChangeBlock);
+        if ([self respondsToSelector:selector])
+        {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [self performSelector:selector withObject:newValue withObject:nil];
+#pragma clang diagnostic pop
+        }
+        else
+        {
+            NSCAssert(NO, ([NSString stringWithFormat:@"method对应%@不存在",data.onChangeBlock]));
+        }
+        
+        return;
+    }
 }
 
 #pragma mark load data
