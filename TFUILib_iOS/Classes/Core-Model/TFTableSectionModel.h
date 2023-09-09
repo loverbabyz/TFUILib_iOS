@@ -9,11 +9,10 @@
 #import "TFModel.h"
 #import "TFTableRowModel.h"
 
-@protocol TFTableSectionModelProtocol <NSObject>
+@interface TFTableSectionModel : TFModel
 
 /// detail文字
 @property (nonatomic, copy) NSString *detail;
-
 
 /**
  *  sectionClass，用于注册section
@@ -25,10 +24,7 @@
  */
 @property (nonatomic, strong) NSArray<__kindof TFTableRowModel *> *dataArray;
 
-- (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFModel<TFTableRowModelProtocol> *> *)dataArray;
-- (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFModel<TFTableRowModelProtocol> *> *)dataArray sectionClass:(NSString *)sectionClass;
-
-@end
-@interface TFTableSectionModel : TFModel<TFTableSectionModelProtocol>
+- (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFTableRowModel *> *)dataArray;
+- (instancetype)initWithTitle:(NSString *)title dataArray:(NSArray<__kindof TFTableRowModel *> *)dataArray sectionClass:(NSString *)sectionClass;
 
 @end

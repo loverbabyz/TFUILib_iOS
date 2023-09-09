@@ -10,6 +10,7 @@
 #import "TFViewModel.h"
 #import "TFView.h"
 #import "TFActionSheet.h"
+#import "TFFormViewModel.h"
 
 typedef void (^TFViewControllerResultBlock)(id x);
 
@@ -18,7 +19,7 @@ typedef void (^TFViewControllerResultBlock)(id x);
 /**
  *  控制器的viewModel
  */
-@property (nonatomic, strong) TFViewModel *viewModel;
+@property (nonatomic, strong) TFFormViewModel *viewModel;
 
 /**
  *  控制器结果回调

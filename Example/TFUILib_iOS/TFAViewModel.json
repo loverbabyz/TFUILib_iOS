@@ -5,24 +5,22 @@
         "dataArray": [
             {
                 "identity": "11",
-                "action": "button",
+                "rowType": "button",
                 "title": "Test Form ViewController from Segue",
-                "method": "TestFormViewControllerSegue",
-                "parameter": "button",
+                "formSegueIdentifier": "TestFormViewControllerSegue",
             }
         ]
     },
     {
         "identity": "2",
         "title": "This form is login example",
-        "detail": "Footer here",
+        "footTitle": "Footer here",
         "dataArray": [
             {
                 "identity": "21",
-                "action": "button",
+                "rowType": "button",
                 "title": "登录",
-                "vc": "TFTestViewController",
-                "parameter": "button",
+                "viewControllerClass": "TFTestViewController",
             }
         ]
     }

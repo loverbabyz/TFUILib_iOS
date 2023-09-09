@@ -7,9 +7,8 @@
 //
 
 #import "TFFormViewController.h"
-
 #import <TFBaseLib_iOS/TFMJExtension.h>
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "TFFormSectionModel.h"
 
 @interface TFFormViewController ()<UINavigationBarDelegate>
 
@@ -183,72 +182,75 @@
     
 }
 
-- (XLFormRowDescriptor *)rowDescriptorCommon:(__kindof TFTableRowModel * _Nonnull)obj rowType:(NSString *)rowType {
-    XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:[NSString stringWithFormat:@"row-%@", obj.identity] rowType:rowType title:obj.title];
+- (XLFormRowDescriptor *)rowDescriptorCommon:(TFFormRowModel * _Nonnull)obj rowType:(NSString *)rowType {
+    XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:obj.tag ?: [NSString stringWithFormat:@"row-%@", obj.identity] rowType:rowType title:obj.title];
     
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeText:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeText:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeText];
     [row.cellConfigAtConfigure setObject:obj.placeholder forKey:@"textField.placeholder"];
-    row.required = (((NSNumber *)obj.parameter) ?: @(0)).boolValue;
+    row.required = obj.required;
     
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeBooleanSwitch:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeBooleanSwitch:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeBooleanSwitch];
-    row.value = ((NSNumber *)obj.parameter) ?: @(0);
+    row.value = ((NSNumber *)obj.value) ?: @(0);
     // [row.cellConfigAtConfigure setObject:[UIColor redColor] forKey:@"switchControl.onTintColor"];
     
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeDateTimeInline:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeDateTimeInline:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeDateTimeInline];
-    if (obj.parameter) {
-        row.value = [NSDate dateWithTimeIntervalSinceNow:((NSNumber *)obj.parameter).integerValue];
+    if (obj.value) {
+        row.value = [NSDate dateWithTimeIntervalSinceNow:((NSNumber *)obj.value).integerValue];
     }
     
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeSelectorCommon:(__kindof TFTableRowModel * _Nonnull)obj rowType:(NSString *)rowType {
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorCommon:(TFFormRowModel * _Nonnull)obj rowType:(NSString *)rowType {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:rowType];
     
-    if(obj.parameter) {
-        NSArray<TFTableRowModel *> *rows = [TFTableRowModel tf_mj_objectArrayWithKeyValuesArray:[obj.parameter tf_mj_JSONObject]];
-        
-        if (rows) {
-            NSMutableArray<XLFormOptionsObject *> *selectorOptions = [NSMutableArray new];
-            [rows enumerateObjectsUsingBlock:^(TFTableRowModel * _Nonnull rowModel, NSUInteger idx, BOOL * _Nonnull stop) {
-                [selectorOptions addObject:[XLFormOptionsObject formOptionsObjectWithValue:rowModel.identity displayText:rowModel.title]];
-            }];
-            
-            row.value = selectorOptions.firstObject;
-            row.selectorTitle = obj.title;
-            row.selectorOptions = selectorOptions;
-        }
+    if(obj.selectorOptions) {
+        NSMutableArray<XLFormOptionsObject *> *selectorOptions = [NSMutableArray new];
+        [obj.selectorOptions enumerateObjectsUsingBlock:^(TFModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+            [selectorOptions addObject:[XLFormOptionsObject formOptionsObjectWithValue:model.identity displayText:model.title]];
+        }];
+
+        row.value = selectorOptions.firstObject;
+        row.selectorTitle = obj.title;
+        row.selectorOptions = selectorOptions;
     }
 
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPush:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPush:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPush];
 
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeButton:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeButton:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeButton];
     row.value = obj;
+    row.action.viewControllerPresentationMode = (XLFormPresentationMode)obj.viewControllerPresentationMode;
     
-    if (obj.method) {
-        row.action.formSegueIdentifier = obj.method;
-    } else if(obj.vc && obj.vc.length > 0) {
-        row.action.viewControllerClass = NSClassFromString(obj.vc);
+    if(obj.viewControllerClass) {
+        row.action.viewControllerClass = NSClassFromString(obj.viewControllerClass);
+    } else if (obj.viewControllerStoryboardId) {
+        row.action.viewControllerStoryboardId = obj.viewControllerStoryboardId;
+    } else if (obj.viewControllerNibName) {
+        row.action.viewControllerNibName = obj.viewControllerNibName;
+    } else if (obj.formSegueIdentifier) {
+        row.action.formSegueIdentifier = obj.formSegueIdentifier;
+    } else if (obj.formSegueClass) {
+        row.action.formSegueClass = NSClassFromString(obj.formSegueClass);
     } else {
         __typeof(self) __weak weakSelf = self;
         row.action.formBlock = ^(XLFormRowDescriptor * sender){
@@ -274,14 +276,16 @@
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeInfo:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeInfo:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeInfo];
-    row.value = obj.parameter;
+    if (obj.value) {
+        row.value = obj.value;
+    }
     
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPickerViewInline:(__kindof TFTableRowModel * _Nonnull)obj {
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPickerViewInline:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPickerViewInline];
     
     return row;
@@ -290,100 +294,100 @@
 - (void)bindData
 {
     XLFormDescriptor * form = [XLFormDescriptor formDescriptor];
-    
-    [self.viewModel.dataArray enumerateObjectsUsingBlock:^(__kindof TFFormSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        XLFormSectionDescriptor * section = [XLFormSectionDescriptor formSectionWithTitle:obj.title];
-        [obj.dataArray enumerateObjectsUsingBlock:^(__kindof TFFormRowModel * _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.viewModel.formDataArray enumerateObjectsUsingBlock:^(__kindof TFTableSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        TFFormSectionModel *sectionModel = (TFFormSectionModel *)obj;
+        XLFormSectionDescriptor * section = [XLFormSectionDescriptor formSectionWithTitle:sectionModel.title];
+        [sectionModel.dataArray enumerateObjectsUsingBlock:^(__kindof TFFormRowModel * _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
             XLFormRowDescriptor * row;
-            if([obj1.action isEqualToString:XLFormRowDescriptorTypeText]){
+            if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeText]){
                 row = [self rowDescriptorTypeText:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeName]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeName]){
 //                row = [self rowDescriptorTypeName:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeNumber]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeNumber]){
 //                row = [self rowDescriptorTypeNumber:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypePhone]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypePhone]){
 //                row = [self rowDescriptorTypePhone:obj1];
             }
             
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorPush]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPush]){
                 row = [self rowDescriptorTypeSelectorPush:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorPopover]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPopover]){
 //                row = [self rowDescriptorTypeSelectorPopover:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorActionSheet]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorActionSheet]){
 //                row = [self rowDescriptorTypeSelectorActionSheet:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorAlertView]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorAlertView]){
 //                row = [self rowDescriptorTypeSelectorAlertView:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorPickerView]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPickerView]){
 //                row = [self rowDescriptorTypeSelectorPickerView:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorPickerViewInline]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPickerViewInline]){
                 row = [self rowDescriptorTypeSelectorPickerViewInline:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeMultipleSelector]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeMultipleSelector]){
 //                row = [self rowDescriptorTypeMultipleSelector:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeMultipleSelectorPopover]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeMultipleSelectorPopover]){
 //                row = [self rowDescriptorTypeMultipleSelectorPopover:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorLeftRight]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorLeftRight]){
 //                row = [self rowDescriptorTypeSelectorLeftRight:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSelectorSegmentedControl]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorSegmentedControl]){
 //                row = [self rowDescriptorTypeSelectorSegmentedControl:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeDateInline]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeDateInline]){
 //                row = [self rowDescriptorTypeDateInline:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeDateTimeInline]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeDateTimeInline]){
                 row = [self rowDescriptorTypeDateTimeInline:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeTimeInline]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeTimeInline]){
 //                row = [self rowDescriptorTypeTimeInline:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeCountDownTimerInline]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeCountDownTimerInline]){
 //                row = [self rowDescriptorTypeCountDownTimerInline:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeDate]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeDate]){
 //                row = [self rowDescriptorTypeDate:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeDateTime]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeDateTime]){
 //                row = [self rowDescriptorTypeDateTime:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeTime]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeTime]){
 //                row = [self rowDescriptorTypeTime:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeCountDownTimer]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeCountDownTimer]){
 //                row = [self rowDescriptorTypeCountDownTimer:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeDatePicker]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeDatePicker]){
 //                row = [self rowDescriptorTypeDatePicker:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypePicker]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypePicker]){
 //                row = [self rowDescriptorTypePicker:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeSlider]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSlider]){
 //                row = [self rowDescriptorTypeSlider:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeBooleanCheck]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeBooleanCheck]){
 //                row = [self rowDescriptorTypeBooleanCheck:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeBooleanSwitch]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeBooleanSwitch]){
                 row = [self rowDescriptorTypeBooleanSwitch:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeButton]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeButton]){
                 row = [self rowDescriptorTypeButton:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeInfo]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeInfo]){
                 row = [self rowDescriptorTypeInfo:obj1];
             }
-            else if([obj1.action isEqualToString:XLFormRowDescriptorTypeStepCounter]){
+            else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeStepCounter]){
 //                row = [self rowDescriptorTypeStepCounter:obj1];
             }
             
@@ -391,7 +395,8 @@
                 [section addFormRow:row];
             }
         }];
-        section.footerTitle = obj.detail;
+        
+        section.footerTitle = sectionModel.footTitle;
         [form addFormSection:section];
     }];
 

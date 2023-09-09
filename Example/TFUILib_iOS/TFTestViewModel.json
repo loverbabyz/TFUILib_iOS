@@ -1,31 +1,31 @@
 [
     {
-        "identity": "1",
+        "tag": "1",
         "dataArray": [
             {
-                "identity": "11",
-                "action": "text",
+                "tag": "11",
+                "rowType": "text",
                 "title": "",
                 "placeholder": "用户ID",
-                "parameter": 1,
+                "required": 1,
             },
             {
-                "identity": "12",
-                "action": "text",
+                "tag": "12",
+                "rowType": "text",
                 "title": "",
                 "placeholder": "手机号",
-                "parameter": 1,
+                "required": 1,
             }
         ]
     },
     {
-        "identity": "2",
+        "tag": "2",
         "dataArray": [
             {
-                "identity": "21",
-                "action": "selectorPush",
+                "tag": "21",
+                "rowType": "selectorPush",
                 "title": "品牌",
-                "parameter":  [
+                "selectorOptions":  [
                     {
                         "identity": "11111",
                         "title": "品牌A",
@@ -41,10 +41,10 @@
                 ]
             },
             {
-                "identity": "22",
-                "action": "selectorPush",
+                "tag": "22",
+                "rowType": "selectorPush",
                 "title": "Log level",
-                "parameter":  [
+                "selectorOptions":  [
                     {
                         "identity": "0",
                         "title": "NONE",
@@ -60,10 +60,10 @@
                 ]
             },
             {
-                "identity": "23",
-                "action": "selectorPickerViewInline",
+                "tag": "23",
+                "rowType": "selectorPickerViewInline",
                 "title": "灵敏度",
-                "parameter":  [
+                "selectorOptions":  [
                     {
                         "identity": "-1",
                         "title": "-1",
@@ -81,48 +81,47 @@
         ]
     },
     {
-        "identity": "3",
+        "tag": "3",
         "dataArray": [
             {
-                "identity": "31",
-                "action": "booleanSwitch",
+                "tag": "31",
+                "rowType": "booleanSwitch",
                 "title": "是否在主线程",
-                "parameter": 1,
+                "value": 1,
             }
         ]
     },
     {
-        "identity": "5",
+        "tag": "5",
         "dataArray": [
             {
-                "identity": "51",
-                "action": "info",
+                "tag": "51",
+                "rowType": "info",
                 "title": "静态字符",
-                "parameter": "abcabc",
+                "value": "abcabc",
             },
             {
-                "identity": "51",
-                "action": "datetimeInline",
+                "tag": "51",
+                "rowType": "datetimeInline",
                 "title": "开始时间",
-                "parameter": 90000,
+                "value": 90000,
             },
             {
-                "identity": "52",
-                "action": "datetimeInline",
+                "tag": "52",
+                "rowType": "datetimeInline",
                 "title": "结束时间",
-                "parameter": 90000,
+                "value": 90000,
             },
         ]
     },
     {
-        "identity": "4",
+        "tag": "4",
         "dataArray": [
             {
-                "identity": "41",
-                "action": "button",
+                "tag": "41",
+                "rowType": "button",
                 "title": "登录",
                 "method": "login",
-                "parameter": 1,
             }
         ]
     },

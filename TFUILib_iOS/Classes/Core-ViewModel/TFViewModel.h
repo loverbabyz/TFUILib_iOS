@@ -13,10 +13,12 @@
 
 #pragma mark -
 #pragma mark - TFModel
-@protocol TFViewModel <NSObject>
+@protocol TFViewModelProtocol <NSObject>
+
+- (id)jsonDataFromFileName:(NSString *)fileName;
 
 @end
-@protocol TFViewModelProtocol<S,R> <NSObject>
+@interface TFViewModel : NSObject<TFViewModelProtocol>
 
 @property (nonatomic, copy) NSString *title;
 
@@ -83,11 +85,5 @@
 /// 通过文件名返回Mock数据
 /// @param fileName JSON文件名称
 - (id)mockDataWithFileName:(NSString *)fileName;
-
-@end
-
-@interface TFViewModel : NSObject
-
-
 
 @end

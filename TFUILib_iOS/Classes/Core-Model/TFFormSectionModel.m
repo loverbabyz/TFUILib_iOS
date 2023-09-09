@@ -9,5 +9,12 @@
 #import "TFFormSectionModel.h"
 
 @implementation TFFormSectionModel
+@dynamic dataArray;
+
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+        @"dataArray" : [TFFormRowModel class],
+    };
+}
 
 @end

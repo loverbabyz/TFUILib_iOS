@@ -10,4 +10,10 @@
 
 @implementation TFFormRowModel
 
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+        @"selectorOptions" : [TFModel class],
+    };
+}
+
 @end

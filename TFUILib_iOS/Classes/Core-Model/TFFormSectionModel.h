@@ -6,7 +6,8 @@
 //  Copyright © 2016年 daniel.xiaofei@gmail.com All rights reserved.
 //
 
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "TFTableSectionModel.h"
+#import "TFFormRowModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *footTitle;
 
 /// 子表格数据
-@property (nonatomic, strong) NSArray<__kindof TFFormSectionModel *> *formDataArray;
+@property (nonatomic, strong) NSArray<__kindof TFFormRowModel *> *dataArray;
 
 @end
 

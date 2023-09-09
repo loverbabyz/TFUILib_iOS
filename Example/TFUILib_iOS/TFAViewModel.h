@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TFAViewModel : TFViewModel
+@interface TFAViewModel : TFFormViewModel
 
 @end
 

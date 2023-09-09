@@ -7,11 +7,17 @@
 //
 
 
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "TFViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TFFormSectionModel;
+@protocol TFFormViewModel <NSObject>
+
+@end
 @interface TFFormViewModel : TFViewModel
+
+@property (nonatomic,strong) NSArray<__kindof TFFormSectionModel *> *formDataArray;
 
 @end
 
