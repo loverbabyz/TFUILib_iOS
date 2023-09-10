@@ -4,15 +4,23 @@
         "dataArray": [
             {
                 "tag": "00",
-                "rowType": "text",
+                "rowType": "name",
                 "title": "用户ID",
                 "required": 1,
+                "config": {
+                    "textField.placeholder": "必须...",
+                    "textField.textAlignment": 2
+                }
             },
             {
                 "tag": "01",
-                "rowType": "text",
+                "rowType": "phone",
                 "title": "手机号码",
                 "required": 1,
+                "config": {
+                    "textField.placeholder": "必须...",
+                    "textField.textAlignment": 2
+                }
             }
         ]
     },
@@ -22,7 +30,7 @@
             {
                 "tag": "10",
                 "rowType": "selectorPush",
-                "title": "品牌",
+                "title": "车厂",
                 "selectorOptions":  [
                     {
                         "identity": "11111",
@@ -41,7 +49,7 @@
             {
                 "tag": "11",
                 "rowType": "selectorPush",
-                "title": "环境",
+                "title": "运行环境",
                 "selectorOptions":  [
                     {
                         "identity": "https://uat.IM",
@@ -87,7 +95,18 @@
         "tag": "2",
         "dataArray": [
             {
-                "tag": "20",
+                "rowType": "booleanSwitch",
+                "onChangeBlock": "ibeaconEnableChanged:",
+                "title": "iBeacon拉活",
+                "value": 0,
+            }
+        ]
+    },
+    {
+        "tag": "3",
+        "dataArray": [
+            {
+                "tag": "30",
                 "rowType": "button",
                 "title": "登录",
                 "viewControllerClass": "HomeViewController",

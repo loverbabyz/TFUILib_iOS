@@ -14,6 +14,12 @@
 
 @implementation ShareKeyViewController
 
+- (void)bindData {
+    [super bindData];
+    
+    self.form.assignFirstResponderOnShow = YES;
+}
+
 - (void)shareKey {
     NSArray * validationErrors = [self formValidationErrors];
     if (validationErrors.count > 0){

@@ -12,19 +12,6 @@
 #import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 #import "TFAViewModel.h"
 
-NSString * const kTextFieldAndTextView = @"TextFieldAndTextView";
-NSString * const kSelectors = @"Selectors";
-NSString * const kOthes = @"Others";
-NSString * const kDates = @"Dates";
-NSString * const kPredicates = @"BasicPredicates";
-NSString * const kBlogExample = @"BlogPredicates";
-NSString * const kMultivalued = @"Multivalued";
-NSString * const kMultivaluedOnlyReorder = @"MultivaluedOnlyReorder";
-NSString * const kMultivaluedOnlyInsert = @"MultivaluedOnlyInsert";
-NSString * const kMultivaluedOnlyDelete = @"MultivaluedOnlyDelete";
-NSString * const kValidations= @"Validations";
-NSString * const kFormatters = @"Formatters";
-
 @interface TFAViewController ()
 
 @property(nonatomic, strong) TFWebViewController *webVC;
@@ -37,7 +24,8 @@ NSString * const kFormatters = @"Formatters";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+//    UIButton *button;
+//    button.contentHorizontalAlignment = 1;
 }
 
 - (void)initViews {
@@ -70,6 +58,11 @@ NSString * const kFormatters = @"Formatters";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStoryboard *)storyboardForRow:(XLFormRowDescriptor *)formRow
+{
+    return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 }
 
 @end

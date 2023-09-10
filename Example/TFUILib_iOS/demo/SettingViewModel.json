@@ -5,7 +5,7 @@
             {
                 "tag": "00",
                 "rowType": "info",
-                "title": "品牌",
+                "title": "车厂",
                 "value": "智已",
             },
             {
@@ -17,7 +17,7 @@
             {
                 "tag": "02",
                 "rowType": "info",
-                "title": "环境",
+                "title": "运行环境",
                 "value": "https://uat.IM",
             }
         ]
@@ -45,14 +45,14 @@
             {
                 "tag": "20",
                 "rowType": "booleanSwitch",
-                "onChangeBlock": "theadChanged:",
-                "title": "是否在主线程",
+                "onChangeBlock": "dispatchedChanged:",
+                "title": "DISPATCHED ON MAIN QUEUE",
                 "value": 1,
             },
             {
                 "tag": "21",
                 "rowType": "selectorPush",
-                "title": "Log level",
+                "title": "日志等级",
                 "onChangeBlock": "logLevelChanged:",
                 "selectorOptions":  [
                     {
@@ -61,12 +61,28 @@
                     },
                     {
                         "identity": "1",
-                        "title": "DEBUG",
+                        "title": "TREACE",
                     },
                     {
                         "identity": "2",
-                        "title": "TREACE",
-                    }
+                        "title": "DEBUG",
+                    },
+                    {
+                        "identity": "3",
+                        "title": "NORMAL",
+                    },
+                    {
+                        "identity": "4",
+                        "title": "WARNING",
+                    },
+                    {
+                        "identity": "5",
+                        "title": "ERROR",
+                    },
+                    {
+                        "identity": "6",
+                        "title": "ALL",
+                    },
                 ]
             },
         ]

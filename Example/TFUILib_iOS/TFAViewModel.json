@@ -6,8 +6,8 @@
             {
                 "identity": "11",
                 "rowType": "button",
-                "title": "Test Form ViewController from Segue",
-                "formSegueIdentifier": "TestFormViewControllerSegue",
+                "title": "Test Form ViewController from StoryboardId",
+                "viewControllerStoryboardId": "TestFormViewControllerSID",
             }
         ]
     },
@@ -21,6 +21,7 @@
                 "rowType": "button",
                 "title": "DEMO",
                 "viewControllerClass": "LoginViewController",
+                "viewControllerPresentationMode": 2,
             }
         ]
     }

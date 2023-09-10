@@ -18,18 +18,27 @@
                 "rowType": "text",
                 "title": "name",
                 "required": 1,
+                "config": {
+                    "textField.textAlignment": 2
+                }
             },
             {
                 "tag": "12",
                 "rowType": "text",
                 "title": "mobile",
                 "required": 1,
+                "config": {
+                    "textField.textAlignment": 2
+                }
             },
             {
                 "tag": "13",
                 "rowType": "text",
                 "title": "kpre",
                 "required": 1,
+                "config": {
+                    "textField.textAlignment": 2
+                }
             },
             {
                 "tag": "14",

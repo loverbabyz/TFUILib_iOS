@@ -23,8 +23,8 @@
     tf_showToast([NSString stringWithFormat:@"logLevelChanged:%@", obj.formValue]);
 }
 
-- (void)theadChanged:(id)newValue {
-    tf_showToast([NSString stringWithFormat:@"theadChanged:%@", newValue]);
+- (void)dispatchedChanged:(id)newValue {
+    tf_showToast([NSString stringWithFormat:@"dispatchedChanged:%@", newValue]);
 }
 
 - (void)logout {

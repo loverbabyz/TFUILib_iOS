@@ -182,9 +182,27 @@
     
 }
 
+#pragma mark - Common
+
 - (XLFormRowDescriptor *)rowDescriptorCommon:(TFFormRowModel * _Nonnull)obj rowType:(NSString *)rowType {
     XLFormRowDescriptor *row = [XLFormRowDescriptor formRowDescriptorWithTag:obj.tag ?: [NSString stringWithFormat:@"row-%@", obj.identity] rowType:rowType title:obj.title];
     row.disabled = @(obj.disabled);
+    if (obj.height > 0) {
+        row.height = obj.height;
+    }
+    
+    if (obj.config) {
+        [obj.config enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [row.cellConfigAtConfigure setValue:obj forKey:key];
+        }];
+    }
+    
+    if (obj.style) {
+        [obj.style enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [row.cellConfigForSelector setValue:obj forKey:key];
+        }];
+    }
+    
     typeof(self) __weak weakself = self;
     
     if (obj.onChangeBlock) {
@@ -221,34 +239,10 @@
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeSelectorCommon:(TFFormRowModel * _Nonnull)obj rowType:(NSString *)rowType {
-    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:rowType];
-    
-    if(obj.selectorOptions) {
-        NSMutableArray<XLFormOptionsObject *> *selectorOptions = [NSMutableArray new];
-        [obj.selectorOptions enumerateObjectsUsingBlock:^(TFModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
-            [selectorOptions addObject:[XLFormOptionsObject formOptionsObjectWithValue:model.identity displayText:model.title]];
-        }];
-
-        row.value = selectorOptions.firstObject;
-        row.selectorTitle = obj.title;
-        row.selectorOptions = selectorOptions;
-    }
-
-    return row;
-}
-
-- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPush:(TFFormRowModel * _Nonnull)obj {
-    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPush];
-
-    return row;
-}
-
 - (XLFormRowDescriptor *)rowDescriptorTypeButton:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeButton];
     row.value = obj;
     row.action.viewControllerPresentationMode = (XLFormPresentationMode)obj.viewControllerPresentationMode;
-    typeof(self) __weak weakself = self;
     
     if(obj.viewControllerClass) {
         row.action.viewControllerClass = NSClassFromString(obj.viewControllerClass);
@@ -294,6 +288,49 @@
     return row;
 }
 
+- (XLFormRowDescriptor *)rowDescriptorTypeName:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeName];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypePhone:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypePhone];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeNumber:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeNumber];
+    
+    return row;
+}
+
+#pragma mark - SelectorCommon
+
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorCommon:(TFFormRowModel * _Nonnull)obj rowType:(NSString *)rowType {
+    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:rowType];
+    
+    if(obj.selectorOptions) {
+        NSMutableArray<XLFormOptionsObject *> *selectorOptions = [NSMutableArray new];
+        [obj.selectorOptions enumerateObjectsUsingBlock:^(TFModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+            [selectorOptions addObject:[XLFormOptionsObject formOptionsObjectWithValue:model.identity displayText:model.title]];
+        }];
+
+        row.value = selectorOptions.firstObject;
+        row.selectorTitle = obj.title;
+        row.selectorOptions = selectorOptions;
+    }
+
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPush:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPush];
+
+    return row;
+}
+
 - (XLFormRowDescriptor *)rowDescriptorTypeSelectorPickerViewInline:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPickerViewInline];
     
@@ -306,17 +343,37 @@
     return row;
 }
 
-- (XLFormRowDescriptor *)rowDescriptorTypeName:(TFFormRowModel * _Nonnull)obj {
-    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeName];
-    
-    return row;
-}
-
 - (XLFormRowDescriptor *)rowDescriptorTypeSelectorActionSheet:(TFFormRowModel * _Nonnull)obj {
     XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorActionSheet];
     
     return row;
 }
+
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPopover:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPopover];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeSelectorPickerView:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPickerView];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeMultipleSelector:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeMultipleSelector];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeMultipleSelectorPopover:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorTypeSelectorCommon:obj rowType:XLFormRowDescriptorTypeSelectorPopover];
+    
+    return row;
+}
+
+#pragma mark -
 
 - (void)bindData
 {
@@ -333,16 +390,16 @@
                 row = [self rowDescriptorTypeName:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeNumber]){
-//                row = [self rowDescriptorTypeNumber:obj1];
+                row = [self rowDescriptorTypeNumber:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypePhone]){
-//                row = [self rowDescriptorTypePhone:obj1];
+                row = [self rowDescriptorTypePhone:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPush]){
                 row = [self rowDescriptorTypeSelectorPush:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPopover]){
-//                row = [self rowDescriptorTypeSelectorPopover:obj1];
+                row = [self rowDescriptorTypeSelectorPopover:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorActionSheet]){
                 row = [self rowDescriptorTypeSelectorActionSheet:obj1];
@@ -351,16 +408,16 @@
                 row = [self rowDescriptorTypeSelectorAlertView:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPickerView]){
-//                row = [self rowDescriptorTypeSelectorPickerView:obj1];
+                row = [self rowDescriptorTypeSelectorPickerView:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPickerViewInline]){
                 row = [self rowDescriptorTypeSelectorPickerViewInline:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeMultipleSelector]){
-//                row = [self rowDescriptorTypeMultipleSelector:obj1];
+                row = [self rowDescriptorTypeMultipleSelector:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeMultipleSelectorPopover]){
-//                row = [self rowDescriptorTypeMultipleSelectorPopover:obj1];
+                row = [self rowDescriptorTypeMultipleSelectorPopover:obj1];
             }
             else if([obj1.rowType isEqualToString:XLFormRowDescriptorTypeSelectorLeftRight]){
 //                row = [self rowDescriptorTypeSelectorLeftRight:obj1];

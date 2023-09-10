@@ -16,10 +16,13 @@
 
 }
 
-
 - (void)bindData {
     [super bindData];
     
     self.form.assignFirstResponderOnShow = YES;
+}
+
+- (void)ibeaconEnableChanged:(id)newValue {
+    tf_showToast([NSString stringWithFormat:@"ibeaconEnableChanged:%@", newValue]);
 }
 @end

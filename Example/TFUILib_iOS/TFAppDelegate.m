@@ -7,12 +7,18 @@
 //
 
 #import "TFAppDelegate.h"
+#import "TFAViewController.h"
+#import <TFUILib_iOS/TFUILib_iOS.h>
 
 @implementation TFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setTintColor:UIColor.redColor];
+    TFAViewController *vc = [[TFAViewController alloc] init];
+    self.window.rootViewController = [[TFNavigationController alloc] initWithRootViewController:vc];
+    
     return YES;
 }
 

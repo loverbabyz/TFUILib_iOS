@@ -22,9 +22,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Example" id="jTa-lA-Aym"/>
-                    <connections>
-                        <segue destination="hXb-9c-bQy" kind="show" identifier="TestFormViewControllerSegue" id="0Kn-Lo-m3P"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,7 +46,7 @@
         <!--Segue vc-->
         <scene sceneID="i1z-6b-m3X">
             <objects>
-                <viewController id="hXb-9c-bQy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestFormViewControllerSID" id="hXb-9c-bQy" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pN5-XM-ifR"/>
                         <viewControllerLayoutGuide type="bottom" id="KoV-8g-NuE"/>
@@ -57,13 +54,21 @@
                     <view key="view" contentMode="scaleToFill" id="MKE-M2-g6H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQA-IC-5eM">
+                                <rect key="frame" x="52" y="296" width="267" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Segue vc" id="fTP-iZ-wSo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5h-qd-vzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="448"/>
+            <point key="canvasLocation" x="1296.8" y="447.52623688155927"/>
         </scene>
     </scenes>
     <resources>
