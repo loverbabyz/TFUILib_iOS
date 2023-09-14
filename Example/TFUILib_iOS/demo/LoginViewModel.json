@@ -3,24 +3,18 @@
         "tag": "0",
         "dataArray": [
             {
-                "tag": "00",
-                "rowType": "name",
-                "title": "用户ID",
+                "tag": "userId",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "用户ID",
                 "required": 1,
-                "config": {
-                    "textField.placeholder": "必须...",
-                    "textField.textAlignment": 2
-                }
             },
             {
-                "tag": "01",
-                "rowType": "phone",
-                "title": "手机号码",
+                "tag": "mobile",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "手机号码",
                 "required": 1,
-                "config": {
-                    "textField.placeholder": "必须...",
-                    "textField.textAlignment": 2
-                }
             }
         ]
     },
@@ -28,26 +22,31 @@
         "tag": "1",
         "dataArray": [
             {
-                "tag": "10",
+                "tag": "appId",
                 "rowType": "selectorPush",
-                "title": "车厂",
+                "title": "APP ID",
                 "selectorOptions":  [
                     {
-                        "identity": "11111",
+                        "identity": "IM",
                         "title": "智已",
                     },
                     {
-                        "identity": "22222",
+                        "identity": "DFM",
                         "title": "东风乘用车",
                     },
                     {
-                        "identity": "3333",
+                        "identity": "HH",
                         "title": "高合",
+                    }
+                    ,
+                    {
+                        "identity": "MC01",
+                        "title": "灵魂摩托",
                     }
                 ]
             },
             {
-                "tag": "11",
+                "tag": "envriment",
                 "rowType": "selectorPush",
                 "title": "运行环境",
                 "selectorOptions":  [
@@ -86,6 +85,18 @@
                     {
                         "identity": "https://pro.HH",
                         "title": "高合PRO",
+                    },
+                    {
+                        "identity": "https://uat.MC01",
+                        "title": "灵魂摩托UAT",
+                    },
+                    {
+                        "identity": "https://dev.MC01",
+                        "title": "灵魂摩托DEV",
+                    },
+                    {
+                        "identity": "https://pro.MC01",
+                        "title": "灵魂摩托PRO",
                     }
                 ]
             },
@@ -95,8 +106,8 @@
         "tag": "2",
         "dataArray": [
             {
+                "tag": "ibeaconEnable",
                 "rowType": "booleanSwitch",
-                "onChangeBlock": "ibeaconEnableChanged:",
                 "title": "iBeacon拉活",
                 "value": 0,
             }
@@ -109,7 +120,7 @@
                 "tag": "30",
                 "rowType": "button",
                 "title": "登录",
-                "viewControllerClass": "HomeViewController",
+                "method": "login",
             }
         ]
     },

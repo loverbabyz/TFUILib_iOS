@@ -7,18 +7,32 @@
 //
 
 #import "HomeViewController.h"
+#import "HomeViewModel.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface HomeViewController ()
+
+@property (nonatomic, strong) HomeViewModel *viewModel;
 
 @end
 
 @implementation HomeViewController
+@dynamic viewModel;
 
 - (void)bindData {
     [super bindData];
     
-    self.form.assignFirstResponderOnShow = YES;
+    NSString *vin = self.viewModel.vin;
+    if ([vin isEmpty]) {
+        [self assignFirstResponderOnShow];
+    }
+    
+    XLFormRowDescriptor *row = [self.form formRowWithTag:kRowTag_VIN];
+    row.value = vin;
+    [self reloadFormRow:row];
 }
+
+#pragma mark - method
 
 - (void)exportLog {
     tf_showToast(@"exportLog");
@@ -56,8 +70,30 @@
     tf_showToast(@"unlock");
 }
 
+#pragma mark - onChangeBlock
+
+- (void)vinChanged:(id)newValue {
+    if (newValue) {
+        [self.viewModel updateVIN:newValue completion:^{
+            
+        }];
+    }
+}
+
 - (void)levelChanged:(id)newValue {
     XLFormOptionsObject *obj = newValue;
     tf_showToast([NSString stringWithFormat:@"levelChanged:%@", obj.formValue]);
 }
+
+#pragma mark - Predicate
+
+- (id)vinPredicate {
+    NSString *vinRegex = @"(\\w{6})";
+    return [NSString stringWithFormat:@"NOT ($%@.value contains[c] 'P')", @"VIN"];
+}
+
+- (id)mc01Predicate {
+    return @(![self.viewModel.appId isEqualToString:kRowTag_MC01]);
+}
+
 @end

@@ -7,7 +7,12 @@
 //
 
 #import "ShareKeyViewModel.h"
+#import "TFUserDefaults+demo.h"
 
 @implementation ShareKeyViewModel
+
+- (NSString *)vin {
+    return kUserDefaults.vin;
+}
 
 @end

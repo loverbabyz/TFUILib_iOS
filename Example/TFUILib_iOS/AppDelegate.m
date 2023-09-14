@@ -1,16 +1,16 @@
 //
-//  TFAppDelegate.m
+//  AppDelegate.m
 //  TFUILib_iOS
 //
 //  Created by SunXiaofei on 07/19/2020.
 //  Copyright (c) 2020 SunXiaofei. All rights reserved.
 //
 
-#import "TFAppDelegate.h"
+#import "AppDelegate.h"
 #import "TFAViewController.h"
 #import <TFUILib_iOS/TFUILib_iOS.h>
 
-@implementation TFAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

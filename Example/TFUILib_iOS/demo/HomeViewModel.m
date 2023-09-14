@@ -7,7 +7,43 @@
 //
 
 #import "HomeViewModel.h"
+#import "TFUserDefaults+demo.h"
+#import <TFBaseLib_iOS/TFBaseLib_iOS.h>
+@import TFUILib_iOS.TFFormRowModel;
 
 @implementation HomeViewModel
+
+- (NSString *)title {
+    return @"Demo";
+}
+
+//- (void)feach:(VoidBlock)completion {
+//    NSString *vin = kUserDefaults.vin;
+//    
+//    if (![vin isEmpty]) {
+//        TFFormRowModel *row = (TFFormRowModel *)[self dataAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        row.value = vin;
+//    }
+//    
+//    if (completion) {
+//        completion();
+//    }
+//}
+
+- (void)updateVIN:(NSString *)vin completion:(VoidBlock)completion {
+    kUserDefaults.vin = vin;
+    
+    if (completion) {
+        completion();
+    }
+}
+
+- (NSString *)vin {
+    return kUserDefaults.vin;
+}
+
+- (NSString *)appId {
+    return kUserDefaults.model.appId;
+}
 
 @end

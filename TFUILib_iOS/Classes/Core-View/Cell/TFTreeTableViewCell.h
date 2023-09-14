@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class TFTreeSectionModel;
 @class TFView;
-@class RACSubject;
 @interface TFTreeTableViewCell : TFTableViewCell
 
 /// subTableView边距

@@ -3,11 +3,12 @@
         "tag": "1",
         "dataArray": [
             {
-                "tag": "10",
+                "tag": "VIN",
                 "rowType": "text",
                 "title": "",
                 "placeholder": "VIN",
                 "required": 1,
+                "onChangeBlock": "vinChanged:",
                 "config": {
                     "textField.textAlignment": 1
                 }
@@ -16,6 +17,7 @@
     },
     {
         "tag": "3",
+        "predicate": "vinPredicate",
         "dataArray": [
             {
                 "tag": "30",
@@ -51,6 +53,7 @@
     },
     {
         "tag": "7",
+        "predicate": "vinPredicate",
         "dataArray": [
             {
                 "tag": "33",
@@ -135,23 +138,27 @@
                 "rowType": "button",
                 "title": "开箱锁(MC01)",
                 "method": "connectStatus",
+                "predicate": "mc01Predicate",
             },
             {
                 "tag": "34",
                 "rowType": "button",
                 "title": "闪灯(MC01)",
                 "method": "connectStatus",
+                "predicate": "mc01Predicate",
             },
             {
                 "tag": "34",
                 "rowType": "button",
                 "title": "鸣笛(MC01)",
                 "method": "connectStatus",
+                "predicate": "mc01Predicate",
             },
         ]
     },
     {
         "tag": "5",
+        "predicate": "vinPredicate",
         "dataArray": [
             {
                 "tag": "50",
@@ -246,6 +253,17 @@
                 "rowType": "button",
                 "title": "设置",
                 "viewControllerClass": "SettingViewController",
+            }
+        ]
+    },
+    {
+        "tag": "logSection",
+        "dataArray": [
+            {
+                "tag": "logRow",
+                "rowType": "button",
+                "title": "操作日志",
+                "viewControllerClass": "LogViewController",
             }
         ]
     },

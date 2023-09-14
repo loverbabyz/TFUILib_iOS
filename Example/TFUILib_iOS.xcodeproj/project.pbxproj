@@ -13,7 +13,7 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* TFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* TFAppDelegate.m */; };
+		6003F59E195388D20070C39A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AppDelegate.m */; };
 		6003F5A7195388D20070C39A /* TFAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* TFAViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
@@ -32,8 +32,12 @@
 		6519F2F12AACDFB90066901B /* ShareKeyViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6519F2F02AACDFB90066901B /* ShareKeyViewModel.json */; };
 		6519F2F42AACE2F90066901B /* SharedKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2F32AACE2F90066901B /* SharedKeysViewController.m */; };
 		6519F2F72AACE33E0066901B /* OwnerKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2F62AACE33E0066901B /* OwnerKeysViewController.m */; };
+		6519F2FA2AB0B68A0066901B /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2F92AB0B68A0066901B /* NavigationController.m */; };
+		6519F2FD2AB0C80A0066901B /* TFUserDefaults+demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F2FC2AB0C80A0066901B /* TFUserDefaults+demo.m */; };
 		6532EAD12AA7AC960036ECAF /* TFAViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532EAD02AA7AC960036ECAF /* TFAViewModel.m */; };
 		6532EAD32AA7ADB80036ECAF /* TFAViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6532EAD22AA7ADB80036ECAF /* TFAViewModel.json */; };
+		6596DE432AB395F300CC84B4 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6596DE422AB395F300CC84B4 /* LogViewController.m */; };
+		6596DE462AB3964500CC84B4 /* LogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6596DE452AB3964500CC84B4 /* LogViewModel.m */; };
 		65FE3A4224C4708A00336B38 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE3A4124C4708A00336B38 /* LoginViewController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
@@ -68,8 +72,8 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* TFUILib_iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TFUILib_iOS-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* TFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* TFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAppDelegate.m; sourceTree = "<group>"; };
+		6003F59C195388D20070C39A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6003F59D195388D20070C39A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* TFAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* TFAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -98,9 +102,18 @@
 		6519F2F32AACE2F90066901B /* SharedKeysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedKeysViewController.m; sourceTree = "<group>"; };
 		6519F2F52AACE33E0066901B /* OwnerKeysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnerKeysViewController.h; sourceTree = "<group>"; };
 		6519F2F62AACE33E0066901B /* OwnerKeysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwnerKeysViewController.m; sourceTree = "<group>"; };
+		6519F2F82AB0B68A0066901B /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		6519F2F92AB0B68A0066901B /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		6519F2FB2AB0C80A0066901B /* TFUserDefaults+demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TFUserDefaults+demo.h"; sourceTree = "<group>"; };
+		6519F2FC2AB0C80A0066901B /* TFUserDefaults+demo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TFUserDefaults+demo.m"; sourceTree = "<group>"; };
 		6532EACF2AA7AC960036ECAF /* TFAViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFAViewModel.h; sourceTree = "<group>"; };
 		6532EAD02AA7AC960036ECAF /* TFAViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFAViewModel.m; sourceTree = "<group>"; };
 		6532EAD22AA7ADB80036ECAF /* TFAViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TFAViewModel.json; sourceTree = "<group>"; };
+		6596DE402AB384ED00CC84B4 /* define_tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define_tag.h; sourceTree = "<group>"; };
+		6596DE412AB395F300CC84B4 /* LogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		6596DE422AB395F300CC84B4 /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		6596DE442AB3964500CC84B4 /* LogViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewModel.h; sourceTree = "<group>"; };
+		6596DE452AB3964500CC84B4 /* LogViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewModel.m; sourceTree = "<group>"; };
 		65FE3A4024C4708A00336B38 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		65FE3A4124C4708A00336B38 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		67AC5D7FBC895ABB5FC5D6AA /* Pods-TFUILib_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFUILib_iOS_Example.release.xcconfig"; path = "Target Support Files/Pods-TFUILib_iOS_Example/Pods-TFUILib_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				6519F2D92AACD3F00066901B /* demo */,
-				6003F59C195388D20070C39A /* TFAppDelegate.h */,
-				6003F59D195388D20070C39A /* TFAppDelegate.m */,
+				6003F59C195388D20070C39A /* AppDelegate.h */,
+				6003F59D195388D20070C39A /* AppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* TFAViewController.h */,
 				6003F5A6195388D20070C39A /* TFAViewController.m */,
@@ -270,6 +283,15 @@
 				6519F2F32AACE2F90066901B /* SharedKeysViewController.m */,
 				6519F2F52AACE33E0066901B /* OwnerKeysViewController.h */,
 				6519F2F62AACE33E0066901B /* OwnerKeysViewController.m */,
+				6519F2F82AB0B68A0066901B /* NavigationController.h */,
+				6519F2F92AB0B68A0066901B /* NavigationController.m */,
+				6519F2FB2AB0C80A0066901B /* TFUserDefaults+demo.h */,
+				6519F2FC2AB0C80A0066901B /* TFUserDefaults+demo.m */,
+				6596DE402AB384ED00CC84B4 /* define_tag.h */,
+				6596DE412AB395F300CC84B4 /* LogViewController.h */,
+				6596DE422AB395F300CC84B4 /* LogViewController.m */,
+				6596DE442AB3964500CC84B4 /* LogViewModel.h */,
+				6596DE452AB3964500CC84B4 /* LogViewModel.m */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -451,11 +473,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFUILib_iOS_Example/Pods-TFUILib_iOS_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/TFBaseLib_iOS/TFBaseLib_iOS.framework",
 				"${BUILT_PRODUCTS_DIR}/TFUILib_iOS/TFUILib_iOS.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TFBaseLib_iOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TFUILib_iOS.framework",
 			);
@@ -472,9 +496,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D7C51042AA857230070E0F0 /* LoginViewModel.m in Sources */,
-				6003F59E195388D20070C39A /* TFAppDelegate.m in Sources */,
+				6596DE462AB3964500CC84B4 /* LogViewModel.m in Sources */,
+				6519F2FD2AB0C80A0066901B /* TFUserDefaults+demo.m in Sources */,
+				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				6519F2F72AACE33E0066901B /* OwnerKeysViewController.m in Sources */,
 				6532EAD12AA7AC960036ECAF /* TFAViewModel.m in Sources */,
+				6596DE432AB395F300CC84B4 /* LogViewController.m in Sources */,
 				6519F2E72AACD7ED0066901B /* SettingViewModel.m in Sources */,
 				6003F5A7195388D20070C39A /* TFAViewController.m in Sources */,
 				65FE3A4224C4708A00336B38 /* LoginViewController.m in Sources */,
@@ -483,6 +510,7 @@
 				6519F2DC2AACD53B0066901B /* HomeViewController.m in Sources */,
 				6519F2EC2AACDF8D0066901B /* ShareKeyViewModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				6519F2FA2AB0B68A0066901B /* NavigationController.m in Sources */,
 				6519F2F42AACE2F90066901B /* SharedKeysViewController.m in Sources */,
 				6519F2DF2AACD5560066901B /* HomeViewModel.m in Sources */,
 			);

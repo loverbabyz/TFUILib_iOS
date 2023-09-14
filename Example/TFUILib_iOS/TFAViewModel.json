@@ -21,7 +21,6 @@
                 "rowType": "button",
                 "title": "DEMO",
                 "viewControllerClass": "LoginViewController",
-                "viewControllerPresentationMode": 2,
             }
         ]
     }

@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// row样式自定义
 @property (nonatomic, strong) NSDictionary *style;
 
+/// 断言，(判断条件，用于隐藏当前row)
+@property (nonatomic, copy) NSString *predicate;
+
 /// 跳转目标viewController通过类名
 @property (nonatomic, copy) NSString *viewControllerClass;
 

@@ -12,6 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SettingViewModel : TFFormViewModel
 
+@property (nonatomic, readonly, copy) NSString *appId;
+@property (nonatomic, readonly, copy) NSString *envriment;
+@property (nonatomic, readonly, copy) NSString *userId;
+@property (nonatomic, readonly, copy) NSString *mobile;
+@property (nonatomic, readonly, assign) BOOL dispatch;
+@property (nonatomic, readonly, assign) NSInteger logLevel;
+
+- (void)save:(NSDictionary *)form completion:(IntegerMsgBlock)completion;
+- (void)logout:(IntegerMsgBlock)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

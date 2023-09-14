@@ -7,7 +7,40 @@
 //
 
 #import "LoginViewModel.h"
+#import "TFUserDefaults+demo.h"
 
 @implementation LoginViewModel
+
+- (void)login:(NSDictionary *)form completion:(IntegerMsgBlock)completion {
+    //  TODO: login logic code...
+    
+    kUserDefaults.model = [DemoModel tf_mj_objectWithKeyValues:form];
+    
+    NSInteger result = 0;
+    NSString *message = @"";
+    if (completion) {
+        completion(result, message);
+    }
+}
+
+- (NSString *)appId {
+    return kUserDefaults.model.appId;
+}
+
+- (NSString *)envriment {
+    return kUserDefaults.model.envriment;
+}
+
+- (NSString *)userId {
+    return kUserDefaults.model.userId;
+}
+
+- (NSString *)mobile {
+    return kUserDefaults.model.mobile;
+}
+
+-(BOOL)ibeaconEnable {
+    return kUserDefaults.model.ibeaconEnable;
+}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  TFAppDelegate.h
+//  AppDelegate.h
 //  TFUILib_iOS
 //
 //  Created by SunXiaofei on 07/19/2020.
@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface TFAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

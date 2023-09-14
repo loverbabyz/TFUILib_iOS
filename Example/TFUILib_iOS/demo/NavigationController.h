@@ -1,8 +1,8 @@
 //
-//  ShareKeyViewModel.h
+//  NavigationController.h
 //  TFUILib_iOS_Example
 //
-//  Created by Daniel on 2023/9/10.
+//  Created by Daniel on 2023/9/12.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ShareKeyViewModel : TFFormViewModel
-
-@property (nonatomic, copy) NSString *vin;
+@interface NavigationController : TFNavigationController
 
 @end
 

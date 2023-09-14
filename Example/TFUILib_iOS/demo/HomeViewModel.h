@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewModel : TFFormViewModel
 
+@property (nonatomic, copy) NSString *vin;
+@property (nonatomic, copy) NSString *appId;
+
+//- (void)feach:(VoidBlock)completion;
+- (void)updateVIN:(NSString *)vin completion:(VoidBlock)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

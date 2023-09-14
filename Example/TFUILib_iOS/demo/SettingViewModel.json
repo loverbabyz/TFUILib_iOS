@@ -3,19 +3,13 @@
         "tag": "0",
         "dataArray": [
             {
-                "tag": "00",
-                "rowType": "info",
-                "title": "车厂",
-                "value": "智已",
-            },
-            {
-                "tag": "01",
+                "tag": "appId",
                 "rowType": "info",
                 "title": "APP ID",
                 "value": "234sadf2431231",
             },
             {
-                "tag": "02",
+                "tag": "envriment",
                 "rowType": "info",
                 "title": "运行环境",
                 "value": "https://uat.IM",
@@ -26,13 +20,13 @@
         "tag": "1",
         "dataArray": [
             {
-                "tag": "10",
+                "tag": "userId",
                 "rowType": "info",
                 "title": "用户ID",
                 "value": "AABBCC",
             },
             {
-                "tag": "11",
+                "tag": "mobile",
                 "rowType": "info",
                 "title": "手机号",
                 "value": "13800138000",
@@ -43,45 +37,43 @@
         "tag": "2",
         "dataArray": [
             {
-                "tag": "20",
+                "tag": "dispatch",
                 "rowType": "booleanSwitch",
-                "onChangeBlock": "dispatchedChanged:",
                 "title": "DISPATCHED ON MAIN QUEUE",
                 "value": 1,
             },
             {
-                "tag": "21",
+                "tag": "logLevel",
                 "rowType": "selectorPush",
                 "title": "日志等级",
-                "onChangeBlock": "logLevelChanged:",
                 "selectorOptions":  [
                     {
-                        "identity": "0",
-                        "title": "NONE",
+                        "identity": 0,
+                        "title": "ALL",
                     },
                     {
-                        "identity": "1",
+                        "identity": 1,
                         "title": "TREACE",
                     },
                     {
-                        "identity": "2",
+                        "identity": 2,
                         "title": "DEBUG",
                     },
                     {
-                        "identity": "3",
+                        "identity": 3,
                         "title": "NORMAL",
                     },
                     {
-                        "identity": "4",
+                        "identity": 4,
                         "title": "WARNING",
                     },
                     {
-                        "identity": "5",
+                        "identity": 5,
                         "title": "ERROR",
                     },
                     {
-                        "identity": "6",
-                        "title": "ALL",
+                        "identity": 6,
+                        "title": "NONE",
                     },
                 ]
             },

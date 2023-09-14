@@ -25,7 +25,6 @@
 }
 
 - (NSArray<__kindof TFTableSectionModel *> *)formDataArray {
-    static NSArray<__kindof TFFormSectionModel *> *array;
     if(!_formDataArray)
     {
         NSString *className=NSStringFromClass([self class]);

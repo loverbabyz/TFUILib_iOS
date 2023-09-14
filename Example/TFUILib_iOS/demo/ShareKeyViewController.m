@@ -7,17 +7,26 @@
 //
 
 #import "ShareKeyViewController.h"
+#import "ShareKeyViewModel.h"
 
 @interface ShareKeyViewController ()
+
+@property (nonatomic, strong) ShareKeyViewModel *viewModel;
 
 @end
 
 @implementation ShareKeyViewController
+@dynamic viewModel;
 
 - (void)bindData {
     [super bindData];
     
-    self.form.assignFirstResponderOnShow = YES;
+    NSString *vin = self.viewModel.vin;
+    XLFormRowDescriptor *row = [self.form formRowWithTag:kRowTag_VIN];
+    row.value = vin;
+    [self reloadFormRow:row];
+    
+    [self assignFirstResponderOnShow];
 }
 
 - (void)shareKey {

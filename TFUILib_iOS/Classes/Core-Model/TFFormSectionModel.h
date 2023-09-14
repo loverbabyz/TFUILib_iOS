@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// footTitle
 @property (nonatomic, copy) NSString *footTitle;
 
+/// 断言，(判断条件，用于隐藏当前section)
+@property (nonatomic, copy) NSString *predicate;
+
 /// 子表格数据
 @property (nonatomic, strong) NSArray<__kindof TFFormRowModel *> *dataArray;
 

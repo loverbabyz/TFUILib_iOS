@@ -30,7 +30,7 @@
         <!--Navigation Controller-->
         <scene sceneID="A3L-1q-iXW">
             <objects>
-                <navigationController id="387-py-gAR" sceneMemberID="viewController">
+                <navigationController id="387-py-gAR" customClass="NavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Iy-7Y-wLv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
