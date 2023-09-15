@@ -1,18 +1,18 @@
 //
-//  NavigationController.m
+//  DDNavigationController.m
 //  TFUILib_iOS_Example
 //
 //  Created by Daniel on 2023/9/12.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
-#import "NavigationController.h"
+#import "DDNavigationController.h"
 
-@interface NavigationController ()
+@interface DDNavigationController ()
 
 @end
 
-@implementation NavigationController
+@implementation DDNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

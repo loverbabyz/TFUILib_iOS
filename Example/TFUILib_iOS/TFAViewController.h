@@ -6,7 +6,7 @@
 //  Copyright (c) 2020 SunXiaofei. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "DDLoginViewController.h"
 
 @interface TFAViewController : TFFormViewController
 

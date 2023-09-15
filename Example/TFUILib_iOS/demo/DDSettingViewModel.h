@@ -1,16 +1,16 @@
 //
-//  SettingViewModel.h
+//  DDSettingViewModel.h
 //  TFUILib_iOS_Example
 //
 //  Created by Daniel on 2023/9/10.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "DDBaseViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SettingViewModel : TFFormViewModel
+@interface DDSettingViewModel : DDBaseViewModel
 
 @property (nonatomic, readonly, copy) NSString *appId;
 @property (nonatomic, readonly, copy) NSString *envriment;

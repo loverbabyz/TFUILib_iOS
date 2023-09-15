@@ -1,5 +1,5 @@
 //
-//  NavigationController.h
+//  DDNavigationController.h
 //  TFUILib_iOS_Example
 //
 //  Created by Daniel on 2023/9/12.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NavigationController : TFNavigationController
+@interface DDNavigationController : TFNavigationController
 
 @end
 

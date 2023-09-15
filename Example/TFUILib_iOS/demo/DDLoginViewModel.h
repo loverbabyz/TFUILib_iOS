@@ -1,17 +1,16 @@
 //
-//  LoginViewModel.h
+//  DDLoginViewModel.h
 //  TFUILib_iOS_Example
 //
 //  Created by Ingeek-091 on 2023/9/6.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
-#import <TFUILib_iOS/TFUILib_iOS.h>
-#import <ReactiveObjC/ReactiveObjC.h>
+#import "DDBaseViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginViewModel : TFFormViewModel
+@interface DDLoginViewModel : DDBaseViewModel
 
 @property (nonatomic, readonly, copy) NSString *appId;
 @property (nonatomic, readonly, copy) NSString *envriment;

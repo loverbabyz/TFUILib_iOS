@@ -11,6 +11,7 @@
 #import "TFUIUtil.h"
 #import "TFViewController.h"
 #import <TFUILib_iOS/TFUILib_iOS.h>
+#import <TFBaseLib_iOS/TFBaseMacro+System.h>
 
 @interface TFUIUtil()
 
@@ -98,7 +99,10 @@
 
 + (UIViewController *)getRootViewController
 {
-    UIViewController *rootVC=[TF_APP_APPLICATION.delegate window].rootViewController;
+    UIViewController *rootVC = TF_APP_KEY_WINDOW.rootViewController;
+    while (rootVC.presentedViewController) {
+        rootVC = rootVC.presentedViewController;
+    }
     return rootVC;
 }
 

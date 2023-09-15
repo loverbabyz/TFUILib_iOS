@@ -1,23 +1,23 @@
 //
-//  LoginViewController.m
+//  DDLoginViewController.m
 //  TFUILib_iOS_Example
 //
 //  Created by Daniel on 2020/7/19.
 //  Copyright © 2020 SunXiaofei. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "NavigationController.h"
-#import "HomeViewController.h"
+#import "DDLoginViewController.h"
+#import "DDNavigationController.h"
+#import "DDHomeViewController.h"
 #import "AppDelegate.h"
-#import "LoginViewModel.h"
+#import "DDLoginViewModel.h"
 
-@interface LoginViewController ()
+@interface DDLoginViewController ()
 
-@property (nonatomic, strong) LoginViewModel *viewModel;
+@property (nonatomic, strong) DDLoginViewModel *viewModel;
 
 @end
-@implementation LoginViewController
+@implementation DDLoginViewController
 @dynamic viewModel;
 
 - (void)bindData {
@@ -78,7 +78,7 @@
     [self.viewModel login:self.formValues completion:^(NSInteger resultNumber, NSString *errorMsg) {
        
         if(!resultNumber) {
-            [TF_APP_DELEGATE.window setRootViewController:[[NavigationController alloc] initWithRootViewController:[HomeViewController new]]];
+            [TF_APP_DELEGATE.window setRootViewController:[[DDNavigationController alloc] initWithRootViewController:[DDHomeViewController new]]];
             [TF_APP_DELEGATE.window makeKeyAndVisible];
         }
     }];

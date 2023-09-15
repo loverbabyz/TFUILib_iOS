@@ -1,15 +1,15 @@
 //
-//  LoginViewModel.m
+//  DDLoginViewModel.m
 //  TFUILib_iOS_Example
 //
 //  Created by Ingeek-091 on 2023/9/6.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
-#import "LoginViewModel.h"
+#import "DDLoginViewModel.h"
 #import "TFUserDefaults+demo.h"
 
-@implementation LoginViewModel
+@implementation DDLoginViewModel
 
 - (void)login:(NSDictionary *)form completion:(IntegerMsgBlock)completion {
     //  TODO: login logic code...

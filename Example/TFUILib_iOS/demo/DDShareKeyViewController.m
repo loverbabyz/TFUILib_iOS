@@ -1,21 +1,21 @@
 //
-//  ShareKeyViewController.m
+//  DDShareKeyViewController.m
 //  TFUILib_iOS_Example
 //
 //  Created by Daniel on 2023/9/10.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
-#import "ShareKeyViewController.h"
-#import "ShareKeyViewModel.h"
+#import "DDShareKeyViewController.h"
+#import "DDShareKeyViewModel.h"
 
-@interface ShareKeyViewController ()
+@interface DDShareKeyViewController ()
 
-@property (nonatomic, strong) ShareKeyViewModel *viewModel;
+@property (nonatomic, strong) DDShareKeyViewModel *viewModel;
 
 @end
 
-@implementation ShareKeyViewController
+@implementation DDShareKeyViewController
 @dynamic viewModel;
 
 - (void)bindData {

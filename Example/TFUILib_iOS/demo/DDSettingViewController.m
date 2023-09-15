@@ -1,24 +1,24 @@
 //
-//  SettingViewController.m
+//  DDSettingViewController.m
 //  TFUILib_iOS_Example
 //
 //  Created by Daniel on 2023/9/10.
 //  Copyright © 2023 SunXiaofei. All rights reserved.
 //
 
-#import "SettingViewController.h"
-#import "NavigationController.h"
-#import "LoginViewController.h"
+#import "DDSettingViewController.h"
+#import "DDNavigationController.h"
+#import "DDLoginViewController.h"
 #import "AppDelegate.h"
-#import "SettingViewModel.h"
+#import "DDSettingViewModel.h"
 
-@interface SettingViewController ()
+@interface DDSettingViewController ()
 
-@property (nonatomic, strong) SettingViewModel *viewModel;
+@property (nonatomic, strong) DDSettingViewModel *viewModel;
 
 @end
 
-@implementation SettingViewController
+@implementation DDSettingViewController
 @dynamic viewModel;
 
 - (void)bindData {
@@ -78,7 +78,7 @@
 - (void)logout {
     [self.viewModel logout:^(NSInteger resultNumber, NSString *errorMsg) {
         tf_showToast(@"logout");
-        [TF_APP_DELEGATE.window setRootViewController:[[NavigationController alloc] initWithRootViewController:[LoginViewController new]]];
+        [TF_APP_DELEGATE.window setRootViewController:[[DDNavigationController alloc] initWithRootViewController:[DDLoginViewController new]]];
         [TF_APP_DELEGATE.window makeKeyAndVisible];
     }];
 }

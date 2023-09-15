@@ -7,7 +7,7 @@
 //
 
 #import "TFAViewController.h"
-#import "LoginViewController.h"
+#import "DDLoginViewController.h"
 #import <TFUILib_iOS/TFUILib_iOS.h>
 #import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 #import "TFAViewModel.h"

@@ -17,7 +17,10 @@
 
 - (UIViewController *)getRootViewController
 {
-    UIViewController *rootVC = [TF_APP_APPLICATION.delegate window].rootViewController;
+    UIViewController *rootVC = TF_APP_KEY_WINDOW.rootViewController;
+    while (rootVC.presentedViewController) {
+        rootVC = rootVC.presentedViewController;
+    }
     return rootVC;
 }
 
