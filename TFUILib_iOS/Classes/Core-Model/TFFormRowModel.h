@@ -43,6 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 断言，(判断条件，用于隐藏当前row)
 @property (nonatomic, copy) NSString *predicate;
 
+/// 数据类型转换类名
+@property (nonatomic, copy) NSString *valueTransformer;
+
 /// 跳转目标viewController通过类名
 @property (nonatomic, copy) NSString *viewControllerClass;
 

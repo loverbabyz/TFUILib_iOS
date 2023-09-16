@@ -203,6 +203,10 @@
         }];
     }
     
+    if (obj.valueTransformer) {
+        row.valueTransformer = NSClassFromString(obj.valueTransformer);
+    }
+    
     typeof(self) __weak weakself = self;
     
     if (obj.onChangeBlock) {
@@ -216,38 +220,6 @@
     }
     
     row.hidden = [self predicateFromMethodString:obj.predicate] ?: @0;
-    
-    return row;
-}
-
-- (XLFormRowDescriptor *)rowDescriptorTypeText:(TFFormRowModel * _Nonnull)obj {
-    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeText];
-    [row.cellConfigAtConfigure setObject:obj.placeholder forKey:@"textField.placeholder"];
-    row.required = obj.required;
-    
-    return row;
-}
-
-- (XLFormRowDescriptor *)rowDescriptorTypeBooleanSwitch:(TFFormRowModel * _Nonnull)obj {
-    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeBooleanSwitch];
-    row.value = ((NSNumber *)obj.value) ?: @(0);
-    // [row.cellConfigAtConfigure setObject:[UIColor redColor] forKey:@"switchControl.onTintColor"];
-    
-    return row;
-}
-
-- (XLFormRowDescriptor *)rowDescriptorTypeDateTimeInline:(TFFormRowModel * _Nonnull)obj {
-    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeDateTimeInline];
-    if (obj.value) {
-        row.value = [NSDate dateWithTimeIntervalSinceNow:((NSNumber *)obj.value).integerValue];
-    }
-    
-    return row;
-}
-
-- (XLFormRowDescriptor *)rowDescriptorTypeButton:(TFFormRowModel * _Nonnull)obj {
-    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeButton];
-    row.value = obj;
     row.action.viewControllerPresentationMode = (XLFormPresentationMode)obj.viewControllerPresentationMode;
     
     if(obj.viewControllerClass) {
@@ -282,6 +254,39 @@
      row.action.viewControllerNibName = @"MapViewController";
      row.action.viewControllerClass = [MapViewController class];
     */
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeText:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeText];
+    [row.cellConfigAtConfigure setObject:obj.placeholder forKey:@"textField.placeholder"];
+    row.required = obj.required;
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeBooleanSwitch:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeBooleanSwitch];
+    row.value = ((NSNumber *)obj.value) ?: @(0);
+    // [row.cellConfigAtConfigure setObject:[UIColor redColor] forKey:@"switchControl.onTintColor"];
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeDateTimeInline:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeDateTimeInline];
+    if (obj.value) {
+        row.value = [NSDate dateWithTimeIntervalSinceNow:((NSNumber *)obj.value).integerValue];
+    }
+    
+    return row;
+}
+
+- (XLFormRowDescriptor *)rowDescriptorTypeButton:(TFFormRowModel * _Nonnull)obj {
+    XLFormRowDescriptor *row = [self rowDescriptorCommon:obj rowType:XLFormRowDescriptorTypeButton];
+    row.value = obj;
+    
     return row;
 }
 
