@@ -21,7 +21,7 @@
         return nil;
     }
     
-    return (TFFormRowModel *)self.dataArray[indexPath.row];
+    return (TFFormRowModel *)self.formDataArray[indexPath.section].dataArray[indexPath.row];
 }
 
 - (NSArray<__kindof TFTableSectionModel *> *)formDataArray {

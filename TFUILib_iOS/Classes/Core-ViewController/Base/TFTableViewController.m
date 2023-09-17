@@ -327,7 +327,6 @@
         _tableView.delegate                       = self;
         _tableView.dataSource                     = self;
 
-        _tableView.backgroundColor                = [UIColor whiteColor];
         _tableView.backgroundView                 = UIView.new;
         _tableView.separatorStyle                 = UITableViewCellSeparatorStyleSingleLine;
         [_tableView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];

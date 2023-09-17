@@ -38,11 +38,7 @@
 
 - (void)initViews
 {
-    self.textLabel.font      = TF_AppFont(14);
-    self.textLabel.textColor = TF_HRGBA(0X333333, 1);
     
-    //UIImage *image = [UIImage imageWithColor:TF_HRGBA(0XF8F8F8, 1.0) size:self.frame.size];
-    //self.selectedBackgroundView = [[UIImageView alloc] initWithImage:image];
 }
 
 - (void)autolayoutViews

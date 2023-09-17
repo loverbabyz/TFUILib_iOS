@@ -98,6 +98,7 @@
             }
             if (controller.navigationController == nil || [controllerToPresent isKindOfClass:[UINavigationController class]] || self.rowDescriptor.action.viewControllerPresentationMode == XLFormPresentationModePresent){
                 [controller presentViewController:controllerToPresent animated:YES completion:nil];
+                [controller.tableView deselectRowAtIndexPath:[controller.form indexPathOfFormRow:self.rowDescriptor] animated:YES];
             }
             else{
                 [controller.navigationController pushViewController:controllerToPresent animated:YES];
