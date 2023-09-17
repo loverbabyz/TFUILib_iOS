@@ -56,6 +56,6 @@ UI lib for Treasure framework.
   # 当前库的Build Settings配置
   # s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 x86_64 armv7' }
   
-  s.dependency 'TFBaseLib_iOS', "~> 1.1.17.1"
+  s.dependency 'TFBaseLib_iOS', "~> 1.1.18"
 
 end
