@@ -31,29 +31,10 @@
     }
     [self.tableView endEditing:YES];
     
-    /// TODO:
-    switch (self.type) {
-        case AddTypeVehicel:
-            {
-                
-            }
-            break;
-            
-        case AddTypeAppId:
-            {
-                
-            }
-            break;
-            
-        case AddTypeEnv:
-            {
-                
-            }
-            break;
-            
-        default:
-            break;
-    }
+    TF_WEAK_SELF
+    [self.viewModel add:self.type form:self.formValues completion:^{
+        [weakSelf back];
+    }] ;
 }
 
 @end

@@ -3,14 +3,14 @@
         "tag": "form",
         "dataArray": [
             {
-                "tag": "name",
+                "tag": "title",
                 "rowType": "text",
                 "title": "",
                 "placeholder": "标题",
                 "required": 1,
             },
             {
-                "tag": "value",
+                "tag": "identity",
                 "rowType": "text",
                 "title": "",
                 "placeholder": "内容",

@@ -7,12 +7,16 @@
 
 #import "DDBaseTableViewController.h"
 #import "DDDefaultViewCell.h"
+#import "DDBaseViewModel.h"
 
 @interface DDBaseTableViewController ()
+
+@property (nonatomic, strong) DDBaseViewModel *viewModel;
 
 @end
 
 @implementation DDBaseTableViewController
+@dynamic viewModel;
 @synthesize rowDescriptor = _rowDescriptor;
 
 - (void)dealloc {
@@ -34,6 +38,29 @@
     self.rowDescriptor.value = data;
     [self back];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self loadNewData];
+}
+
+- (void)loadNewData {
+    [super loadNewData];
+    
+    TF_WEAK_SELF
+    [self.viewModel fetchData:^(NSInteger errorCode) {
+        [weakSelf endLoadData];
+        
+        if ([weakSelf.viewModel isEmpty]) {
+            [weakSelf showEmpty];
+            
+            return;
+        }
+        [weakSelf.tableView reloadData];
+    }];
+}
+
 
 - (void)showEmpty {
     [self showToast:TF_LSTR(@"Empty data")];

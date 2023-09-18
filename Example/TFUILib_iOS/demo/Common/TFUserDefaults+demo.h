@@ -24,8 +24,15 @@
 @property (nonatomic, copy) NSString *releaseDate;
 
 @property (nonatomic, strong) NSArray<DDDemoModel *> *modelCached;
+@property (nonatomic, strong) NSArray<TFTableRowModel *> *appIdCached;
+@property (nonatomic, strong) NSArray<TFTableRowModel *> *envrimentCached;
+@property (nonatomic, strong) NSArray<TFTableRowModel *> *vehicleCached;
 
 - (void)login:(DDDemoModel *)model;
 - (void)logout;
+
+- (void)addAppId:(TFTableRowModel *)model;
+- (void)addEnvriment:(TFTableRowModel *)model;
+- (void)addVehicle:(TFTableRowModel *)model;
 
 @end

@@ -25,32 +25,15 @@
     [self hideRightButton];
 }
 
-- (void)bindData {
-    [super bindData];
-    
-    [self loadNewData];
-}
-
 - (void)registerCell {
     [super registerCell];
     
     self.defaultCell = [DDDefaultViewCell class];
 }
 
-- (void)loadNewData {
-    [super loadNewData];
+- (void)bindData {
+    [super bindData];
     
-    TF_WEAK_SELF
-    [self.viewModel fetchData:^(NSInteger errorCode) {
-        [weakSelf endLoadData];
-        
-        if ([weakSelf.viewModel isEmpty]) {
-            [weakSelf showEmpty];
-            
-            return;
-        }
-        [weakSelf.tableView reloadData];
-    }];
 }
 
 - (void)handleData:(TFTableRowModel *)data {
