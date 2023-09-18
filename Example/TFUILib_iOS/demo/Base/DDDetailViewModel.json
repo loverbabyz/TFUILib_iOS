@@ -1,0 +1,32 @@
+[
+    {
+        "tag": "form",
+        "dataArray": [
+            {
+                "tag": "name",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "标题",
+                "required": 1,
+            },
+            {
+                "tag": "value",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "内容",
+                "required": 1,
+            },
+        ]
+    },
+    {
+        "tag": "footer",
+        "dataArray": [
+            {
+                "tag": "saveButton",
+                "rowType": "button",
+                "title": "保存",
+                "method": "save",
+            }
+        ]
+    },
+]

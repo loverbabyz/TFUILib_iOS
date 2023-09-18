@@ -1,0 +1,49 @@
+[
+    {
+        "tag": "0",
+        "dataArray": [
+            {
+                "tag": "0",
+                "rowType": "booleanSwitch",
+                "title": "靠近迎宾",
+                "value": 0,
+            },
+            {
+                "tag": "1",
+                "rowType": "booleanSwitch",
+                "title": "靠近解锁",
+                "value": 0,
+            },
+            {
+                "tag": "2",
+                "rowType": "booleanSwitch",
+                "title": "离车闭锁",
+                "value": 0,
+            },
+            {
+                "tag": "3",
+                "rowType": "booleanSwitch",
+                "title": "被动闭锁",
+                "value": 0,
+            },
+            {
+                "tag": "4",
+                "rowType": "booleanSwitch",
+                "title": "离开提醒",
+                "value": 0,
+            },
+            {
+                "tag": "5",
+                "rowType": "booleanSwitch",
+                "title": "预留",
+                "value": 0,
+            },
+            {
+                "tag": "7",
+                "rowType": "booleanSwitch",
+                "title": "预留",
+                "value": 0,
+            },
+        ]
+    },
+]

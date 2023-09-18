@@ -45,5 +45,22 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Use your bluetooth to connect car.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Use your bluetooth to connect car.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Use your location to find your car.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Use your location to find your car.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Use your location to find your car.</string>
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 </dict>
 </plist>

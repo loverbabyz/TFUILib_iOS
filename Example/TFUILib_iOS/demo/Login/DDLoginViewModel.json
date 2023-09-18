@@ -1,0 +1,62 @@
+[
+    {
+        "tag": "0",
+        "dataArray": [
+            {
+                "tag": "userId",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "用户ID",
+                "required": 1,
+            },
+            {
+                "tag": "mobile",
+                "rowType": "text",
+                "title": "",
+                "placeholder": "手机号码",
+                "required": 1,
+            }
+        ]
+    },
+    {
+        "tag": "1",
+        "dataArray": [
+            {
+                "tag": "appId",
+                "rowType": "selectorPush",
+                "title": "APP ID",
+                "viewControllerClass": "DDAppIdViewController",
+                "valueTransformer": "DDDefaultValueTransformer",
+            },
+            {
+                "tag": "envriment",
+                "rowType": "selectorPush",
+                "title": "运行环境",
+                "viewControllerClass": "DDEnvrimentViewController",
+                "valueTransformer": "DDDefaultValueTransformer",
+            },
+        ]
+    },
+    {
+        "tag": "2",
+        "dataArray": [
+            {
+                "tag": "ibeaconEnable",
+                "rowType": "booleanSwitch",
+                "title": "iBeacon拉活",
+                "value": 0,
+            }
+        ]
+    },
+    {
+        "tag": "fotter",
+        "dataArray": [
+            {
+                "tag": "30",
+                "rowType": "button",
+                "title": "登录",
+                "method": "login",
+            }
+        ]
+    },
+]

@@ -1,0 +1,120 @@
+[
+    {
+        "tag": "sdkInfo",
+        "title": "SDK信息",
+        "dataArray": [
+            {
+                "tag": "sdkVersion",
+                "rowType": "info",
+                "title": "SDK Version",
+                "value": "",
+            },
+            {
+                "tag": "commitId",
+                "rowType": "info",
+                "title": "Commit Id",
+                "value": "",
+            },
+            {
+                "tag": "releaseDate",
+                "rowType": "info",
+                "title": "Release Date",
+                "value": "",
+            },
+        ]
+    },
+    {
+        "tag": "userInfo",
+        "title": "登录信息",
+        "dataArray": [
+            {
+                "tag": "appId",
+                "rowType": "info",
+                "title": "APP ID",
+                "value": "",
+            },
+            {
+                "tag": "envriment",
+                "rowType": "info",
+                "title": "运行环境",
+                "value": "",
+            },
+            {
+                "tag": "userId",
+                "rowType": "info",
+                "title": "用户ID",
+                "value": "",
+            },
+            {
+                "tag": "mobile",
+                "rowType": "info",
+                "title": "手机号",
+                "value": "",
+            },
+            {
+                "tag": "ibeacon",
+                "rowType": "info",
+                "title": "ibeacon状态",
+                "value": "",
+            }
+        ]
+    },
+    {
+        "tag": "otherInfo",
+        "title": "SDK DEBU配置",
+        "dataArray": [
+            {
+                "tag": "dispatch",
+                "rowType": "booleanSwitch",
+                "title": "DISPATCHED ON MAIN QUEUE",
+                "value": 1,
+            },
+            {
+                "tag": "logLevel",
+                "rowType": "selectorPush",
+                "title": "日志等级",
+                "selectorOptions":  [
+                    {
+                        "identity": 0,
+                        "title": "ALL",
+                    },
+                    {
+                        "identity": 1,
+                        "title": "TREACE",
+                    },
+                    {
+                        "identity": 2,
+                        "title": "DEBUG",
+                    },
+                    {
+                        "identity": 3,
+                        "title": "NORMAL",
+                    },
+                    {
+                        "identity": 4,
+                        "title": "WARNING",
+                    },
+                    {
+                        "identity": 5,
+                        "title": "ERROR",
+                    },
+                    {
+                        "identity": 6,
+                        "title": "NONE",
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        "tag": "3",
+        "dataArray": [
+            {
+                "tag": "30",
+                "rowType": "button",
+                "title": "退出登录",
+                "method": "logout",
+            }
+        ]
+    },
+]

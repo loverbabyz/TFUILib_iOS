@@ -132,3 +132,13 @@ otherButtonTitles:nil]; \
 #ifndef TF_HEIGHT_SCALE
 #define TF_HEIGHT_SCALE (TF_MAIN_SCREEN.bounds.size.height / 568.0)
 #endif
+
+
+// Localizable String
+#ifndef TF_LSTR
+#   define TF_LSTR(str) NSLocalizedString(str, nil)
+#endif
+
+#ifndef TF_STRINGIFY
+#   define TF_STRINGIFY(...) @#__VA_ARGS__
+#endif

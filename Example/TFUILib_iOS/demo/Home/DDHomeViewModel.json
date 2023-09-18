@@ -1,0 +1,284 @@
+[
+    {
+        "tag": "1",
+        "dataArray": [
+            {
+                "tag": "VIN",
+                "rowType": "selectorPush",
+                "title": "VIN",
+                "onChangeBlock": "vinChanged:",
+                "viewControllerClass": "DDVehicleViewController",
+                "valueTransformer": "DDDefaultValueTransformer",
+            }
+        ]
+    },
+    {
+        "tag": "3",
+        "predicate": "vinPredicate",
+        "dataArray": [
+            {
+                "tag": "enableKey",
+                "rowType": "button",
+                "title": "激活",
+                "method": "enableKey",
+            },
+            {
+                "tag": "downloadKey",
+                "rowType": "button",
+                "title": "钥匙下载",
+                "method": "downloadKey",
+            },
+            {
+                "tag": "getLocalKey",
+                "rowType": "button",
+                "title": "查询本地钥匙",
+                "method": "getLocalKey",
+            },
+            {
+                "tag": "30",
+                "rowType": "button",
+                "title": "激活状态查询",
+                "method": "getKeyEnabledState",
+            },
+            {
+                "tag": "32",
+                "rowType": "button",
+                "title": "注销钥匙",
+                "method": "terminateKey",
+            },
+        ]
+    },
+    {
+        "tag": "7",
+        "predicate": "vinPredicate",
+        "dataArray": [
+            {
+                "tag": "33",
+                "rowType": "button",
+                "title": "连接",
+                "method": "connect",
+            },
+            {
+                "tag": "35",
+                "rowType": "button",
+                "title": "断开连接",
+                "method": "disconnect",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "连接状态",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "锁车",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "解锁",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "锁定后备箱",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "解锁后备箱",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "鸣笛",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "泊入",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "泊出",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "暂停泊车",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "继续泊车",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "取消泊车",
+                "method": "connectStatus",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "开箱锁",
+                "method": "connectStatus",
+                "predicate": "mc01Predicate",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "闪灯",
+                "method": "connectStatus",
+                "predicate": "mc01Predicate",
+            },
+            {
+                "tag": "34",
+                "rowType": "button",
+                "title": "鸣笛",
+                "method": "connectStatus",
+                "predicate": "mc01Predicate",
+            },
+        ]
+    },
+    {
+        "tag": "5",
+        "predicate": "vinPredicate",
+        "dataArray": [
+            {
+                "tag": "50",
+                "rowType": "selectorActionSheet",
+                "title": "灵敏度调节",
+                "onChangeBlock": "levelChanged:",
+                "selectorOptions": [
+                    {
+                        "identity": "-2",
+                        "title": "-2",
+                    },
+                    {
+                        "identity": "-1",
+                        "title": "-1",
+                    },
+                    {
+                        "identity": "0",
+                        "title": "0",
+                    },
+                    {
+                        "identity": "1",
+                        "title": "1",
+                    },
+                    {
+                        "identity": "2",
+                        "title": "2",
+                    },
+                ]
+            },
+            {
+                "tag": "54",
+                "rowType": "button",
+                "title": "分享钥匙",
+                "viewControllerClass": "DDShareKeyViewController",
+                "viewControllerPresentationMode": 2,
+            },
+            {
+                "tag": "51",
+                "rowType": "button",
+                "title": "已分享钥匙",
+                "viewControllerClass": "DDSharedKeysViewController",
+            },
+            {
+                "tag": "52",
+                "rowType": "button",
+                "title": "车主钥匙",
+                "viewControllerClass": "DDOwnerKeysViewController",
+            },
+            {
+                "tag": "52",
+                "rowType": "button",
+                "title": "删除无效钥匙",
+                "viewControllerClass": "DDOwnerKeysViewController",
+                "predicate": "dfmPredicate",
+            },
+            {
+                "tag": "53",
+                "rowType": "button",
+                "title": "个性化设置",
+                "viewControllerClass": "DDPreferencesViewController",
+            },
+            {
+                "tag": "53",
+                "rowType": "button",
+                "title": "Fob钥匙",
+                "viewControllerClass": "DDFobKeysViewController",
+                "predicate": "jxaPredicate",
+            },
+            {
+                "tag": "53",
+                "rowType": "button",
+                "title": "NFC卡片",
+                "viewControllerClass": "DDNFCKeysViewController",
+                "predicate": "jxaPredicate",
+            },
+            {
+                "tag": "53",
+                "rowType": "button",
+                "title": "进入Fob钥匙学习模式",
+                "viewControllerClass": "DDOwnerKeysViewController",
+                "predicate": "jxaPredicate",
+            },
+            {
+                "tag": "53",
+                "rowType": "button",
+                "title": "进入NFC钥匙学习模式",
+                "viewControllerClass": "DDOwnerKeysViewController",
+                "predicate": "jxaPredicate",
+            },
+        ]
+    },
+    {
+        "tag": "settingSection",
+        "title": "SDK配置",
+        "dataArray": [
+            {
+                "tag": "setting",
+                "rowType": "button",
+                "title": "设置",
+                "viewControllerClass": "DDSettingViewController",
+            }
+        ]
+    },
+    {
+        "tag": "logSection",
+        "dataArray": [
+            {
+                "tag": "logView",
+                "rowType": "button",
+                "title": "查看操作日志",
+                "viewControllerClass": "DDLogViewController",
+            }
+        ]
+    },
+    {
+        "tag": "sdkExt",
+        "dataArray": [
+            {
+                "tag": "exportLog",
+                "rowType": "button",
+                "title": "导出SDK日志",
+                "method": "exportLog",
+            }
+        ]
+    },
+]
