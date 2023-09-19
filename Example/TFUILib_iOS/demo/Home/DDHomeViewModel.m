@@ -9,6 +9,7 @@
 #import "DDHomeViewModel.h"
 #import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 #import <TFUILib_iOS/TFFormRowModel.h>
+#import <TFUILib_iOS/TFFormSectionModel.h>
 #import "DDDemoManager.h"
 
 @implementation DDHomeViewModel
@@ -30,11 +31,17 @@
 //    }
 //}
 
-- (void)updateVIN:(NSString *)vin completion:(VoidBlock)completion {
-    kUserDefaults.vin = vin;
+- (void)updateVIN:(NSString *)vin completion:(BoolBlock)completion {
+    NSString *vinRegex = @"[A-HJ-NPR-Z\\d]{8}[X\\d][A-HJ-NPR-Z\\d]{3}\\d{5}";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", vinRegex];
+    NSNumber *validVin = @([predicate evaluateWithObject:vin]);
+    
+    if (validVin.boolValue && ![kUserDefaults.vin isEqualToString:vin]) {
+        kUserDefaults.vin = vin;
+    }
     
     if (completion) {
-        completion();
+        completion(validVin.boolValue);
     }
 }
 

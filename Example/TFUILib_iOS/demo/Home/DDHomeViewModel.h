@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL ibeaconEnable;
 
 //- (void)feach:(VoidBlock)completion;
-- (void)updateVIN:(NSString *)vin completion:(VoidBlock)completion;
+- (void)updateVIN:(NSString *)vin completion:(BoolBlock)completion;
 - (void)addLog:(NSString *)log;
 
 @end

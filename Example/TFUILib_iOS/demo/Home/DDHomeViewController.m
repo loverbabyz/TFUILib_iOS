@@ -61,13 +61,13 @@
             [self showToast:TF_STR(TF_LSTR(@"Activation failed, error: %@"), EMSG(errorCode))];
         }
     };
-
+    
 #ifdef Feature_HH
-        // NOTE: ⚠️需要根据项目进行区分⚠️
-        // 高合的激活与其他厂商的激活激活不同
-        [[IngeekBle sharedInstance] enableKey:self.self.viewModel.vin ext:@"" completion:block];
+    // NOTE: ⚠️需要根据项目进行区分⚠️
+    // 高合的激活与其他厂商的激活激活不同
+    [[IngeekBle sharedInstance] enableKey:self.self.viewModel.vin ext:@"" completion:block];
 #else
-        [[IngeekBle sharedInstance] enableKey:self.viewModel.vin completion:block];
+    [[IngeekBle sharedInstance] enableKey:self.viewModel.vin completion:block];
 #endif
 }
 
@@ -175,7 +175,26 @@
 
 - (void)vinChanged:(id)newValue {
     TFTableRowModel *obj = newValue;
-    [self.viewModel updateVIN:obj.identity completion:^{
+    
+    TF_WEAK_SELF
+    [self.viewModel updateVIN:obj.identity completion:^(BOOL result) {
+        XLFormSectionDescriptor *section = [weakSelf.form formSectionAtIndex:1];
+        for (XLFormRowDescriptor *row in section.formRows) {
+            row.disabled = @(!result);
+            [weakSelf updateFormRow:row];
+        }
+        
+        section = [weakSelf.form formSectionAtIndex:2];
+        for (XLFormRowDescriptor *row in section.formRows) {
+            row.disabled = @(!result);
+            [weakSelf updateFormRow:row];
+        }
+        
+        section = [weakSelf.form formSectionAtIndex:3];
+        for (XLFormRowDescriptor *row in section.formRows) {
+            row.disabled = @(!result);
+            [weakSelf updateFormRow:row];
+        }
         
     }];
 }
@@ -200,14 +219,11 @@
 
 #pragma mark - Predicate
 
-- (id)vinPredicate {
-    NSString *vinRegex = @"[A-HJ-NPR-Z\\d]{8}[X\\d][A-HJ-NPR-Z\\d]{3}\\d{5}";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", vinRegex];
-    return @(![predicate evaluateWithObject:self.viewModel.vin]);
-
-//    return [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"NOT ($%@.length == 17)", @"VIN"]];
-//    return @(![self.viewModel.vin.length == 17]);
-}
+//- (id)vinPredicate {
+////    return [NSString stringWithFormat:@"NOT ($%@.count > 4)", kRowTag_VIN];
+//    BOOL f = self.viewModel.vin.length > 0;
+//    return @(!(self.viewModel.vin.length > 0));
+//}
 
 - (id)mc01Predicate {
     return @(![self.viewModel.appId isEqualToString:kRowTag_MC01]);
