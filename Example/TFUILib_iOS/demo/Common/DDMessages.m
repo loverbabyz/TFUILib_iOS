@@ -6,6 +6,7 @@
 //
 
 #import "DDMessages.h"
+#import <TFUILib_iOS/TFUILib_iOS.h>
 
 @implementation DDMessages
 
