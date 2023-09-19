@@ -54,8 +54,6 @@
         }
         
         if ([weakSelf.viewModel isEmpty]) {
-            [weakSelf showEmpty];
-            
             return;
         }
         

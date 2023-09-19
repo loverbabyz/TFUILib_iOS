@@ -8,6 +8,7 @@
 
 #import "DDShareKeyViewController.h"
 #import "DDShareKeyViewModel.h"
+#import "Messages.h"
 
 @interface DDShareKeyViewController ()
 
@@ -36,6 +37,17 @@
         return;
     }
     [self.tableView endEditing:YES];
+    
+    TF_WEAK_SELF
+    [self.viewModel shareKey:self.formValues completion:^(NSInteger errorCode) {
+        if (!errorCode) {
+            [self showToast:TF_LSTR(@"Share success.")];
+            [weakSelf back];
+        } else {
+            NSString *msg = [NSString stringWithFormat:TF_LSTR(@"Share failed, error: %@"), EMSG(errorCode)];
+            [self showToast:msg];
+        }
+    }];
 }
 
 @end

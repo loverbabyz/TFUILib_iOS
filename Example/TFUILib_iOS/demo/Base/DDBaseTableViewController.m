@@ -53,14 +53,15 @@
         [weakSelf endLoadData];
         
         if ([weakSelf.viewModel isEmpty]) {
-            [weakSelf showEmpty];
-            
             return;
         }
         [weakSelf.tableView reloadData];
     }];
 }
 
+- (void)showHud {
+    
+}
 
 - (void)showEmpty {
     [self showToast:TF_LSTR(@"Empty data")];

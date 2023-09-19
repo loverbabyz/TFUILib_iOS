@@ -5,11 +5,11 @@
 //  Created by Ingeek-091 on 2023/9/17.
 //
 
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "DDBaseViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DDLoginInfoViewModel : TFViewModel
+@interface DDLoginInfoViewModel : DDBaseViewModel
 
 @end
 

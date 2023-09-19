@@ -14,15 +14,26 @@
     return TF_LSTR(@"车辆列表");
 }
 
-- (NSArray<__kindof TFTableSectionModel *> *)dataArray {
-    if (!kUserDefaults.vehicleCached || kUserDefaults.vehicleCached.count == 0) {
-        return @[];
+- (void)fetchData:(IntegerBlock)completion {
+    NSMutableArray<TFTableSectionModel *> *sections = [NSMutableArray new];
+    
+    if (kUserDefaults.vehicleCached && kUserDefaults.vehicleCached.count > 0) {
+        TFTableSectionModel *section = [TFTableSectionModel new];
+        section.dataArray = [kUserDefaults.vehicleCached copy];
+        
+        [sections addObject:section];
     }
+    NSArray<TFTableSectionModel *> *mockData = [TFTableSectionModel tf_mj_objectArrayWithKeyValuesArray:self.mockData];
+    if (mockData){
+        [mockData enumerateObjectsUsingBlock:^(TFTableSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [sections addObject:obj];
+        }];
+    }
+    self.dataArray = [sections copy];
     
-    TFTableSectionModel *section = [TFTableSectionModel new];
-    section.dataArray = [kUserDefaults.vehicleCached copy];
-    
-    return @[section];
+    if (completion) {
+        completion(0);
+    }
 }
 
 @end

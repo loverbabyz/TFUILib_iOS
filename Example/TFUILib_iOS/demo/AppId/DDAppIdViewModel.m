@@ -14,15 +14,26 @@
     return TF_LSTR(@"App ID");
 }
 
-- (NSArray<__kindof TFTableSectionModel *> *)dataArray {
-    if (!kUserDefaults.appIdCached || kUserDefaults.appIdCached.count == 0) {
-        return @[];
+- (void)fetchData:(IntegerBlock)completion {
+    NSMutableArray<TFTableSectionModel *> *sections = [NSMutableArray new];
+    
+    if (kUserDefaults.appIdCached && kUserDefaults.appIdCached.count > 0) {
+        TFTableSectionModel *section = [TFTableSectionModel new];
+        section.dataArray = [kUserDefaults.appIdCached copy];
+        
+        [sections addObject:section];
     }
+    NSArray<TFTableSectionModel *> *mockData = [TFTableSectionModel tf_mj_objectArrayWithKeyValuesArray:self.mockData];
+    if (mockData){
+        [mockData enumerateObjectsUsingBlock:^(TFTableSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [sections addObject:obj];
+        }];
+    }
+    self.dataArray = [sections copy];
     
-    TFTableSectionModel *section = [TFTableSectionModel new];
-    section.dataArray = [kUserDefaults.appIdCached copy];
-    
-    return @[section];
+    if (completion) {
+        completion(0);
+    }
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "DDShareKeyViewModel.h"
 #import "TFUserDefaults+demo.h"
+#import <IngeekDK/IngeekDK.h>
 
 @implementation DDShareKeyViewModel
 
@@ -20,29 +21,28 @@
 }
 
 - (void)shareKey:(NSDictionary *)form completion:(IntegerBlock)completion {
+    NSDate *startDate = [form objectForKey:TF_STRINGIFY(startDate)];
+    NSDate *endDate = [form objectForKey:TF_STRINGIFY(endDate)];
     
-//    IngeekBleToBeSharedKey *limitedKey = [[IngeekBleToBeSharedKey alloc] init];
-//    limitedKey.pid = self.vin;
-//    limitedKey.mobile = [self.values objectForKey:kStringify(MOBILE)];
-//    limitedKey.userName = [self.values objectForKey:kStringify(NAME)];
-//    limitedKey.startTime = [startDate timeIntervalSince1970] * 1000;
-//    limitedKey.endTime = [endDate timeIntervalSince1970] * 1000;
-//    NSScanner *scanner = [NSScanner scannerWithString:[self.values objectForKey:kStringify(KPRE)]];
-//    unsigned long long kpre;
-//    [scanner scanHexLongLong:&kpre];
-//    NSString *kpreValue = [NSString stringWithFormat:@"%02llx",kpre];
-//    limitedKey.kpre = kpreValue;
-//    
-//    
-//    [[IngeekBle sharedInstance] shareKey:limitedKey completion:^(NSInteger errorCode) {
-//        NSLog(@"#### error code: %d", (int)errorCode);
-//        if (!errorCode) {
-//            [self showMessageView:TF_LSTR(@"Share success.") duration:2 color:kSuccessColor];
-//        } else {
-//            NSString *msg = [NSString stringWithFormat:TF_LSTR(@"Share failed, error: %@"), EMSG(errorCode)];
-//            [self showMessageView:msg duration:2 color:kErrorColor];
-//        }
-//    }];
+    IngeekBleToBeSharedKey *limitedKey = [[IngeekBleToBeSharedKey alloc] init];
+    limitedKey.pid = self.vin;
+    limitedKey.mobile = [form objectForKey:TF_STRINGIFY(mobile)];
+    limitedKey.userName = [form objectForKey:TF_STRINGIFY(userName)];
+    limitedKey.startTime = [startDate timeIntervalSince1970] * 1000;
+    limitedKey.endTime = [endDate timeIntervalSince1970] * 1000;
+    NSScanner *scanner = [NSScanner scannerWithString:[form objectForKey:TF_STRINGIFY(KPRE)]];
+    unsigned long long kpre;
+    [scanner scanHexLongLong:&kpre];
+    NSString *kpreValue = [NSString stringWithFormat:@"%02llx",kpre];
+    limitedKey.kpre = kpreValue;
+    
+    
+    [[IngeekBle sharedInstance] shareKey:limitedKey completion:^(NSInteger errorCode) {
+        NSLog(@"#### error code: %d", (int)errorCode);
+        if (completion) {
+            completion(errorCode);
+        }
+    }];
 }
 
 @end

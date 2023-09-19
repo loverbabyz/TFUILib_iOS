@@ -14,9 +14,9 @@
         "tag": "1",
         "dataArray": [
             {
-                "tag": "name",
+                "tag": "userName",
                 "rowType": "text",
-                "title": "name",
+                "title": "userName",
                 "required": 1,
                 "config": {
                     "textField.textAlignment": 2

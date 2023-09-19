@@ -409,11 +409,11 @@
 		8DCC7E542AB874E2009868D5 /* Vehicle */ = {
 			isa = PBXGroup;
 			children = (
-				8DCC7E552AB874E2009868D5 /* DDVehicleViewModel.m */,
+				8DCC7E592AB874E2009868D5 /* DDVehicleViewController.h */,
 				8DCC7E562AB874E2009868D5 /* DDVehicleViewController.m */,
 				8DCC7E572AB874E2009868D5 /* DDVehicleViewModel.h */,
 				8DCC7E582AB874E2009868D5 /* DDVehicleViewModel.json */,
-				8DCC7E592AB874E2009868D5 /* DDVehicleViewController.h */,
+				8DCC7E552AB874E2009868D5 /* DDVehicleViewModel.m */,
 			);
 			path = Vehicle;
 			sourceTree = "<group>";
@@ -421,10 +421,10 @@
 		8DCC7E5A2AB874E2009868D5 /* Envriment */ = {
 			isa = PBXGroup;
 			children = (
-				8DCC7E5B2AB874E2009868D5 /* DDEnvrimentViewModel.json */,
+				8DCC7E5E2AB874E2009868D5 /* DDEnvrimentViewController.h */,
 				8DCC7E5C2AB874E2009868D5 /* DDEnvrimentViewController.m */,
 				8DCC7E5D2AB874E2009868D5 /* DDEnvrimentViewModel.h */,
-				8DCC7E5E2AB874E2009868D5 /* DDEnvrimentViewController.h */,
+				8DCC7E5B2AB874E2009868D5 /* DDEnvrimentViewModel.json */,
 				8DCC7E5F2AB874E2009868D5 /* DDEnvrimentViewModel.m */,
 			);
 			path = Envriment;
@@ -446,20 +446,20 @@
 		8DCC7E672AB874E2009868D5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8DCC7E6D2AB874E2009868D5 /* DDDefaultValueTransformer.h */,
+				8DCC7E732AB874E2009868D5 /* DDDefaultValueTransformer.m */,
+				8DCC7E722AB874E2009868D5 /* DDDemoManager.h */,
+				8DCC7E692AB874E2009868D5 /* DDDemoManager.m */,
+				8DCC7E6A2AB874E2009868D5 /* DDDemoModel.h */,
+				8DCC7E712AB874E2009868D5 /* DDDemoModel.m */,
+				8DCC7E6C2AB874E2009868D5 /* define_enum.h */,
+				8DCC7E6F2AB874E2009868D5 /* define_tag.h */,
 				8DCC7EEF2AB8780B009868D5 /* Messages.h */,
 				8DCC7EF02AB8780B009868D5 /* Messages.m */,
 				8DCC7E682AB874E2009868D5 /* TFUserDefaults+demo.h */,
-				8DCC7E692AB874E2009868D5 /* DDDemoManager.m */,
-				8DCC7E6A2AB874E2009868D5 /* DDDemoModel.h */,
-				8DCC7E6B2AB874E2009868D5 /* UIViewController+Goto.m */,
-				8DCC7E6C2AB874E2009868D5 /* define_enum.h */,
-				8DCC7E6D2AB874E2009868D5 /* DDDefaultValueTransformer.h */,
 				8DCC7E6E2AB874E2009868D5 /* TFUserDefaults+demo.m */,
-				8DCC7E6F2AB874E2009868D5 /* define_tag.h */,
 				8DCC7E702AB874E2009868D5 /* UIViewController+Goto.h */,
-				8DCC7E712AB874E2009868D5 /* DDDemoModel.m */,
-				8DCC7E722AB874E2009868D5 /* DDDemoManager.h */,
-				8DCC7E732AB874E2009868D5 /* DDDefaultValueTransformer.m */,
+				8DCC7E6B2AB874E2009868D5 /* UIViewController+Goto.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -503,11 +503,11 @@
 		8DCC7E862AB874E2009868D5 /* ShareKey */ = {
 			isa = PBXGroup;
 			children = (
-				8DCC7E872AB874E2009868D5 /* DDShareKeyViewController.m */,
-				8DCC7E882AB874E2009868D5 /* DDShareKeyViewModel.m */,
-				8DCC7E892AB874E2009868D5 /* DDShareKeyViewModel.json */,
 				8DCC7E8A2AB874E2009868D5 /* DDShareKeyViewController.h */,
+				8DCC7E872AB874E2009868D5 /* DDShareKeyViewController.m */,
 				8DCC7E8B2AB874E2009868D5 /* DDShareKeyViewModel.h */,
+				8DCC7E892AB874E2009868D5 /* DDShareKeyViewModel.json */,
+				8DCC7E882AB874E2009868D5 /* DDShareKeyViewModel.m */,
 			);
 			path = ShareKey;
 			sourceTree = "<group>";
