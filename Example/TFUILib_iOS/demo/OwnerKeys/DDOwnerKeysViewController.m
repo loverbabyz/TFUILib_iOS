@@ -73,13 +73,11 @@
         
         [[IngeekBle sharedInstance] redeemKey:limitedKey.pid keyId:limitedKey.keyId completion:^(NSInteger errorCode) {
             if (!errorCode) {
-                [weakSelf showMessageView:TF_LSTR(@"RedeemKey success.")
-                             duration:2
-                                color:kSuccessColor];
+                [weakSelf showToast:TF_LSTR(@"RedeemKey success.")];
             } else {
                 NSString *msg = [NSString stringWithFormat:
                                  TF_LSTR(@"RedeemKey failed : %@"), EMSG(errorCode)];
-                [weakSelf showMessageView:msg duration:2 color:kErrorColor];
+                [weakSelf showToast:msg];
             }
 
             // Reload keys
