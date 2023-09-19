@@ -57,10 +57,10 @@
     row.value = self.ibeaconEnable;
     
     row = [self dataAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    row.value = @(kUserDefaults.dispatchedOnMainQueue);
+    row.value = @(kUserDefaults.dispatchedOnMainQueue ? 1 : 0);
     
     row = [self dataAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]];
-    row.value = @(kUserDefaults.logLevel);
+    row.value = TF_STR(TF_STRINGIFY(%ld), kUserDefaults.logLevel);
     
     if (completion) {
         completion(0);

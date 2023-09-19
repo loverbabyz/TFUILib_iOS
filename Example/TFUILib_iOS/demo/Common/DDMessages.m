@@ -1,14 +1,13 @@
 //
-//  Messages.m
+//  DDMessages.m
 //  IngeekDK-V4
 //
 //  Created by Chris on 2021/7/7.
 //
 
-#import "Messages.h"
-#import <TFUILib_iOS/TFUILib_iOS.h>
+#import "DDMessages.h"
 
-@implementation Messages
+@implementation DDMessages
 
 + (NSDictionary<NSNumber *, NSString *> *)messages {
     return @{

@@ -11,6 +11,7 @@
 #import "TFUserDefaults+demo.h"
 #import "DDDemoModel.h"
 #import <IngeekDK/IngeekDK.h>
+#import "DDLocalNotificationManager.h"
 
 @interface DDDemoManager()<IngeekBleDelegate, IngeekDkDelegate>
 
@@ -104,14 +105,9 @@ TFSingletonM(Instance)
     NSString *key = TF_STR(@"%ld", self.logIndex);
     NSString *value = log;
     
-    /*
-    NSString *separatedString = @"]-";
-    NSArray *array = [log componentsSeparatedByString:separatedString];
-    if (array.count >= 3) {
-        key = TF_LSTR(@"%@%@%@]", array[0], separatedString, array[1]);
-        value = TF_LSTR(@"%@", array[2]);
+    if (self.logs.count > 3000) {
+        [self.logs removeAllObjects];
     }
-     */
     
     [self.logs setValue:value forKey:key];
     
@@ -133,9 +129,8 @@ TFSingletonM(Instance)
             message = @"APP is awakened by iBeacon";
         }
         
-        // TODO:
-//        [[DKLocalNotificationManager sharedInstance] registerAPN];
-//        [[DKLocalNotificationManager sharedInstance] addLocalNotification:title message:message deep:NO];
+        [[DDLocalNotificationManager sharedInstance] registerAPN];
+        [[DDLocalNotificationManager sharedInstance] addLocalNotification:title message:message deep:NO];
     }
     
     // 不显示因Auto Layout约束问题的日志输出内容
@@ -173,13 +168,11 @@ TFSingletonM(Instance)
 
 - (void)didReceiveLog:(NSString *)log level:(IngeekDkLogLevel)level {
     if ([log containsString:TF_STRINGIFY(Get paired peripheral retrieved with identifier.)]) {
-        // TODO:
-//        [[DKLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_ibeacon") message:TF_LSTR(@"start_connect_vehicle") deep:NO];
+        [[DDLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_ibeacon") message:TF_LSTR(@"start_connect_vehicle") deep:NO];
     }
     
     if ([log containsString:TF_STRINGIFY(Start to connect without peripheral, and try to scan then.)]) {
-        // TODO:
-//        [[DKLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_ibeacon") message:TF_LSTR(@"start_scan_vehicle") deep:NO];
+        [[DDLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_ibeacon") message:TF_LSTR(@"start_scan_vehicle") deep:NO];
     }
 }
 
@@ -188,8 +181,7 @@ TFSingletonM(Instance)
 - (void)didConnect:(NSString *)pid errorCode:(NSInteger)errorCode {
     NSLog(TF_STRINGIFY(>>>>>>>>> did connect: %@, %d), pid, (int)errorCode);
     if (!errorCode) {
-        // TODO:
-//        [[DKLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_ibeacon") message:TF_LSTR(@"Connect to vehicle success.") deep:YES];
+        [[DDLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_ibeacon") message:TF_LSTR(@"Connect to vehicle success.") deep:YES];
     }
 }
 

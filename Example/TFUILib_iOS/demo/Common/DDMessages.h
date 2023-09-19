@@ -1,5 +1,5 @@
 //
-//  Messages.h
+//  DDMessages.h
 //  IngeekDK-V4
 //
 //  Created by Chris on 2021/7/7.
@@ -9,9 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define EMSG(code) [Messages message:code]
+#define EMSG(code) [DDMessages message:code]
 
-@interface Messages : NSObject
+@interface DDMessages : NSObject
 
 /**
  * @method message

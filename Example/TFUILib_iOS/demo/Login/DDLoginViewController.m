@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "DDLoginViewModel.h"
 #import "DDDemoModel.h"
-#import "Messages.h"
+#import "DDMessages.h"
 
 @interface DDLoginViewController ()
 

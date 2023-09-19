@@ -23,17 +23,23 @@
             {
                 "tag": "3",
                 "rowType": "booleanSwitch",
-                "title": "被动闭锁",
+                "title": "被动解锁",
                 "value": 0,
             },
             {
                 "tag": "4",
                 "rowType": "booleanSwitch",
-                "title": "离开提醒",
+                "title": "被动闭锁",
                 "value": 0,
             },
             {
                 "tag": "5",
+                "rowType": "booleanSwitch",
+                "title": "离开提醒",
+                "value": 0,
+            },
+            {
+                "tag": "6",
                 "rowType": "booleanSwitch",
                 "title": "预留",
                 "value": 0,

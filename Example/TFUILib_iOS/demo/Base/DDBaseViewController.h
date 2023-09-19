@@ -9,6 +9,7 @@
 #import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 #import <TFUILib_iOS/TFUILib_iOS.h>
 #import "UIViewController+goto.h"
+#import "define_tag.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

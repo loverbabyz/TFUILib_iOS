@@ -9,10 +9,8 @@
 #ifndef define_tag_h
 #define define_tag_h
 
-#define kUseDDDemo
-
 #define kCellHeigh              (50)
-#define kIngeekVinKey           @"IngeekVinKey"     // 缓存已连接的VIN
+#define kIngeekVinKey           @"IngeekVinKey"         // 缓存已连接的VIN
 
 #define kRowTag_userId          @"userId"
 #define kRowTag_mobile          @"mobile"

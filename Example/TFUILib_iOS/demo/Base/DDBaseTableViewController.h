@@ -8,6 +8,7 @@
 #import <TFUILib_iOS/TFUILib_iOS.h>
 #import "XLFormRowDescriptor.h"
 #import "UIViewController+Goto.h"
+#import "define_tag.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

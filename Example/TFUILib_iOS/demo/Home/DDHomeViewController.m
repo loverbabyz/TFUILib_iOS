@@ -10,7 +10,9 @@
 #import "DDHomeViewModel.h"
 #import "DDLoginViewController.h"
 #import <IngeekDK/IngeekDK.h>
-#import "Messages.h"
+#import "DDMessages.h"
+#import "DDLocalNotificationManager.h"
+#import "DDAuthManager.h"
 
 @interface DDHomeViewController ()<IngeekBleDelegate, IngeekDkDelegate>
 
@@ -28,12 +30,15 @@
 - (void)bindData {
     [super bindData];
     
-//    NSString *vin = self.viewModel.vin;
-//    if (![vin isEmpty]) {
-//        XLFormRowDescriptor *row = [self.form formRowWithTag:kRowTag_VIN];
-//        row.value = vin;
-//        [self reloadFormRow:row];
-//    }
+    NSString *vin = self.viewModel.vin;
+    if (![vin isEmpty]) {
+        XLFormRowDescriptor *row = [self.form formRowWithTag:kRowTag_VIN];
+        TFTableRowModel *model = [TFTableRowModel new];
+        model.identity = vin;
+        row.value = model;
+        
+        [self reloadFormRow:row];
+    }
     
     [IngeekBle sharedInstance].delegate = self;
     [IngeekDk sharedInstance].delegate = self;
@@ -42,8 +47,7 @@
 #pragma mark - method
 
 - (void)exportLog {
-    tf_showToast(@"exportLog");
-    
+    [[IngeekDk sharedInstance] shareLog];
 }
 
 - (void)enableKey {
@@ -54,9 +58,7 @@
         if (!errorCode) {
             [self showToast:TF_LSTR(@"Activation success.")];
         } else {
-            [self showToast:[NSString stringWithFormat:
-                             TF_STRINGIFY(Activation failed, error: %@),
-                             EMSG(errorCode)]];
+            [self showToast:TF_STR(TF_LSTR(@"Activation failed, error: %@"), EMSG(errorCode))];
         }
     };
 
@@ -67,8 +69,6 @@
 #else
         [[IngeekBle sharedInstance] enableKey:self.viewModel.vin completion:block];
 #endif
-    
-
 }
 
 - (void)downloadKey {
@@ -184,8 +184,7 @@
     XLFormOptionsObject *obj = newValue;
     IngeekCalibrationSensitivityLevel level = (IngeekCalibrationSensitivityLevel)((NSNumber *)obj.formValue).intValue;
     
-    /// TODO:
-//    [[AuthManager sharedManager] updateCalibrationLevel:@(level)];
+    [[DDAuthManager sharedManager] updateCalibrationLevel:@(level)];
     
     TF_WEAK_SELF
     [[IngeekBle sharedInstance] setCalibrationSensitivity:self.viewModel.vin level:level completion:^(NSInteger errorCode) {
@@ -202,12 +201,12 @@
 #pragma mark - Predicate
 
 - (id)vinPredicate {
-//    NSString *vinRegex = @"[A-HJ-NPR-Z\\d]{8}[X\\d][A-HJ-NPR-Z\\d]{3}\\d{5}";
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", vinRegex];
-//    return @(![predicate evaluateWithObject:self.viewModel.vin]);
+    NSString *vinRegex = @"[A-HJ-NPR-Z\\d]{8}[X\\d][A-HJ-NPR-Z\\d]{3}\\d{5}";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", vinRegex];
+    return @(![predicate evaluateWithObject:self.viewModel.vin]);
 
-    return [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"NOT ($%@.length == 17)", @"VIN"]];
-//    return [NSString stringWithFormat:@"NOT ($%@.@length == 17)", @"VIN"];
+//    return [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"NOT ($%@.length == 17)", @"VIN"]];
+//    return @(![self.viewModel.vin.length == 17]);
 }
 
 - (id)mc01Predicate {
@@ -232,22 +231,19 @@
     }
 
     if ([log containsString:TF_STRINGIFY(Get paired peripheral retrieved with identifier.)]) {
-        // TODO:
-//        [[DKLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(TF_STRINGIFY(notification_app)) message:TF_LSTR(@"start_connect_vehicle") deep:NO];
+        [[DDLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(TF_STRINGIFY(notification_app)) message:TF_LSTR(@"start_connect_vehicle") deep:NO];
     }
     
     if ([log containsString:TF_STRINGIFY(Start to connect without peripheral, and try to scan then.)]) {
-        // TODO:
-//        [[DKLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(TF_STRINGIFY(notification_app)) message:TF_LSTR(@"start_scan_vehicle") deep:NO];
+        [[DDLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(TF_STRINGIFY(notification_app)) message:TF_LSTR(@"start_scan_vehicle") deep:NO];
     }
 }
 
-// TODO:
-//- (NSDictionary<NSString *,id> *)userInfo {
-//    return @{
-//        @"idk-calibration-level": [[AuthManager sharedManager] calibrationLevel] // Refer to @enum IngeekCalibrationSensitivityLevel
-//    };
-//}
+- (NSDictionary<NSString *,id> *)userInfo {
+    return @{
+        @"idk-calibration-level": [[DDAuthManager sharedManager] calibrationLevel] // Refer to @enum IngeekCalibrationSensitivityLevel
+    };
+}
 
 #pragma mark - Ble delegate
 
@@ -260,8 +256,7 @@
         [self showToast:TF_LSTR(@"Connect to vehicle success.")];
         
         if (self.viewModel.ibeaconEnable) {
-            // TODO:
-//            [[DKLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_app") message:TF_LSTR(@"Connect to vehicle success.") deep:YES];
+            [[DDLocalNotificationManager sharedInstance] addLocalNotification:TF_LSTR(@"notification_app") message:TF_LSTR(@"Connect to vehicle success.") deep:YES];
         }
     }
     

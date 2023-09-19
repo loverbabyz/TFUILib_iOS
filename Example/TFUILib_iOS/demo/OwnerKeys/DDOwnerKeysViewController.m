@@ -9,7 +9,7 @@
 #import "DDOwnerKeysViewController.h"
 #import "DDOwnerKeysViewModel.h"
 #import "DDKeyTableViewCell.h"
-#import "Messages.h"
+#import "DDMessages.h"
 
 @interface DDOwnerKeysViewController ()
 

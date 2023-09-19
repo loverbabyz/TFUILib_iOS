@@ -8,7 +8,7 @@
 
 #import "DDShareKeyViewController.h"
 #import "DDShareKeyViewModel.h"
-#import "Messages.h"
+#import "DDMessages.h"
 
 @interface DDShareKeyViewController ()
 

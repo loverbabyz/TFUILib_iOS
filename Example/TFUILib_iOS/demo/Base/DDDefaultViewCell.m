@@ -13,6 +13,7 @@
     if (self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier]) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.detailTextLabel.numberOfLines = 0;
+        self.detailTextLabel.font = [UIFont systemFontOfSize:12];
     };
     
     return self;

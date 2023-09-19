@@ -9,6 +9,7 @@
 #import <TFUILib_iOS/TFUILib_iOS.h>
 #import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 #import "TFUserDefaults+demo.h"
+#import "define_tag.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

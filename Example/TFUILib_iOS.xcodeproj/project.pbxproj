@@ -25,6 +25,9 @@
 		6532EAD32AA7ADB80036ECAF /* TFAViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 6532EAD22AA7ADB80036ECAF /* TFAViewModel.json */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8D73C7502AB9DC2A00FD4EBF /* DDLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D73C74E2AB9DC2A00FD4EBF /* DDLocalNotificationManager.m */; };
+		8D73C7532AB9DC6100FD4EBF /* DDMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D73C7522AB9DC6100FD4EBF /* DDMessages.m */; };
+		8D73C7562AB9DD9800FD4EBF /* DDAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D73C7542AB9DD9700FD4EBF /* DDAuthManager.m */; };
 		8DCC7EBA2AB874E2009868D5 /* DDHomeViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DCC7E4B2AB874E2009868D5 /* DDHomeViewModel.json */; };
 		8DCC7EBB2AB874E2009868D5 /* DDHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC7E4C2AB874E2009868D5 /* DDHomeViewModel.m */; };
 		8DCC7EBC2AB874E2009868D5 /* DDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC7E4D2AB874E2009868D5 /* DDHomeViewController.m */; };
@@ -78,7 +81,6 @@
 		8DCC7EEC2AB874E2009868D5 /* DDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC7EB72AB874E2009868D5 /* DDDetailViewController.m */; };
 		8DCC7EED2AB874E2009868D5 /* DDDetailViewModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DCC7EB82AB874E2009868D5 /* DDDetailViewModel.json */; };
 		8DCC7EEE2AB874E2009868D5 /* DDDefaultViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC7EB92AB874E2009868D5 /* DDDefaultViewCell.m */; };
-		8DCC7EF12AB8780B009868D5 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCC7EF02AB8780B009868D5 /* Messages.m */; };
 		B746BAAAEC321D7F488DB5CA /* Pods_TFUILib_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BB3428B35690612708E841 /* Pods_TFUILib_iOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +127,12 @@
 		67AC5D7FBC895ABB5FC5D6AA /* Pods-TFUILib_iOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFUILib_iOS_Example.release.xcconfig"; path = "Target Support Files/Pods-TFUILib_iOS_Example/Pods-TFUILib_iOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D73C74E2AB9DC2A00FD4EBF /* DDLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLocalNotificationManager.m; sourceTree = "<group>"; };
+		8D73C74F2AB9DC2A00FD4EBF /* DDLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLocalNotificationManager.h; sourceTree = "<group>"; };
+		8D73C7512AB9DC6100FD4EBF /* DDMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMessages.h; sourceTree = "<group>"; };
+		8D73C7522AB9DC6100FD4EBF /* DDMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMessages.m; sourceTree = "<group>"; };
+		8D73C7542AB9DD9700FD4EBF /* DDAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAuthManager.m; sourceTree = "<group>"; };
+		8D73C7552AB9DD9800FD4EBF /* DDAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAuthManager.h; sourceTree = "<group>"; };
 		8DCC7E492AB874E2009868D5 /* DDHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHomeViewModel.h; sourceTree = "<group>"; };
 		8DCC7E4A2AB874E2009868D5 /* DDHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHomeViewController.h; sourceTree = "<group>"; };
 		8DCC7E4B2AB874E2009868D5 /* DDHomeViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DDHomeViewModel.json; sourceTree = "<group>"; };
@@ -224,8 +232,6 @@
 		8DCC7EB72AB874E2009868D5 /* DDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDetailViewController.m; sourceTree = "<group>"; };
 		8DCC7EB82AB874E2009868D5 /* DDDetailViewModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DDDetailViewModel.json; sourceTree = "<group>"; };
 		8DCC7EB92AB874E2009868D5 /* DDDefaultViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDefaultViewCell.m; sourceTree = "<group>"; };
-		8DCC7EEF2AB8780B009868D5 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
-		8DCC7EF02AB8780B009868D5 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
 		CDA17CAD23B28BC8904448D6 /* Pods_TFUILib_iOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFUILib_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -446,6 +452,12 @@
 		8DCC7E672AB874E2009868D5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8D73C7552AB9DD9800FD4EBF /* DDAuthManager.h */,
+				8D73C7542AB9DD9700FD4EBF /* DDAuthManager.m */,
+				8D73C7512AB9DC6100FD4EBF /* DDMessages.h */,
+				8D73C7522AB9DC6100FD4EBF /* DDMessages.m */,
+				8D73C74F2AB9DC2A00FD4EBF /* DDLocalNotificationManager.h */,
+				8D73C74E2AB9DC2A00FD4EBF /* DDLocalNotificationManager.m */,
 				8DCC7E6D2AB874E2009868D5 /* DDDefaultValueTransformer.h */,
 				8DCC7E732AB874E2009868D5 /* DDDefaultValueTransformer.m */,
 				8DCC7E722AB874E2009868D5 /* DDDemoManager.h */,
@@ -454,8 +466,6 @@
 				8DCC7E712AB874E2009868D5 /* DDDemoModel.m */,
 				8DCC7E6C2AB874E2009868D5 /* define_enum.h */,
 				8DCC7E6F2AB874E2009868D5 /* define_tag.h */,
-				8DCC7EEF2AB8780B009868D5 /* Messages.h */,
-				8DCC7EF02AB8780B009868D5 /* Messages.m */,
 				8DCC7E682AB874E2009868D5 /* TFUserDefaults+demo.h */,
 				8DCC7E6E2AB874E2009868D5 /* TFUserDefaults+demo.m */,
 				8DCC7E702AB874E2009868D5 /* UIViewController+Goto.h */,
@@ -833,13 +843,13 @@
 				8DCC7EC42AB874E2009868D5 /* DDEnvrimentViewController.m in Sources */,
 				8DCC7ED92AB874E2009868D5 /* DDLogViewController.m in Sources */,
 				8DCC7ED52AB874E2009868D5 /* DDFobKeysViewController.m in Sources */,
-				8DCC7EF12AB8780B009868D5 /* Messages.m in Sources */,
 				8DCC7ECD2AB874E2009868D5 /* DDDefaultValueTransformer.m in Sources */,
 				8DCC7EC12AB874E2009868D5 /* DDVehicleViewController.m in Sources */,
 				8DCC7EBC2AB874E2009868D5 /* DDHomeViewController.m in Sources */,
 				8DCC7EE82AB874E2009868D5 /* DDBaseTableViewController.m in Sources */,
 				8DCC7ECB2AB874E2009868D5 /* TFUserDefaults+demo.m in Sources */,
 				8DCC7ED12AB874E2009868D5 /* DDSharedKeysViewController.m in Sources */,
+				8D73C7502AB9DC2A00FD4EBF /* DDLocalNotificationManager.m in Sources */,
 				8DCC7ECA2AB874E2009868D5 /* UIViewController+Goto.m in Sources */,
 				8DCC7EE02AB874E2009868D5 /* DDSettingViewModel.m in Sources */,
 				8DCC7ECC2AB874E2009868D5 /* DDDemoModel.m in Sources */,
@@ -849,6 +859,7 @@
 				8DCC7EE52AB874E2009868D5 /* DDLoginInfoViewModel.m in Sources */,
 				8DCC7ED22AB874E2009868D5 /* DDSharedKeysViewModel.m in Sources */,
 				8DCC7EEA2AB874E2009868D5 /* DDBaseFormViewModel.m in Sources */,
+				8D73C7562AB9DD9800FD4EBF /* DDAuthManager.m in Sources */,
 				8DCC7EBE2AB874E2009868D5 /* DDPreferencesViewController.m in Sources */,
 				8DCC7EE92AB874E2009868D5 /* DDBaseViewController.m in Sources */,
 				8DCC7ED42AB874E2009868D5 /* DDFobKeysViewCell.m in Sources */,
@@ -863,6 +874,7 @@
 				8DCC7EE42AB874E2009868D5 /* DDLoginViewModel.m in Sources */,
 				8DCC7EE22AB874E2009868D5 /* DDLoginViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				8D73C7532AB9DC6100FD4EBF /* DDMessages.m in Sources */,
 				8DCC7EE72AB874E2009868D5 /* DDDetailViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

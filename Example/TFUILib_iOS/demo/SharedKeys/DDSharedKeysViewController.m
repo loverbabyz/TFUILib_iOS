@@ -9,7 +9,7 @@
 #import "DDSharedKeysViewController.h"
 #import "DDSharedKeysViewModel.h"
 #import <IngeekDK/IngeekDK.h>
-#import "Messages.h"
+#import "DDMessages.h"
 
 @interface DDSharedKeysViewController ()
 
