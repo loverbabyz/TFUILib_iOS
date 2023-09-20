@@ -27,6 +27,10 @@
     row.value = vin;
     [self reloadFormRow:row];
     
+    row = [self.form formRowWithTag:kRowTag_kpre];
+    row.value = TF_STRINGIFY(FFFFFFFFFFFF);
+    [self reloadFormRow:row];
+    
     [self assignFirstResponderOnShow];
 }
 

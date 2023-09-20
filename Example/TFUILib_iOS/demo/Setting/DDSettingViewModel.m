@@ -10,6 +10,7 @@
 #import "TFUserDefaults+demo.h"
 #import <TFUILib_iOS/TFFormRowModel.h>
 #import <IngeekDK/IngeekDK.h>
+#import "DDDemoManager.h"
 
 @implementation DDSettingViewModel
 
@@ -82,6 +83,9 @@
 - (void)logout:(VoidBlock)completion {
     [[IngeekDk sharedInstance] logout:^(NSInteger errorCode) {
         [kUserDefaults logout];
+        [[DDDemoManager sharedInstance] cleanLog:^{
+                    
+        }];
         
         if (completion) {
             completion();

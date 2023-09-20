@@ -12,10 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DDHomeViewModel : DDBaseFormViewModel
 
+/// <#Description#>
 @property (nonatomic, assign, readonly) BOOL ibeaconEnable;
 
-//- (void)feach:(VoidBlock)completion;
+/// <#Description#>
+/// - Parameters:
+///   - vin: <#vin description#>
+///   - completion: <#completion description#>
 - (void)updateVIN:(NSString *)vin completion:(BoolBlock)completion;
+
+/// <#Description#>
+/// - Parameter log: <#log description#>
 - (void)addLog:(NSString *)log;
 
 @end

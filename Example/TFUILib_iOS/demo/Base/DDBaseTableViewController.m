@@ -55,7 +55,9 @@
         if ([weakSelf.viewModel isEmpty]) {
             return;
         }
-        [weakSelf.tableView reloadData];
+        TF_MAIN_THREAD(^(){
+            [weakSelf.tableView reloadData];
+        });
     }];
 }
 

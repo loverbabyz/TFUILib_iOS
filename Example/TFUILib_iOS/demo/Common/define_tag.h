@@ -21,6 +21,11 @@
 #define kRowTag_logLevel        @"logLevel"
 #define kRowTag_dispatch        @"dispatch"
 
+#define kRowTag_userName        @"userName"
+#define kRowTag_kpre            @"kpre"
+#define kRowTag_startTime       @"startTime"
+#define kRowTag_endTime         @"endTime"
+
 #define kRowTag_MC01            @"ae89c114c4559bd6"
 #define kRowTag_JXA             @"8f8fe0482fcf2810"
 #define kRowTag_HH              @"4c781c16bbd2940c"

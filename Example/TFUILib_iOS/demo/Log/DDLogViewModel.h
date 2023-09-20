@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DDLogViewModel : DDBaseViewModel
 
+- (void)cleanLog:(VoidBlock)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

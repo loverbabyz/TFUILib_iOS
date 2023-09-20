@@ -114,6 +114,16 @@ TFSingletonM(Instance)
     self.logIndex ++;
 }
 
+- (void)cleanLog:(VoidBlock)completion {
+    self.logIndex = 0;
+ 
+    [self.logs removeAllObjects];
+    
+    if (completion) {
+        completion();
+    }
+}
+
 #pragma mark -
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

@@ -22,13 +22,24 @@
 - (void)initViews {
     [super initViews];
     
-    [self hideRightButton];
+    [self initRightTitle:TF_LSTR(@"Reset")];
 }
 
 - (void)registerCell {
     [super registerCell];
     
     self.defaultCell = [DDDefaultViewCell class];
+}
+
+- (void)rightButtonEvent {
+    [self.tableView endEditing:YES];
+    
+    TF_WEAK_SELF
+    [self.viewModel cleanLog:^{
+        [TFGCDQueue executeInMainQueue:^{
+            [weakSelf loadNewData];
+        } afterDelaySecs:1];
+    }];
 }
 
 - (void)bindData {
@@ -48,7 +59,7 @@
     CGFloat contentHight = [row.content boundingRectWithSize: CGSizeMake ((TF_SCREEN_WIDTH - 51.33), MAXFLOAT)
                                                      options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
                                                   attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size.height;
-    return contentHight + 4.0;
+    return MAX(contentHight + 4.0, 61.281);
 }
 
 @end

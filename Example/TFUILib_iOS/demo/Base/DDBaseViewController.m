@@ -21,17 +21,25 @@
 - (void)updateRowOption:(XLFormRowDescriptor *)row formValue:(id)formValue {
     row.value = formValue;
     
-    [self reloadFormRow:row];
+    TF_WEAK_SELF
+    TF_MAIN_THREAD(^(){
+        [weakSelf reloadFormRow:row];
+    });
 }
 
 - (void)updateSelectorOption:(XLFormRowDescriptor *)row formValue:(id)formValue {
-    [row.selectorOptions enumerateObjectsUsingBlock:^(XLFormOptionsObject *model, NSUInteger idx, BOOL * _Nonnull stop) {
-        if([model.formValue isEqual:formValue]) {
-            row.value = [XLFormOptionsObject formOptionsObjectWithValue:model.formValue displayText:model.formDisplaytext];
-        }
-    }];
-    
-    [self reloadFormRow:row];
+    TF_WEAK_SELF
+    TF_BACK_THREAD(^(){
+        [row.selectorOptions enumerateObjectsUsingBlock:^(XLFormOptionsObject *model, NSUInteger idx, BOOL * _Nonnull stop) {
+            if([model.formValue isEqual:formValue]) {
+                row.value = [XLFormOptionsObject formOptionsObjectWithValue:model.formValue displayText:model.formDisplaytext];
+            }
+        }];
+        
+        TF_MAIN_THREAD(^(){
+            [weakSelf reloadFormRow:row];
+        });
+    });
 }
 
 -(void)showFormValidationError:(NSError *)error {

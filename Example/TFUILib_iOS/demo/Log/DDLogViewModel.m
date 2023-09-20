@@ -8,6 +8,7 @@
 
 #import "DDLogViewModel.h"
 #import "DDDemoManager.h"
+#import "DDDemoManager.h"
 
 @implementation DDLogViewModel
 
@@ -50,6 +51,10 @@
     if (completion) {
         completion(0);
     }
+}
+
+- (void)cleanLog:(VoidBlock)completion {
+    [[DDDemoManager sharedInstance] cleanLog:completion];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "DDShareKeyViewModel.h"
 #import "TFUserDefaults+demo.h"
 #import <IngeekDK/IngeekDK.h>
+#import "define_tag.h"
 
 @implementation DDShareKeyViewModel
 
@@ -21,16 +22,16 @@
 }
 
 - (void)shareKey:(NSDictionary *)form completion:(IntegerBlock)completion {
-    NSDate *startDate = [form objectForKey:TF_STRINGIFY(startDate)];
-    NSDate *endDate = [form objectForKey:TF_STRINGIFY(endDate)];
+    NSDate *startTime = ((NSDate *)[form objectForKey:kRowTag_startTime]);
+    NSDate *endTime = [form objectForKey:kRowTag_endTime];
     
     IngeekBleToBeSharedKey *limitedKey = [[IngeekBleToBeSharedKey alloc] init];
     limitedKey.pid = self.vin;
-    limitedKey.mobile = [form objectForKey:TF_STRINGIFY(mobile)];
-    limitedKey.userName = [form objectForKey:TF_STRINGIFY(userName)];
-    limitedKey.startTime = [startDate timeIntervalSince1970] * 1000;
-    limitedKey.endTime = [endDate timeIntervalSince1970] * 1000;
-    NSScanner *scanner = [NSScanner scannerWithString:[form objectForKey:TF_STRINGIFY(KPRE)]];
+    limitedKey.mobile = [form objectForKey:kRowTag_mobile];
+    limitedKey.userName = [form objectForKey:kRowTag_userName];
+    limitedKey.startTime = [startTime timeIntervalSince1970] * 1000;
+    limitedKey.endTime = [endTime timeIntervalSince1970] * 1000;
+    NSScanner *scanner = [NSScanner scannerWithString:[form objectForKey:kRowTag_kpre]];
     unsigned long long kpre;
     [scanner scanHexLongLong:&kpre];
     NSString *kpreValue = [NSString stringWithFormat:@"%02llx",kpre];

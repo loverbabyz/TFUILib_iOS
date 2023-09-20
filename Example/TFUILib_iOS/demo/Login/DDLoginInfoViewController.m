@@ -8,6 +8,7 @@
 #import "DDLoginInfoViewController.h"
 #import "DDLoginInfoViewModel.h"
 #import "DDDemoModel.h"
+#import <TFBaseLib_iOS/TFBaseLib_iOS.h>
 
 @interface DDLoginInfoViewController ()
 
@@ -24,7 +25,8 @@
     DDDemoModel *model = [DDDemoModel new];
     model.userId = data.title;
     model.mobile = data.content;
-    [[NSNotificationCenter defaultCenter] postNotificationName:DDLoginInfoSelectedNotification object:model userInfo:nil];
+    
+    TF_POST_NOTIFICATION(DDLoginInfoSelectedNotification, model, nil);
 }
 
 @end

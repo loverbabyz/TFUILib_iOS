@@ -17,8 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 TFSingletonH(Instance)
 
+/// 初始化DK
+/// - Parameters:
+///   - model: 用户配置信息
+///   - completion: completion
 - (void)initDK:(DDDemoModel *)model completion:(IntegerBlock)completion;
+
+/// 添加日志到缓存
+/// - Parameter log: log
 - (void)addLog:(NSString *)log;
+
+/// 清空缓存日志
+/// - Parameters:
+///   - completion: completion
+- (void)cleanLog:(VoidBlock)completion;
 
 @end
 

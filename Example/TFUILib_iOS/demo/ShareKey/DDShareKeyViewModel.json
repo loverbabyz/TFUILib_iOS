@@ -24,7 +24,7 @@
             },
             {
                 "tag": "mobile",
-                "rowType": "text",
+                "rowType": "phone",
                 "title": "mobile",
                 "required": 1,
                 "config": {

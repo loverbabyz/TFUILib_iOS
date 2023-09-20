@@ -44,7 +44,9 @@
 - (void)save:(NSDictionary *)form completion:(IntegerBlock)completion {
     NSMutableDictionary<NSNumber *, NSNumber *> *preferences = [NSMutableDictionary<NSNumber *, NSNumber *> dictionary];
     for (NSInteger i = 0, n = form.count; i < n; ++i) {
-        [preferences setObject:form[TF_STR(TF_STRINGIFY(%ld), i)] forKey:@(i)];
+        NSNumber *value = form[TF_STR(TF_STRINGIFY(%ld), i)];
+        NSNumber *object = [NSNumber numberWithInteger:value.integerValue];
+        [preferences setObject:object forKey:@(i)];
     }
     [[IngeekBle sharedInstance] setPreferences:self.vin
                                    preferences:preferences.copy

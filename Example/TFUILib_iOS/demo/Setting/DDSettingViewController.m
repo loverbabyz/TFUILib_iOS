@@ -37,7 +37,7 @@
     TF_WEAK_SELF
     [self.viewModel save:self.form.formValues completion:^() {
         
-        [weakSelf showToast:TF_STRINGIFY(Done)];
+        [weakSelf showToast:TF_LSTR(@"Done")];
         [weakSelf back];
     }];
 }

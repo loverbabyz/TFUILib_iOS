@@ -76,31 +76,31 @@
                 "selectorOptions":  [
                     {
                         "identity": 0,
-                        "title": "ALL",
+                        "title": "全部",
                     },
                     {
                         "identity": 1,
-                        "title": "TREACE",
+                        "title": "💚[T]",
                     },
                     {
                         "identity": 2,
-                        "title": "DEBUG",
+                        "title": "💙[D]",
                     },
                     {
                         "identity": 3,
-                        "title": "NORMAL",
+                        "title": "💛[I]",
                     },
                     {
                         "identity": 4,
-                        "title": "WARNING",
+                        "title": "💜[W]",
                     },
                     {
                         "identity": 5,
-                        "title": "ERROR",
+                        "title": "💔[E]",
                     },
                     {
                         "identity": 6,
-                        "title": "NONE",
+                        "title": "无",
                     },
                 ]
             },
