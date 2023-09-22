@@ -22,7 +22,7 @@
 
         TFTableRowModel *row = [TFTableRowModel new];
         row.identity = key;
-        row.content = obj;
+        row.content = TF_STR(TF_STRINGIFY(\n%@), obj);
         
         [rows addObject:row];
     }];
@@ -43,10 +43,15 @@
     [rows removeAllObjects];
     [rows addObjectsFromArray:sortedRows];
     
-    TFTableSectionModel *section = [TFTableSectionModel new];
-    section.dataArray = rows.copy;
+    NSMutableArray<TFTableSectionModel *> *sections = [NSMutableArray new];
+    [rows enumerateObjectsUsingBlock:^(TFTableRowModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        TFTableSectionModel *section = [TFTableSectionModel new];
+        section.dataArray = @[obj];
+        
+        [sections addObject:section];
+    }];
     
-    self.dataArray = @[section];
+    self.dataArray = [sections copy];
     
     if (completion) {
         completion(0);

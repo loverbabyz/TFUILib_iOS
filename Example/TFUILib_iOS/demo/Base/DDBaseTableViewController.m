@@ -23,6 +23,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (instancetype) init {
+    if (@available(iOS 13.0, *)) {
+        return [self initWithStyle:UITableViewStyleInsetGrouped];
+    } else {
+        return [super init];
+    }
+}
+
 - (void)initViews {
     [super initViews];
     
@@ -67,6 +75,14 @@
 
 - (void)showEmpty {
     [self showToast:TF_LSTR(@"Empty data")];
+}
+
+#pragma mark -
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    static CGFloat height = 10.0;
+    
+    return height;
 }
 
 @end

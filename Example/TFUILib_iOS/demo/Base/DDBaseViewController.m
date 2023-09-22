@@ -18,6 +18,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(instancetype)init {
+    if (@available(iOS 13.0, *)) {
+        return [self initWithForm:nil style:UITableViewStyleInsetGrouped];
+    } else {
+        return [self initWithForm:nil style:UITableViewStyleGrouped];
+    }
+}
+
+- (void)initViews {
+    [super initViews];
+}
+
 - (void)updateRowOption:(XLFormRowDescriptor *)row formValue:(id)formValue {
     row.value = formValue;
     

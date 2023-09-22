@@ -24,6 +24,8 @@
 @dynamic viewModel;
 
 - (void)initViews {
+    [super initViews];
+    
     self.title = TF_LSTR(@"INGEEK DK DEMO");
 }
 

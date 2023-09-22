@@ -55,11 +55,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     TFTableRowModel *row = [self.viewModel dataAtIndexPath:indexPath];
-    
-    CGFloat contentHight = [row.content boundingRectWithSize: CGSizeMake ((TF_SCREEN_WIDTH - 51.33), MAXFLOAT)
+    static CGFloat padding = 16.0 * 2 + 51.33;
+    CGFloat contentHight = [row.content boundingRectWithSize: CGSizeMake ((TF_SCREEN_WIDTH - padding), MAXFLOAT)
                                                      options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
                                                   attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size.height;
-    return MAX(contentHight + 4.0, 61.281);
+    return MAX(contentHight, 61.281);
 }
 
 @end

@@ -7,6 +7,7 @@
 
 #import "DDDemoManager.h"
 #import <TFBaseLib_iOS/TFAspects.h>
+#import <TFUILib_iOS/TFUILib_iOS.h>
 #import "UIViewController+Goto.h"
 #import "TFUserDefaults+demo.h"
 #import "DDDemoModel.h"
@@ -39,7 +40,7 @@ TFSingletonM(Instance)
 #endif
 
 + (void)trackAppDelegate {
-    [NSClassFromString([[self class] appDelegateClassString])
+    [NSClassFromString([TFBaseUtil appDelegateClassString])
      tf_aspect_hookSelector:@selector(application:didFinishLaunchingWithOptions:)
      withOptions:TFAspectPositionAfter
      usingBlock:^(id<TFAspectInfo> aspectInfo, id application,id launchOptions){
@@ -127,6 +128,8 @@ TFSingletonM(Instance)
 #pragma mark -
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UINavigationBar appearance] setTintColor:UIColor.redColor];
+    
     if (kUserDefaults.model.ibeaconEnable) {
         NSString *title = TF_LSTR(TF_STRINGIFY(notification_app));
         NSString *message = @"Finish Launching";
@@ -162,16 +165,6 @@ TFSingletonM(Instance)
     }
     
     return YES;
-}
-
-+ (NSString *)appDelegateClassString {
-    if (NSClassFromString(@"AppDelegate")) {
-        /// obj-c
-        return @"AppDelegate";
-    } else {
-        /// swift
-        return [NSString stringWithFormat:@"%@.%@", NSBundle.mainBundle.infoDictionary[@"CFBundleExecutable"], @"AppDelegate"];;
-    }
 }
 
 #pragma mark - Dk delegate
