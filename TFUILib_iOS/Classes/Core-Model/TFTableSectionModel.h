@@ -14,6 +14,9 @@
 /// detail文字
 @property (nonatomic, copy) NSString *detail;
 
+/// footTitle
+@property (nonatomic, copy) NSString *footTitle;
+
 /**
  *  sectionClass，用于注册section
  */

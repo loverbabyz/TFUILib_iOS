@@ -105,6 +105,17 @@
     return obj.title;
 }
 
+- (NSString *)footTitleAtSection:(NSInteger)section
+{
+    TFTableSectionModel *obj = [self dataAtSection:section];
+    if (!obj)
+    {
+        return nil;
+    }
+    
+    return obj.footTitle;
+}
+
 - (BOOL)isEmpty {
     return [self numberOfSections] == 0;
 }

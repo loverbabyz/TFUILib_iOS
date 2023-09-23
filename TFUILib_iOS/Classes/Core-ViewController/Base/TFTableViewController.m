@@ -110,6 +110,14 @@
 
 #pragma mark -  UITableViewDataSource
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.viewModel titleAtSection:section];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return [self.viewModel titleAtSection:section];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [self.viewModel numberOfSections];

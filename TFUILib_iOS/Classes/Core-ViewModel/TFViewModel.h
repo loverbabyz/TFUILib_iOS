@@ -63,6 +63,13 @@
 - (NSString*)titleAtSection:(NSInteger)section;
 
 /**
+ *  获取section段footTitle
+ *
+ *  @param section section
+ */
+- (NSString*)footTitleAtSection:(NSInteger)section;
+
+/**
  *  有多少行
  */
 - (NSInteger)numberOfSections;

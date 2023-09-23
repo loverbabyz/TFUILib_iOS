@@ -13,9 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TFFormSectionModel : TFTableSectionModel
 
-/// footTitle
-@property (nonatomic, copy) NSString *footTitle;
-
 /// 断言，(判断条件，用于隐藏当前section)
 @property (nonatomic, copy) NSString *predicate;
 
