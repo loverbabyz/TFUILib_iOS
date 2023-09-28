@@ -191,7 +191,11 @@
                                                     animated:YES];
             }
             else {
-                [controller.navigationController pushViewController:selectorViewController animated:YES];
+                if ([controller respondsToSelector:@selector(customPushViewController:)]) {
+                    [controller customPushViewController:controllerToPresent];
+                } else {
+                    [controller.navigationController pushViewController:controllerToPresent animated:YES];
+                }
             }
         }
         else if (self.rowDescriptor.selectorOptions){

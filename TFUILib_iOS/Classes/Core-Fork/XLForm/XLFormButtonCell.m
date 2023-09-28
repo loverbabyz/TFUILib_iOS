@@ -101,7 +101,11 @@
                 [controller.tableView deselectRowAtIndexPath:[controller.form indexPathOfFormRow:self.rowDescriptor] animated:YES];
             }
             else{
-                [controller.navigationController pushViewController:controllerToPresent animated:YES];
+                if ([controller respondsToSelector:@selector(customPushViewController:)]) {
+                    [controller customPushViewController:controllerToPresent];
+                } else {
+                    [controller.navigationController pushViewController:controllerToPresent animated:YES];
+                }
             }
         }
         
