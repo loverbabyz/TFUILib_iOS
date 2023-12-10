@@ -3,49 +3,9 @@
         "title": "默认",
         "dataArray": [
             {
-                "identity": "https://dev-idp.ingeek.com",
+                "identity": "https://dev-idp.test.com",
                 "title": "所有项目dev环境",
-                "content": "https://dev-idp.ingeek.com",
-            },
-            {
-                "identity": "https://wiggler-idp.ingeek.com",
-                "title": "东风岚图wiggler, 广汽A21 生产",
-                "content": "https://wiggler-idp.ingeek.com",
-            },
-            {
-                "identity": "https://mc01-idp-pp.gwmcloudcn.com",
-                "title": "灵魂摩托",
-                "content": "https://mc01-idp-pp.gwmcloudcn.com",
-            },
-            {
-                "identity": "https://mh-sit.immotors.com/app",
-                "title": "知己EP33 SIT环境",
-                "content": "https://mh-sit.immotors.com/app",
-            },
-            {
-                "identity": "ttps://mh-uat.immotors.com/app",
-                "title": "知己EP33 UAT环境",
-                "content": "ttps://mh-uat.immotors.com/app",
-            },
-            {
-                "identity": "https://mh.immotors.com/app",
-                "title": "知己EP33 P环境",
-                "content": "https://mh.immotors.com/app",
-            },
-            {
-                "identity": "http://uat-dk-idp.jixiangev.com",
-                "title": "吉祥 UAT环境",
-                "content": "http://uat-dk-idp.jixiangev.com",
-            },
-            {
-                "identity": "https://uat-gaohe-idp.ingeek.com",
-                "title": "高合 uat",
-                "content": "https://uat-gaohe-idp.ingeek.com",
-            },
-            {
-                "identity": "https://idp-perf.dfiov.com.cn",
-                "title": "东风乘用车",
-                "content": "https://idp-perf.dfiov.com.cn",
+                "content": "https://dev-idp.test.com",
             },
         ]
     },

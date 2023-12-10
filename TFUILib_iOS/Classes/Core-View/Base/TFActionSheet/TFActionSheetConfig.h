@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, TFContentAlignment) {
 
 
 // float
+UIKIT_EXTERN CGFloat const TFActionSheetCornerRadius;///< 圆角大小
 UIKIT_EXTERN CGFloat const TFActionSheetDefaultMargin; ///< 默认边距 (标题四边边距, 选项靠左或靠右时距离边缘的距离), default is 10.
 UIKIT_EXTERN CGFloat const TFActionSheetContentMaxScale; ///< 弹窗内容高度与屏幕高度的默认比例, default is 0.65.
 UIKIT_EXTERN CGFloat const TFActionSheetRowHeight; ///< 行高, default is 49.

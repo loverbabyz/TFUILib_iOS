@@ -3,65 +3,9 @@
         "title": "默认",
         "dataArray": [
             {
-                "identity": "65940de2420ad6f8",
-                "title": "智己_SAICIM",
-                "content": "65940de2420ad6f8",
-            },
-            {
-                "identity": "e68bb69120d16708",
-                "title": "GAC",
-                "content": "e68bb69120d16708",
-            },
-            {
-                "identity": "f24407232fd9e317",
-                "title": "恒大_EG",
-                "content": "f24407232fd9e317",
-            },
-            {
-                "identity": "3f217d6bc48ec52b",
-                "title": "牛创_NT",
-                "content": "3f217d6bc48ec52b",
-            },
-            
-            {
-                "identity": "4e34875ea0c5ef18",
-                "title": "长城_GWMB30",
-                "content": "4e34875ea0c5ef18",
-            },
-            {
-                "identity": "f95119fe44b77a93",
-                "title": "江铃股份_JMC",
-                "content": "f95119fe44b77a93",
-            },
-            {
-                "identity": "4c781c16bbd2940c",
-                "title": "高合_HH",
-                "content": "4c781c16bbd2940c",
-            },
-            {
-                "identity": "22cc435042877c3c",
-                "title": "Wiggler_WIG",
-                "content": "22cc435042877c3c",
-            },
-            {
-                "identity": "46b6a0812afb5a0b",
-                "title": "凯翼_COW",
-                "content": "46b6a0812afb5a0b",
-            },
-            {
-                "identity": "022b476e0f4a3550",
-                "title": "东风乘用车_DFMP",
-                "content": "022b476e0f4a3550",
-            },
-            {
-                "identity": "ae89c114c4559bd6",
-                "title": "长城灵魂摩托_MC01",
-                "content": "ae89c114c4559bd6",
-            },
-            {
-                "identity": "8f8fe0482fcf2810",
-                "title": "吉祥_JXA",
-                "content": "8f8fe0482fcf2810",
+                "identity": "65940de2",
+                "title": "IM",
+                "content": "65940de2",
             },
         ]
     },

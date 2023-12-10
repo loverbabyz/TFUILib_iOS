@@ -92,6 +92,7 @@ static NSString * const kFSActionSheetCellIdentifier = @"kTFActionSheetCellIdent
     
     
     self.items = titleItems;
+    self.cornerRadius = TFActionSheetCornerRadius;
     
     [self addSubview:self.tableView];
     
@@ -165,7 +166,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 - (CGFloat)heightForHeaderView
 {
     CGFloat labelHeight = [_titleLabel.attributedText boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.window.frame)-TFActionSheetDefaultMargin*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size.height;
-    CGFloat headerHeight = ceil(labelHeight)+TFActionSheetDefaultMargin*2;
+    CGFloat headerHeight = ceil(labelHeight) > TFActionSheetRowHeight ? ceil(labelHeight)+TFActionSheetDefaultMargin*2 : TFActionSheetRowHeight;
     
     return headerHeight;
 }
@@ -328,7 +329,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 {
     if (_tableView) return _tableView;
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.scrollEnabled = NO;
@@ -346,6 +347,8 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
     
     if (_title.length > 0) {
         _tableView.tableHeaderView = [self headerView];
+    } else {
+        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.window.frame), CGFLOAT_MIN)];
     }
     
     return _tableView;
@@ -375,7 +378,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
     
     // titleLabel constraint
     [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-labelMargin-[titleLabel]-labelMargin-|" options:0 metrics:@{@"labelMargin":@(labelMargin)} views:NSDictionaryOfVariableBindings(titleLabel)]];
-    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-labelMargin-[titleLabel]" options:0 metrics:@{@"labelMargin":@(labelMargin)} views:NSDictionaryOfVariableBindings(titleLabel)]];
+    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[titleLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
     
     return headerView;
 }
@@ -419,7 +422,14 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return (section == 1)?kTFActionSheetSectionHeight:CGFLOAT_MIN;
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 1) {
+        return CGFLOAT_MIN;
+    }
+    return kTFActionSheetSectionHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -465,12 +475,12 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return nil;
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return nil;
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

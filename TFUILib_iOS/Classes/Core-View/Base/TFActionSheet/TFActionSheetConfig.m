@@ -9,6 +9,7 @@
 #import "TFActionSheetConfig.h"
 
 // float
+CGFloat const TFActionSheetCornerRadius            = 12;///< 圆角大小
 CGFloat const TFActionSheetDefaultMargin           = 10;///< 默认边距 (标题四边边距, 选项靠左或靠右时距离边缘的距离)
 CGFloat const TFActionSheetContentMaxScale         = 0.65;///< 弹窗内容高度与屏幕高度的默认比例
 CGFloat const TFActionSheetRowHeight               = 49;///< 行高
