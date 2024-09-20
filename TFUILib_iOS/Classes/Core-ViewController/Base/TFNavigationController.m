@@ -66,7 +66,7 @@
     UIViewController *previousVC = nil;
     if (self.viewControllers.count != 0)
     {
-        previousVC = self.viewControllers[self.viewControllers.count-2];
+        previousVC = self.viewControllers[self.viewControllers.count-1];
     }
     
     return previousVC;
